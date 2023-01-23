@@ -7,7 +7,7 @@ const polygonApiKey = process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: '2021-10-21',
+    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
     useCdn: false
   })
 
