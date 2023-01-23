@@ -5,8 +5,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCsrfToken } from 'next-auth/react';
 import { SiweMessage } from 'siwe';
 
-
-
 export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
   const providers = [
     CredentialsProvider({
@@ -50,7 +48,7 @@ export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
 
   return {
     callbacks: {
-      async session({ session, token  }) {
+      async session({ session, token }) {
         session.address = token.sub;
         session.user = {
           name: token.sub,
