@@ -7,9 +7,7 @@ import { SiweMessage } from 'siwe';
 
 
 
-
 export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
-
   const providers = [
     CredentialsProvider({
       async authorize(credentials) {
@@ -52,8 +50,8 @@ export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
 
   return {
     callbacks: {
-      async session({ session, token }) {
-        session.address = token.sub; 
+      async session({ session, token  }) {
+        session.address = token.sub;
         session.user = {
           name: token.sub,
         };
