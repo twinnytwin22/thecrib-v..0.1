@@ -52,6 +52,7 @@
     "wagmi": "^0.9.6"
   },
   "devDependencies": {
+    "@sanity/cli": "^3.2.4",
     "@types/http-errors": "^2.0.1",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "18.11.18",
