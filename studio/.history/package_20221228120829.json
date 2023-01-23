@@ -1,0 +1,27 @@
+{
+  "name": "studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Welcome to the Crib",
+  "main": "package.json",
+  "author": "Randal Herndon / Twinny Twin <djtwinnytwin@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "dev": "sanity dev"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/vision": "^3.1.2",
+    "eslint": "^8.6.0",
+    "prop-types": "^15.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.1.2",
+    "styled-components": "^5.2.0"
+  }
+}
