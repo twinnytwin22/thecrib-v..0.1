@@ -36,14 +36,12 @@ async function SingleCollection(params: any) {
 
   
   return (
-    <div className="flex min-h-screen max-w-screen w-full flex-col items-center bg-white dark:bg-gray-900">
 
         <Suspense fallback={<CribLoader/>}>
         <CollectionMinter collection={collection}/>
     <CollectionNav/>
         <CollectionContent collection={collection} data={chainData} collectors={collectors} />
         </Suspense>
-  </div>
   )
 }
 
