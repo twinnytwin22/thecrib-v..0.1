@@ -1,5 +1,4 @@
-import * as React from "react";
-import { fetchNFTsForCollection, getAllSlugs, getOwnersForEthCollection, getOwnersPolygonCollection } from 'lib/hooks/get-collection-data';
+import { getAllSlugs, getOwnersForEthCollection, getOwnersPolygonCollection } from 'lib/hooks/get-collection-data';
 import { Suspense } from 'react'
 import CollectionNav from 'ui/Navigation/collectionNav';
 import CollectionContent from 'ui/Sections/CollectionContent';
@@ -31,8 +30,6 @@ async function SingleCollection(params: any) {
   }
   const contract = collection ? collection.contract : '';
   const collectors = collection.chain === 'polygon' ? await getOwnersPolygonCollection(contract) : await getOwnersForEthCollection(contract) 
-  const nfts = await fetchNFTsForCollection(contract)
-  console.log(nfts)
 
 
   

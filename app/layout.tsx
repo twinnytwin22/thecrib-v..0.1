@@ -1,8 +1,8 @@
 import * as React from "react"
-import '../styles/globals.css';
-import Providers from '../lib/providers';
-import { Footer } from '../ui/Navigation/Footer';
-import NewNavBar from '../ui/Navigation/NewNavBar';
+import 'styles/globals.css';
+import Providers from 'lib/providers';
+import { Footer } from 'ui/Navigation/Footer';
+import NewNavBar from 'ui/Navigation/NewNavBar';
 
 export declare type ISODateString = string;
 
@@ -13,9 +13,7 @@ interface Props {
 function RootLayout({ children }: Props) {
   return (
     <html>
-    <head>
-   
-    </head>
+    
       
   <body>
     <div className="flex min-h-screen max-w-screen w-full  bg-white dark:bg-gray-900">

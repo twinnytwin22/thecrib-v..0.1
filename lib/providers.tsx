@@ -24,7 +24,6 @@ import { SessionProvider } from 'next-auth/react';
 import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from '@rainbow-me/rainbowkit-siwe-next-auth';
 import { unstable_getServerSession } from "next-auth/next"
 import { getAuthOptions } from "pages/api/auth/[...nextauth]";
-import { GetServerSideProps } from 'next';
 
 const ThemeProvider = dynamic(
   () => {
@@ -69,7 +68,7 @@ const getSiweMessageOptions: GetSiweMessageOptions = () => ({
 
 
 
-const Providers = ({
+export const Providers = ({
     children,
   }: {
     children: React.ReactNode
