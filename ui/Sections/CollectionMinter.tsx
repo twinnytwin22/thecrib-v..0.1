@@ -117,12 +117,12 @@ const handleIncrement = () => {
 };
 
 return (
-    <>
+    
 
-    <div className='bg-cover w-screen mx-auto' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
+    <div className='bg-cover w-[100vw] max-w-screen mx-auto' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
     <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12' style={{ backdropFilter: 'blur(8px)',}}>
     <div className="mx-auto place-self-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96 rounded-2xl">
-        <img className="w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 sm:mx-auto " alt={'NFT Image'} src={image}/>
+        <img className="w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto " alt={'NFT Image'} src={image}/>
 
          
         </div>
@@ -168,7 +168,7 @@ return (
 </div>
 </div>
 
-  </>
+ 
 
 
 );

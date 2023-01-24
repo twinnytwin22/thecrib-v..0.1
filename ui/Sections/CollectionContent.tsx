@@ -12,7 +12,7 @@ const properties = data.collection?.traits || ""
 const id = '2g811Eo7K8U'
   return (
     <section className="bg-white dark:bg-gray-900">
-        <div className="gap-8 items-start mx-auto py-8 px-4 mx-auto max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="gap-8 items-start mx-auto py-8 px-4 mx-auto max-w-screen-xl md:max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <div className="hidden md:block">
             <CollectorList collectors={collectors} collection={collection}/>
             </div>
