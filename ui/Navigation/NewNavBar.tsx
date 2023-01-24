@@ -8,7 +8,6 @@ import { unstable_getServerSession } from "next-auth/next"
 import {  NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import MobileMenu from "./MobileMenu";
 
 
 export async function getSomeProps(c: any) {
@@ -21,14 +20,15 @@ export async function getSomeProps(c: any) {
 
 const NewNavBar: NextPage = () => { 
   const { status } = useSession()
-   
+
+
 
  return (
     <header>
       <nav className="bg-black w-[100vw] border-gray-200  lg:px-6 py-2.5 dark:bg-black">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <div className="flex flex-wrap justify-between items-center mx-5 sm:mx-5 md:mx-10 lg:mx-auto max-w-screen-xl">
             <a href="/" className="flex items-center">
-                <img src="/assets/cribwhitelogo.png" className="mr-5 h-6 sm:h-9" alt="Crib Logo" />
+                <img src="/assets/cribwhitelogo.png" className="mr-5 h-9" alt="Crib Logo" />
 
             </a>
             <div className="flex lg:order-2">
@@ -36,11 +36,11 @@ const NewNavBar: NextPage = () => {
                 </div>
                      <>    
                 <ConnectToCrib/>
-                {status === 'unauthenticated' ? "" : (<SignOutButton/>)}
+                {status === 'authenticated' && (<SignOutButton/>)}
                  
               <DarkModeSwitch/>
                  </>
-     
+               
             </div>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul className="flex flex-col mt-4 ml-8 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
