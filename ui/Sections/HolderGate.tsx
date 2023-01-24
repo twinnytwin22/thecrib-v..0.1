@@ -22,7 +22,7 @@ function HolderGate() {
         <>
         <div className="h-[100vh]">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">Connect to view your collectibles</h2>
-        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">If you are a holder of any NFT from Twinny Twin created by The Crib, you will have access to this exclusive area, with rare content, holder's benefits and more. Collect now, and connect now. See you inside!</p>
+        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 text-2xl md:text-lg">If you are a holder of any NFT from Twinny Twin created by The Crib, you will have access to this exclusive area, with rare content, holder's benefits and more. Collect now, and connect now. See you inside!</p>
        <ConnectToCrib/>
        </div>
        </>

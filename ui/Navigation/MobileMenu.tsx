@@ -8,8 +8,8 @@ const width = 8
 
   return (
       <>
-          <div className="block lg:hidden md:hidden px-5 bg-white dark:bg-black pb-2 w-[100vw] fixed bottom-0 inset-x-0">
-            <div className="grid grid-cols-3 text-gray-800 dark:text-gray-400 justify-items-center">
+          <div className="block lg:hidden md:block px-5 bg-white dark:bg-black pb-2 w-[100vw] fixed bottom-0 inset-x-0">
+            <div className="grid grid-cols-3 text-gray-800 dark:text-gray-400 justify-items-center pt-3">
                 <div className="flex group ">
                     <Link href="/" className="flex items-end justify-center text-center mx-auto px-4 w-full group-hover:text-red-500 border-b-2 border-transparent group-hover:border-red-500">
                         <span className="px-1 flex flex-col items-center">
