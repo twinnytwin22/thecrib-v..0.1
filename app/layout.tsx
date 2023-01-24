@@ -1,6 +1,6 @@
 import * as React from "react"
 import '../styles/globals.css';
-import Providers from './Providers';
+import Providers from './providers';
 import { Footer } from '../ui/Navigation/Footer';
 import NewNavBar from '../ui/Navigation/NewNavBar';
 
