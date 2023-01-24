@@ -13,11 +13,13 @@ const id = '2g811Eo7K8U'
   return (
     <section className="bg-white dark:bg-gray-900">
         <div className="gap-8 items-start mx-auto py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+          <div className="hidden md:block">
             <CollectorList collectors={collectors} collection={collection}/>
+            </div>
             <div className="mt-4 md:mt-0">
               <CollectionStats data={data}/>
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{info?.description}</h2>
-                <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{data.collection?.description}</p>
+                <p className="mb-6 font-light text-gray-500 text-2xl md:text-lg dark:text-gray-400">{data.collection?.description}</p>
                 <h5 className="mb-4 text-xl tracking-tight font-extrabold text-gray-900 dark:text-white">More on this collection</h5>
                 {!window && 
                 <div className='mb-4'><h5 className=" text-md tracking-tight font-bold text-gray-900 dark:text-white pr-5">Properties:</h5>
