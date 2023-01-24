@@ -9,9 +9,11 @@ import NotFound from 'ui/Sections/NotFound';
 
 export async function generateStaticParams() {
   const collections = await getAllSlugs();
-  return collections.result.map((collection: any) => ({
+  return ( collections.result.map((collection: any) => ({
    slug: collection
-  }));
+  })) 
+  );
+  
 }
 
 async function fetchCollectionOS(currentSlug: any) { 

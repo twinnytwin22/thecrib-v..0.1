@@ -44,9 +44,9 @@ export async function getAllSlugs() {
   return res.json()
 }
 export async function querySlug(context: any) {
-  const { slug = "" } = context.params
-  const currentSlug =  await client.fetch(query, { slug })
-  return currentSlug
+  const { slug = "" } = context.params || ""
+  const res =  await client.fetch(query, { slug })
+  return res
 }
 
 export const query = groq`*[_type == "collection" && slug.current == $slug][0]{
