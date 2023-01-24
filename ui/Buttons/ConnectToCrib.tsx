@@ -43,7 +43,7 @@ export const ConnectToCrib = () => {
                   
                 
                  onClick={openConnectModal} type="button">
-                 Connect Wallet
+                 Sign In
                   </button>
                 );
               }

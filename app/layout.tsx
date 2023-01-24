@@ -3,6 +3,7 @@ import 'styles/globals.css';
 import Providers from 'lib/providers';
 import { Footer } from 'ui/Navigation/Footer';
 import NewNavBar from 'ui/Navigation/NewNavBar';
+import MobileMenu from "ui/Navigation/MobileMenu";
 
 export declare type ISODateString = string;
 
@@ -21,6 +22,7 @@ function RootLayout({ children }: Props) {
           <NewNavBar/> 
             {children}      
           <Footer/>
+          <MobileMenu/>
       </Providers>
     </div>
   </body>

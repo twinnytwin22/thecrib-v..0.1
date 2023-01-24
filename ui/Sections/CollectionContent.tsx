@@ -40,13 +40,13 @@ const id = '2g811Eo7K8U'
                 <p className="mb-4 text-md tracking-tight font-md text-gray-900 dark:text-white">{data.collection?.primary_asset_contracts[0].schema_name}</p></div>
                 <div className='flex'><h5 className="mb-4 text-md tracking-tight font-bold text-gray-900 dark:text-white pr-5">Mint Price</h5>
                 <p className="mb-4 text-md tracking-tight font-md text-gray-900 dark:text-white">{info?.mintPrice} ETH</p></div>
-                <div className='flex'><h5 className="mb-4 text-md tracking-tight font-bold text-gray-900 dark:text-white pr-5">Tags:</h5>
-                <div className='mx-auto'>
+                <div className='flex col-span-2'><h5 className="mb-4 text-md tracking-tight font-bold text-gray-900 dark:text-white pr-5">Tags:</h5>
+                <div className='mx-auto '>
 
                 {info.tags?.map((tag: any) => (
 
 
-<span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900" key={tag}>{tag}</span>
+<span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900 " key={tag}>{tag}</span>
     ))}
 
                 </div>

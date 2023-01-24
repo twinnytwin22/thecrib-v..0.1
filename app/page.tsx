@@ -5,6 +5,7 @@ import { getAllCollections, getSiteSettings } from 'lib/hooks/get-collection-dat
 import { Suspense } from "react";
 import CribLoader from 'ui/Misc/CribLoader'
 import TwinOnLenz from 'ui/HeroBanners/TwinOnLenz'
+import TestingPanel from 'ui/Navigation/TestingPanel';
 
 
 async function Home() {
