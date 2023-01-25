@@ -10,7 +10,7 @@ import {
   coinbaseWallet,
   ledgerWallet
 } from '@rainbow-me/rainbowkit/wallets';
-
+import { urqlClient, Profile } from 'pages/api/lensCalls';
 import {
   darkTheme, RainbowKitProvider
 } from '@rainbow-me/rainbowkit';

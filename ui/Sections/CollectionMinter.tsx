@@ -5,13 +5,15 @@ import { useAccount } from 'wagmi';
 import { urlFor } from 'lib/hooks/sanityImage';
 import { ActiveIndicator, NonActiveIndicator } from 'ui/Misc/Indicator';
 import { useSession } from "next-auth/react"
-import Image from 'next/image';
-import { url } from 'inspector';
 import CrossMint from 'ui/Buttons/CrossMint';
-const CollectionMinter = (collection: any, data: any) => {
-    const currentCollection = collection.collection
-    const osData = data
-    console.log(osData, 'os')
+import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
+import collection from 'studio/schemas/collections/collection';
+
+
+
+function CollectionMinter(data: any) {
+    console.log(data, 'nftmd')
+    const currentCollection = data.collection
     const image = urlFor(currentCollection?.nftImage).width(600).url()
     const bgImage = urlFor(currentCollection?.nftImage).url()
     const contractAddress = currentCollection.contract
@@ -20,14 +22,15 @@ const CollectionMinter = (collection: any, data: any) => {
     const { address } = useAccount();
     const isConnected = !!address;    
     const price = currentCollection.mintPrice
-    console.log(price, 'pm')
     const sanityAbi = currentCollection.abiURL
- 
     const mintStatus = currentCollection?.mintactive as boolean
-   
     async function getABI() {
     const res = await fetch(sanityAbi);
     return res.json()}
+    
+
+
+        
     async function handleMint() {
         if(isConnected) {
             const abi = await getABI()
@@ -122,9 +125,16 @@ return (
     <div className='bg-cover w-[100vw] max-w-screen mx-auto' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
     <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12' style={{ backdropFilter: 'blur(8px)',}}>
     <div className="mx-auto place-self-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96 rounded-2xl">
-        <img className="w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto " alt={'NFT Image'} src={image}/>
+      {currentCollection.slug.current != "thecribvx" ? (
+          <div className='w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto '>
+                             <IPFSRenderer data={data}/>
 
-         
+           </div>
+          ) : ( 
+
+ <img className="w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto " alt={'NFT Image'} src={image}/>
+
+             )}
         </div>
         <div className="flex flex-col lg:mt-0 md:col-span-12 sm:col-span-12 lg:col-span-6 justify-center gap-5 mx-auto">
             

@@ -26,6 +26,7 @@ export type PageProps = {
 
 export const revalidate = 3600; // revalidate every hour
 
+export const OSoptions = {method: 'GET', headers: {'X-API-KEY': process.env.NEXT_PUBLIC_OPENSEA_API_KEY }};
 
 export async function getAllContracts() {
   const res = await fetch(`https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=*%5B_type%20%3D%3D%20%22collection%22%5D%7Bcontract%7D`)
@@ -81,7 +82,6 @@ export async function fetchNFTsForCollection (contract: any) {
 
 
 export async function fetchCollectionOS(currentSlug: any) { 
-    const OSoptions = {method: 'GET', headers: {'X-API-KEY': process.env.NEXT_PUBLIC_OPENSEA_API_KEY }};
     const data = await fetch(`https://api.opensea.io/api/v1/collection/${currentSlug}`, OSoptions as any)
     return data.json()
   }
@@ -96,3 +96,15 @@ export async function getCribNfts(address: string, setNFTs: any) {
       return nfts
 }
 }
+
+
+export async function getIpfsData(contractAddress: any) {
+  if (contractAddress) {
+  console.log(contractAddress , 'heres the addy')}
+  const conAddress = contractAddress as string
+  const metadata = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTMetadata?contractAddress=${conAddress}&tokenId=2`, getRequestOptions);
+  return metadata.json()
+
+}
+
+
