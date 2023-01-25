@@ -3,6 +3,9 @@ import { getAllCollections } from "../../lib/hooks/get-collection-data";
 import AllCollections from "../../ui/Sections/AllCollections";
 import EmailSignUp from "../../ui/Sections/EmailSignUp";
 
+
+export const dynamic= 'force-dynamic'
+
 async function AllCollectionsPage() {
   const collections = await getAllCollections()
 

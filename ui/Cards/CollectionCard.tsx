@@ -7,11 +7,7 @@ function CollectionCard(collections: any, i: any) {
   const collection = collections.collections
   const description = collection.description
   const mintStatus = collection.mintactive as boolean
-  if (mintStatus === false) {
-    console.log( 'this is false');
-  } else {
-    console.log('this is true')
-  }
+
   
 
 

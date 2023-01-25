@@ -5,6 +5,9 @@ import { Footer } from 'ui/Navigation/Footer';
 import NewNavBar from 'ui/Navigation/NewNavBar';
 import MobileMenu from "ui/Navigation/MobileMenu";
 
+
+export const dynamicParams = true // true | false,
+
 export declare type ISODateString = string;
 
 interface Props {

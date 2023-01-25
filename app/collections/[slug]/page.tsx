@@ -15,6 +15,8 @@ export async function generateStaticParams() {
   );
   
 }
+export const dynamicParams = true // true | false,
+
 
 async function fetchCollectionOS(currentSlug: any) { 
   const OSoptions = {method: 'GET', headers: {'X-API-KEY': process.env.NEXT_PUBLIC_OPENSEA_API_KEY }, next: { revalidate: 10 } };
