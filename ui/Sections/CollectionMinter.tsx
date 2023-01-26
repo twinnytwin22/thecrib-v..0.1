@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react"
 import CrossMint from 'ui/Buttons/CrossMint';
 import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
 import collection from 'studio/schemas/collections/collection';
+import { toast } from 'react-toastify'
 
 
 
@@ -48,7 +49,8 @@ function CollectionMinter(data: any) {
                 console.log('response: ', response);
             } catch (err) {
                 console.log("error: ", err)
-                console.log(address, "address")
+                toast("Not enough ETH! Please try again");
+
                 
             }
         }
@@ -71,7 +73,8 @@ function CollectionMinter(data: any) {
                 console.log('response: ', response);
             } catch (err) {
                 console.log(address)
-                console.log("error: ", err, 'You are not eligible for free claim')
+                toast("Not enough ETH! Please try again");
+
             }
         }
     }
@@ -103,8 +106,8 @@ function CollectionMinter(data: any) {
             console.log("Twinesis minted! https://etherscan.com/tx/" + tx.hash);
           }
           else {
-            alert("Transaction failed! Please try again");
-          }
+            toast("Please update your balance and try again");
+        }
       }
     } catch (error) {
         console.log(error);
@@ -122,18 +125,17 @@ const handleIncrement = () => {
 return (
     
 
-    <div className='bg-cover w-[100vw] max-w-screen mx-auto' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
-    <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12' style={{ backdropFilter: 'blur(8px)',}}>
-    <div className="mx-auto place-self-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96 rounded-2xl">
+    <div className='bg-cover w-[100vw] max-w-screen mx-auto justify-items-center content-center' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
+    <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center' style={{ backdropFilter: 'blur(8px)',}}>
+    <div className="mx-auto place-self-center place-items-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96">
       {currentCollection.slug.current != "thecribvx" ? (
-          <div className='w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto '>
-                             <IPFSRenderer data={data}/>
-
+          <div className='w-72 md:w-96 mt-10 md:mt-0 p-4 md:p-4 lg:p-0'>
+             <IPFSRenderer data={data}/>
            </div>
           ) : ( 
-
- <img className="w-96 h-auto rounded-2xl lg:mx-20 md:mx-20 mx-auto " alt={'NFT Image'} src={image}/>
-
+            <div className='w-72 md:w-96 mt-20 md:mt-0'>
+                <img className="rounded-2xl" alt={'NFT Image'} src={image}/>
+             </div>
              )}
         </div>
         <div className="flex flex-col lg:mt-0 md:col-span-12 sm:col-span-12 lg:col-span-6 justify-center gap-5 mx-auto">

@@ -1,5 +1,6 @@
 import { PlayCircleIcon } from '@heroicons/react/24/outline';
 import { urlFor } from 'lib/hooks/sanityImage';
+import VideoLightbox from 'ui/Modals/VideoModal';
 
 const CollectorsSection = (settings: any ) => {
     const set = settings.settings.result[0]
@@ -7,12 +8,11 @@ const CollectorsSection = (settings: any ) => {
 
 
     return (
-<section className="bg-white dark:bg-gray-900 mt-8">
-    <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+<section className="static bg-white dark:bg-gray-900 mt-8">
+    <div className="static gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <>
         <figure className="relative w-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-        <img className="w-full dark:hidden rounded-lg" src={image} alt="video image"/>
-        <img className="w-full hidden dark:block rounded-lg" src={image} alt="video image"/>
+        <VideoLightbox image={image}/>
         <div className="absolute px-4 text-lg text-white bottom-36 left-20">
         <PlayCircleIcon/><p> </p>
         </div>

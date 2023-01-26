@@ -9,7 +9,8 @@ interface Props {
 export function GetENSName(ownerAddress: any) {
  const xaddress = ownerAddress?.ownerAddress
  const { data: ensName, isError, isLoading } = useEnsName({
- address: xaddress
+ address: xaddress, 
+ chainId: 1
  })
  if (isLoading) return <div>…</div>
   if (isError) return <div>Error fetching name</div>
@@ -18,10 +19,12 @@ export function GetENSName(ownerAddress: any) {
 export function GetENSAvi(ownerAddress: any) {
     const xaddress = ownerAddress?.ownerAddress
     const { data, isError, isLoading } = useEnsAvatar({
-    address: xaddress
+    address: xaddress,
+    chainId: 1
     })
     const { data: ensName } = useEnsName({
-      address: xaddress
+      address: xaddress,
+      chainId: 1
       })
     if (isLoading) return <div>…</div>
      if (isError) return <div>Error fetching name</div>

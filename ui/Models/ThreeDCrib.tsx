@@ -14,7 +14,7 @@ function Crib3D() {
   
     return (
     <mesh>
-      <primitive object={obj}  scale={[0.0003, 0.0003, 0.0003]} />
+      <primitive object={obj}  scale={[0.00045, 0.00045, 0.00045]} />
     </mesh>)
    ;
   };
@@ -22,7 +22,7 @@ function Crib3D() {
 export default function CribScene() {
     return (
        
-<div className="flex w-full max-w-screen lg:h-96 md:h-64">
+<div className="flex w-full max-w-screen h-96 mb-10 md:mb-0">
         <Canvas camera={{ fov: 5, position: [0, 5, 0] }} resize={{ scroll: false  }} style={{ width: '100%', padding: 30, overflow: 'vsible'}}>
            <Stage >
             <ambientLight/>

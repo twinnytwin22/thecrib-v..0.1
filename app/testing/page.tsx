@@ -3,6 +3,7 @@ import React from 'react'
 import HeroUpComingDropBanner from 'ui/HeroBanners/HeroUpcomingDropBanner'
 import { IPFSRenderer } from 'ui/Misc/IPFSRenderer'
 import TestCard from 'ui/Testing/TestCard'
+import TestContactForm from 'ui/Testing/TestContactForm'
 
 
 
@@ -16,10 +17,12 @@ async function page() {
   ]
   console.log(metaData, 'other md')
   return (
-    <div className='h-[90vh]'>
+    <div className='flex items-center justify-center content-center justify-items-center'>
+
+    <div className=''>
     <HeroUpComingDropBanner/>
-    <TestCard data={ipfsProps}/>
-    
+   <TestContactForm/>
+    </div>
     </div>
   )
 }

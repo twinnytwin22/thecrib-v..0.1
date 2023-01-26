@@ -4,7 +4,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 
 
 export function YoutubeVideo(id: any) {
-  const iD = id.id
+  const iD = 'sP3cLeD_sk4'
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();

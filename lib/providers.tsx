@@ -24,6 +24,8 @@ import { SessionProvider } from 'next-auth/react';
 import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from '@rainbow-me/rainbowkit-siwe-next-auth';
 import { unstable_getServerSession } from "next-auth/next"
 import { getAuthOptions } from "pages/api/auth/[...nextauth]";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ThemeProvider = dynamic(
   () => {
@@ -84,9 +86,9 @@ export const Providers = ({
          <ThemeProvider enableSystem={true} attribute="class">
           {children}
          </ThemeProvider>
+         <ToastContainer/>
        </RainbowKitProvider>
        </RainbowKitSiweNextAuthProvider>
-
   </WagmiConfig> 
    </SessionProvider>
   )
