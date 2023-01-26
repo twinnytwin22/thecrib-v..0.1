@@ -5,8 +5,7 @@ import {schemaTypes} from './schemas/schema'
 import { apiVersion } from './lib/sanity.api'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import { scheduledPublishing } from "@sanity/scheduled-publishing";
-import { PreDrop, Schedule } from './components/actions'
+import { PreDrop } from './components/actions'
 
 
 export default defineConfig({
