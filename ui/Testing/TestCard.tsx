@@ -1,11 +1,10 @@
 'use client'
 import React, {useState} from 'react'
-import { IPFSRenderer } from 'ui/Misc/IPFSRenderer'
 import { YoutubeVideo } from 'ui/Misc/YoutubeVideo'
-import CribNFTScene from 'ui/Models/CribNFTLoader'
 
-function TestCard(props:any) {
-console.log(props, 'test')
+
+function TestCard() {
+
   return (
   
  <div className='flex mx-auto items-center justify-center content-center center'>
