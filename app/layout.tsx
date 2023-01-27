@@ -20,7 +20,7 @@ function RootLayout({ children }: Props) {
     
       
   <body>
-    <div className="flex min-h-screen max-w-screen w-full  bg-white dark:bg-gray-900">
+    <div className="flex max-w-screen w-full bg-white dark:bg-gray-900">
         <Providers >
           <NewNavBar/> 
             {children}      

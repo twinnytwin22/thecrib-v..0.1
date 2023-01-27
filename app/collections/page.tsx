@@ -11,11 +11,11 @@ async function AllCollectionsPage() {
 
   return (
     <>
+       <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
 
-<div className="flex min-h-screen flex-col items-center bg-white dark:bg-gray-900">
 <AllCollections collections={collections}/>
 <EmailSignUp/>
-    </div>
+</div>
 
     </>
   );

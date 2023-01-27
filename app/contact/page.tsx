@@ -9,7 +9,10 @@ const page = () => {
   // at us.
 
   return (
+    <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
+
 <ContactPageForm/>
+</div>
   );
 };
 

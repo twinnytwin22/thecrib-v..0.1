@@ -1,5 +1,4 @@
 'use client'
-import { useState } from "react"
 import { ConnectToCrib } from '../Buttons/ConnectToCrib'
 import DarkModeSwitch from "ui/Buttons/DarkModeSwitch";
 import SignOutButton from "ui/Buttons/SignOut";
@@ -25,10 +24,10 @@ const NewNavBar: NextPage = () => {
 
  return (
     <header>
-      <nav className="bg-black w-[100vw] border-gray-200  lg:px-6 py-2.5 dark:bg-black">
-        <div className="flex flex-wrap justify-between items-center mx-5 sm:mx-5 md:mx-10 lg:mx-auto max-w-screen-xl">
+      <nav className="bg-black border-gray-200 mx-5 md:mx-auto lg:px-6 py-2.5 dark:bg-black">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" className="flex items-center">
-                <img src="/assets/cribwhitelogo.png" className="mr-5 h-9" alt="Crib Logo" />
+                <img src="/assets/cribwhitelogo.png" className="mr-4 h-9" alt="Crib Logo" />
 
             </a>
             <div className="flex lg:order-2">
@@ -37,13 +36,11 @@ const NewNavBar: NextPage = () => {
                      <>    
                 <ConnectToCrib/>
                 {status === 'authenticated' && (<SignOutButton/>)}
-                 
               <DarkModeSwitch/>
                  </>
-               
             </div>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul className="flex flex-col mt-4 ml-8 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                <ul className={`flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"  ${status === 'authenticated' ? 'lg:ml-10' : 'lg:ml-0' }`}>
                     <li>
                         <Link href="/" className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-white lg:p-0 dark:text-white" aria-current="page"
                         >Home</Link>

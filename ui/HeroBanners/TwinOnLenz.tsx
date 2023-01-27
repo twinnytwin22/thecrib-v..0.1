@@ -2,7 +2,7 @@ import React from 'react'
 
 function TwinOnLenz() {
   return (
-    <section className="bg-white dark:bg-gray-800 w-[90vh] py-4 lg:max-w-7xl md:max-w-4xl max-w-7xl  rounded-lg h-auto border dark:border-gray-700">
+    <section className="bg-white mx-5 md:mx-auto dark:bg-gray-800 py-4 rounded-lg h-auto border dark:border-gray-700">
     <div className="gap-8 items-center justify-items-center py-2 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2  lg:px-6">
         <img className="w-24 dark:hidden " src="/assets/lens_white.png" alt="lens logo"/>
         <img className="w-24 hidden dark:block"  src="/assets/lens_white.png" alt="lens logo"/>
