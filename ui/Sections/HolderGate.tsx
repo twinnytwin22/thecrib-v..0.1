@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react"
 import { ConnectToCrib } from 'ui/Buttons/ConnectToCrib';
 import Link from 'next/link';
 import { GetENSName } from 'lib/hooks/getENS';
+import TestUserDashboard from 'ui/Testing/TestTabGroup';
 
 function HolderGate() {
   const { data: session, status } = useSession()
@@ -30,13 +31,10 @@ function HolderGate() {
     ) 
     : (
           <>
-    <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">Your NFTs</h2>
     <div className='flex uppercase flex-row mx-auto items-center content-center justify-content-center justify-center'> Welcome back, 
       <GetENSName ownerAddress={session?.address}/>!
     </div> 
-    <Link href={"https://forms.gle/rLkD2NrUfWNWWS2i8"}>
-    <button className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none dark:focus:ring-primary-800">Holder Form</button>
-    </Link>
+   <TestUserDashboard/>
     </>
 ) }  </div>
 </div>

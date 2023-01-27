@@ -7,7 +7,7 @@ export function NonActiveIndicator() {
   <span className="absolute inline-flex h-3 w-3 rounded-full bg-gray-400 opacity-75"></span>
 
 </span>
-<span className='text-xs font-semibold px-2.5 py-0.5 text-white rounded-full bg-gray-400 dark:bg-transparent mx-2'>
+<span className=' lg:text-xs text-[10px] font-semibold px-2.5 py-0.5 text-white rounded-full bg-gray-400 dark:bg-transparent mx-2'>
 Minting Closed
    </span>
   </>
@@ -22,7 +22,7 @@ export function ActiveIndicator() {
     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
    
   </span>
-  <span className=' text-xs font-semibold  px-1.5 py-0.5 text-white rounded-full bg-gray-400 dark:bg-transparent mx-2'>
+  <span className=' lg:text-xs text-[10px] font-semibold  px-1.5 py-0.5 text-white rounded-full bg-gray-400 dark:bg-transparent mx-2'>
   Active
    </span>
    </>

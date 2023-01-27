@@ -16,13 +16,13 @@ function CollectionCard(collections: any, i: any) {
     <img className="object-cover aspect-square w-full rounded-t-lg h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={urlFor(collection?.nftImage).width(400).url()} alt=""/>
       
     <div className="flex flex-col justify-between p-4 leading-normal">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">{collection.title}</h5>
+        <h5 className="mb-2 text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">{collection.title}</h5>
         <div className='flex h-5 mb-3'><h6 className='hidden md:block text-sm mb-2 uppercase text-gray-900 dark:text-white tracking-tight pr-5'> Mint Status:</h6>{mintStatus && ActiveIndicator()} {!mintStatus && NonActiveIndicator()}</div>
-        <p className="hidden md:block mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">{description}</p>
+        <p className="hidden lg:block mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">{description}</p>
         <div className='mx-auto'>
 
         {collection.tags?.map((tag: any) => (
-<span className="bg-gray-100 text-gray-800 text-[10px] md:text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900">{tag}</span>
+<span className="bg-gray-100 text-gray-800 text-[8px] md:text-[10px] lg:text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900">{tag}</span>
     ))}
 
         </div>

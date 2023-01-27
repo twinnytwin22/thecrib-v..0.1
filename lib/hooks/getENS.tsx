@@ -38,12 +38,12 @@ export function GetENSAvi(ownerAddress: any) {
 
 export const FallbackAvi = (str: any) => {
   const CM = "CM"
-  const color = "red" || "black"
+  const color = "#f87171"
   const initials = Object.values(str).toString().slice(0, 2)
      return (
        <>
       <div className= "rounded-full p-2.5" style={{ backgroundColor: color }}>
-        <p className='uppercase'>
+        <p className='uppercase text-white'>
           {!initials ? CM : initials}
         </p>
         </div>
