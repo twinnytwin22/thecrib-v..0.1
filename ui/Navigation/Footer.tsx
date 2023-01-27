@@ -8,10 +8,10 @@ export function Footer() {
 <footer className="p-4 bg-black shadow md:px-6 md:py-8 dark:bg-black">
     <div className="flex items-center justify-between">
         <Link href="/" className="flex items-center mb-4 sm:mb-0">
-            <img src="/assets/cribwhitelogo.png" className="mr-3 h-8" alt="Crib Logo" />
+            <img src="/assets/cribwhitelogo.png" className="mr-3 h-8 hidden md:block" alt="Crib Logo" />
            
         </Link>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-300 sm:mb-0 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-300 sm:mb-0 dark:text-gray-400 hidden md:block">
             <li>
                <SocialIcons/>
             </li>
@@ -19,7 +19,7 @@ export function Footer() {
                 <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
             </li>
             <li>
-                <a href="/holder" className="mr-4 hover:underline md:mr-6">Holders</a>
+                <a href="/holder" className="mr-4 hover:underline md:mr-6 hidden md:block">Holders</a>
             </li>
             <li>
                 <a href="/contact" className="hover:underline">Contact</a>

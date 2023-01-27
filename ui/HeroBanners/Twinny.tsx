@@ -2,7 +2,7 @@ import React from 'react'
 
 function Twinny() {
   return (
-    <div className=" mb-6 mt-3 lg:mb-12 mx-auto">
+    <div className=" mb-6 mt-3 lg:mb-12 mx-5 nd:mx-auto">
           <div className="items-center bg-gray-50 rounded-lg shadow flex flex-row dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
                   <img className="w-36 md:w-40 rounded-lg sm:rounded-none sm:rounded-l-lg" src="/assets/twinny-twin.jpg" alt="Twinny Avatar"/>
