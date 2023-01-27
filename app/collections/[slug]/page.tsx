@@ -1,4 +1,4 @@
-import { getAllSlugs, getIpfsData, getOwnersForEthCollection, getOwnersPolygonCollection } from 'lib/hooks/get-collection-data';
+import { getAllSlugs, getIpfsData, getOwnersForEthCollection, getOwnersPolygonCollection, fetchNFTsForCollection } from 'lib/hooks/get-collection-data';
 import { Children, Suspense } from 'react'
 import CollectionNav from 'ui/Navigation/collectionNav';
 import CollectionContent from 'ui/Sections/CollectionContent';
@@ -43,17 +43,23 @@ async function SingleCollection(params: any) {
   const contract = collection ? collection.contract as string : '';
   const collectors = collection.chain === 'polygon' ? await getOwnersPolygonCollection(contract) : await getOwnersForEthCollection(contract) 
   const metadata = await getIpfsData(contract)
+  const nfts = await fetchNFTsForCollection(contract)
+
   const ipfsProps = [
     metadata,
     contract
   ]
-
+const collectionProps =[
+  collection,
+  chainData,
+  nfts 
+]
   return (
 
         <Suspense fallback={<CribLoader/>}>
         <CollectionMinter collection={collection} data={ipfsProps}  />
-    <CollectionNav/>
-        <CollectionContent collection={collection} data={chainData} collectors={collectors}/>
+    <CollectionNav props={collectionProps} collectors={collectors}/>
+       
         </Suspense>
   )
 }

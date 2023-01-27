@@ -15,7 +15,7 @@ import CribFinder from "../Misc/CribFinder"
             <div className="max-w-xl mx-auto p-10">
             <CribFinder/>
             </div>
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="mx-10 md:mx-auto grid gap-8 grid-cols-2">
              {collections.collections.result.map((collection: any) => (
                    <CollectionCard collections={collection}/>
              ))}

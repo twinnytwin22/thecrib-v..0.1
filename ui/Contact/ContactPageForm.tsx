@@ -4,7 +4,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const ContactForm = () => {
+const ContactForm = (props: any) => {
+  console.log(props)
   const [formData, setFormData] = useState({
     email: '',
     subject: '',

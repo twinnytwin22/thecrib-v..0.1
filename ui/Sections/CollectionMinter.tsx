@@ -13,7 +13,6 @@ import { toast } from 'react-toastify'
 
 
 function CollectionMinter(data: any) {
-    console.log(data, 'nftmd')
     const currentCollection = data.collection
     const image = urlFor(currentCollection?.nftImage).width(600).url()
     const bgImage = urlFor(currentCollection?.nftImage).url()
