@@ -25,7 +25,9 @@ import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from '@rainbow-
 import { unstable_getServerSession } from "next-auth/next"
 import { getAuthOptions } from "pages/api/auth/[...nextauth]";
 import { ToastContainer } from 'react-toastify'
+import { LensProvider } from '@lens-protocol/react';
 import 'react-toastify/dist/ReactToastify.css'
+import { lensConfig } from './lensConfig';
 
 const ThemeProvider = dynamic(
   () => {
@@ -78,17 +80,23 @@ export const Providers = ({
   return ( 
   <SessionProvider>
   <WagmiConfig client={wagmiClient}>
+  
+
   <RainbowKitSiweNextAuthProvider
           getSiweMessageOptions={getSiweMessageOptions}
         >
        <RainbowKitProvider chains={chains} 
-         theme={darkTheme()}>        
+         theme={darkTheme()}>    
+          <LensProvider config={lensConfig}>   
          <ThemeProvider enableSystem={true} attribute="class">
           {children}
+         
          </ThemeProvider>
-         <ToastContainer/>
+         <ToastContainer/> 
+         </LensProvider>
        </RainbowKitProvider>
-       </RainbowKitSiweNextAuthProvider>
+       </RainbowKitSiweNextAuthProvider> 
+      
   </WagmiConfig> 
    </SessionProvider>
   )

@@ -18,8 +18,7 @@ const VideoLightbox = (image: any) => {
           <div className="flex flex-col p-4 rounded-2xl bg-black opacity-2" 
           onClick={() => setIsOpen(false)}>
             <button onClick={() => setIsOpen(false)}>Close</button>
-            <YoutubeVideo />
-            
+//// content here            
           </div>
         </div>
       )}

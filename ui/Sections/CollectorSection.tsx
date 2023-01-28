@@ -14,7 +14,7 @@ const CollectorsSection = (settings: any ) => {
         <figure className="relative w-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
         <VideoLightbox image={image}/>
         <div className="absolute px-4 text-lg text-white bottom-36 left-20">
-        <PlayCircleIcon/><p> </p>
+        <PlayCircleIcon/>
         </div>
         </figure>
        </>
