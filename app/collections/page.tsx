@@ -1,4 +1,5 @@
 // pages/index.js
+import LayloSection from "ui/Sections/LayloSection";
 import { getAllCollections } from "../../lib/hooks/get-collection-data";
 import AllCollections from "../../ui/Sections/AllCollections";
 import EmailSignUp from "../../ui/Sections/EmailSignUp";
@@ -14,7 +15,7 @@ async function AllCollectionsPage() {
        <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
 
 <AllCollections collections={collections}/>
-<EmailSignUp/>
+<LayloSection/>
 </div>
 
     </>

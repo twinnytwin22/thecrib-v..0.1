@@ -1,6 +1,9 @@
+import LayloBar from "ui/Modals/LayloModals";
+import VideoLightbox from "ui/Modals/VideoModal";
 import CollectionCard from "../Cards/CollectionCard";
 import AllStats from "../Misc/AllStats";
 import CribFinder from "../Misc/CribFinder"
+import LayloSection from "./LayloSection";
 
   
   export default function AllCollections(collections: any) {
@@ -12,6 +15,9 @@ import CribFinder from "../Misc/CribFinder"
                 <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">All Collections</h2>
                 <AllStats collections={collections.collections.result}/>
             </div> 
+            <div className=" flex mx-auto items-center justify-center content-center text-centner">
+<LayloBar/>
+            </div>
             <div className="max-w-xl mx-auto p-10">
             <CribFinder/>
             </div>
@@ -20,9 +26,9 @@ import CribFinder from "../Misc/CribFinder"
                    <CollectionCard collections={collection}/>
              ))}
               
-             
+            
             </div>  
-        </div>
+        </div> 
       </section>
     );
   };
