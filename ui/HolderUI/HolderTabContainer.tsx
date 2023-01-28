@@ -41,21 +41,21 @@ const HolderTabContainer = () => {
 
 const RoomHome = () => {
   return (
-    <div className='w-full max-w-7xl mx-auto h-[90vh] min-h-full bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
+    <div className='w-full max-w-7xl mx-auto h-screen min-h-full bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
      <TestRoomHome/>
    </div>)
    }
 
 const Items = () => {
   return (
-    <div className='w-full max-w-7xl mx-auto h-[90vh] bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
+    <div className='w-full max-w-7xl mx-auto h-screen bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
 <HolderInventory/>
 </div>)
 }
 
 const Settings = () => {
   return (
-    <div className='w-full max-w-7xl mx-auto h-[90vh] bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
+    <div className='w-full max-w-7xl mx-auto h-screen bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
 <HolderSettings/>
 </div>)
 }
