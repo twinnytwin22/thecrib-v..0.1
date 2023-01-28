@@ -1,5 +1,5 @@
 import React from 'react'
-import HolderGate from 'ui/Sections/HolderGate'
+import HolderGate from 'ui/HolderUI/HolderGate'
 
 
 async function page() {

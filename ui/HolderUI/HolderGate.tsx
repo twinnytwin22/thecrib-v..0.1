@@ -6,6 +6,7 @@ import { ConnectToCrib } from 'ui/Buttons/ConnectToCrib';
 import Link from 'next/link';
 import { GetENSName } from 'lib/hooks/getENS';
 import TestUserDashboard from 'ui/Testing/TestTabGroup';
+import HolderTabContainer from './HolderTabContainer';
 
 function HolderGate() {
   const { data: session, status } = useSession()
@@ -34,7 +35,7 @@ function HolderGate() {
     <div className='flex uppercase flex-row mx-auto items-center content-center justify-content-center justify-center'> Welcome back, 
       <GetENSName ownerAddress={session?.address}/>!
     </div> 
-   <TestUserDashboard/>
+   <HolderTabContainer/>
     </>
 ) }  </div>
 </div>
