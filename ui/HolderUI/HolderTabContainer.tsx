@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import TestRoomHome from 'ui/Testing/HolderUI/TestRoomHome'
 import HolderInventory from './HolderInventory'
+import HolderSettings from './HolderSettings'
 
 const HolderTabContainer = () => {
   const [activeTab, setActiveTab] = useState('room')
@@ -55,7 +56,8 @@ const Items = () => {
 const Settings = () => {
   return (
     <div className='w-full max-w-7xl mx-auto h-[90vh] bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
-BIATCH</div>)
+<HolderSettings/>
+</div>)
 }
 
 export default HolderTabContainer
