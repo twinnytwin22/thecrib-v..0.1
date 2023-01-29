@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Link from 'next/link'
-import SocialIcons from 'ui/Misc/SocialIcons'
+import { FooterSocialIcons } from 'ui/Misc/social-icons'
+
 export function Footer() {  
     return (
     
@@ -13,7 +14,7 @@ export function Footer() {
         </Link>
         <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-300 sm:mb-0 dark:text-gray-400 hidden md:block">
             <li>
-               <SocialIcons/>
+               <FooterSocialIcons/>
             </li>
             <li>
                 <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>

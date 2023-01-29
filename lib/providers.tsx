@@ -10,7 +10,6 @@ import {
   coinbaseWallet,
   ledgerWallet
 } from '@rainbow-me/rainbowkit/wallets';
-import { urqlClient, Profile } from 'pages/api/lensCalls';
 import {
   darkTheme, RainbowKitProvider
 } from '@rainbow-me/rainbowkit';
@@ -25,9 +24,8 @@ import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from '@rainbow-
 import { unstable_getServerSession } from "next-auth/next"
 import { getAuthOptions } from "pages/api/auth/[...nextauth]";
 import { ToastContainer } from 'react-toastify'
-import { LensProvider } from '@lens-protocol/react';
 import 'react-toastify/dist/ReactToastify.css'
-import { lensConfig } from './lensConfig';
+
 
 const ThemeProvider = dynamic(
   () => {
@@ -81,22 +79,22 @@ export const Providers = ({
   <SessionProvider>
   <WagmiConfig client={wagmiClient}>
   
-
   <RainbowKitSiweNextAuthProvider
           getSiweMessageOptions={getSiweMessageOptions}
-        >
+        >         
+        
+
        <RainbowKitProvider chains={chains} 
          theme={darkTheme()}>    
-          <LensProvider config={lensConfig}>   
          <ThemeProvider enableSystem={true} attribute="class">
           {children}
          
-         </ThemeProvider>
+         </ThemeProvider> 
          <ToastContainer/> 
-         </LensProvider>
+        
        </RainbowKitProvider>
        </RainbowKitSiweNextAuthProvider> 
-      
+
   </WagmiConfig> 
    </SessionProvider>
   )

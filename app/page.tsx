@@ -4,7 +4,7 @@ import { getAllCollections, getSiteSettings } from 'lib/hooks/get-collection-dat
 import { Suspense } from "react";
 import CribLoader from 'ui/Misc/CribLoader'
 import TwinOnLenz from 'ui/HeroBanners/TwinOnLenz'
-import Twinny from 'ui/HeroBanners/Twinny';
+import Twinny from 'ui/Cards/Twinny';
 import LayloSection from 'ui/Sections/LayloSection';
 
 
