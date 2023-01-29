@@ -1,0 +1,21 @@
+export const keywords = [
+    "music",
+    "NFTs",
+    "crypto",
+    "house music",
+    "DJing",
+    "music production",
+    "web3",
+    "blockchain",
+    "Twinny Twin",
+    "crypto music",
+    "blockchain music",
+    "Twinny Twin music",
+    "Twinny Twin NFTs",
+    "Twinny Twin crypto",
+    "Twinny Twin house music",
+    "Twinny Twin DJing",
+    "Twinny Twin music production",
+    "Twinny Twin web3",
+    "Twinny Twin blockchain"
+  ]

@@ -3,6 +3,9 @@ import groq from 'groq'
 import { apiVersion, dataset, projectId } from "studio/lib/sanity.api";
 const ethApiKey = process.env.NEXT_PUBLIC_ALCHEMY_ID
 const polygonApiKey = process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID
+const count = 0
+const maxTries = 3
+const waitSeconds = 5
 
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -100,7 +103,7 @@ export async function getCribNfts(address: string, setNFTs: any) {
 
 export async function getIpfsData(contractAddress: any) {
   if (contractAddress) {
-  console.log(contractAddress , 'heres the addy')}
+}
   const conAddress = contractAddress as string
   const metadata = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTMetadata?contractAddress=${conAddress}&tokenId=2`, getRequestOptions);
   return metadata.json()

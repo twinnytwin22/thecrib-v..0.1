@@ -24,7 +24,7 @@ const NewNavBar: NextPage = () => {
 
  return (
     <header className='bg-black'>
-      <nav className="bg-black border-gray-200 mx-5 md:mx-auto lg:px-6 py-2.5 dark:bg-black">
+      <nav className="bg-black border-gray-200 mx-5 md:mx-auto items-center lg:px-6 py-2.5 dark:bg-black">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" className="flex items-center">
                 <img src="/assets/cribwhitelogo.png" className="mr-4 h-9" alt="Crib Logo" />

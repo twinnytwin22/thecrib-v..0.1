@@ -1,5 +1,6 @@
 'use client'
 import '@rainbow-me/rainbowkit/styles.css';
+import 'styles/globals.css';
 import * as React from "react"
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 import {

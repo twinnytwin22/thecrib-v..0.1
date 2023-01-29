@@ -20,7 +20,10 @@ const ContactForm = (props: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/send-email', formData)
+      const res = await fetch('/api/contact',  
+      { method: "POST", 
+        headers: { "Content-Type": "application/json"}, 
+        body: JSON.stringify(formData), })
       setStatus('success') 
       if (res) {
       toast("Your message was sent succesffully")}

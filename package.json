@@ -24,6 +24,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "@sendgrid/mail": "^7.7.0",
     "@supabase/supabase-js": "^2.4.1",
     "@thirdweb-dev/react": "^3.6.11",
     "@thirdweb-dev/sdk": "^3.6.11",
