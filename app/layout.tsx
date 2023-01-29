@@ -4,7 +4,8 @@ import Providers from 'lib/providers';
 import { Footer } from 'ui/Navigation/Footer';
 import NewNavBar from 'ui/Navigation/NewNavBar';
 import MobileMenu from "ui/Navigation/MobileMenu";
-
+import { Suspense } from "react";
+import CribLoader from "ui/Misc/CribLoader";
 
 export const dynamicParams = true // true | false,
 
@@ -20,10 +21,13 @@ function RootLayout({ children }: Props) {
     
       
   <body>
-    <div className="flex max-w-screen w-full bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900">
         <Providers >
           <NewNavBar/> 
+          <Suspense fallback={<CribLoader/>}>   
+
             {children}      
+            </Suspense>
           <Footer/>
           <MobileMenu/>
       </Providers>
