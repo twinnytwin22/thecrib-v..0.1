@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardSocialIcons } from 'ui/Misc/socialIcons'
+import { CardSocialIcons } from 'ui/Misc/social-icons'
 
 function Twinny() {
   return (
