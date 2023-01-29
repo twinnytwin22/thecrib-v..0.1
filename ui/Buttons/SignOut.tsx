@@ -8,7 +8,7 @@ function SignOutButton() {
     const { disconnect } = useDisconnect()
   return (
       <>
-        <Link href={`/api/auth/signout`} 
+        <Link href={'/'} 
              onClick={(e) => {
                 e.preventDefault()  
                 disconnect()
