@@ -1,6 +1,7 @@
 import { getIpfsData } from 'lib/hooks/get-collection-data'
 import React from 'react'
 import { LayloCard } from 'ui/Cards/LayloCard'
+import CollectionMinterCard from 'ui/Cards/MintingCard'
 import CribLoader from 'ui/Misc/CribLoader'
 import TestingPanel from 'ui/Testing/TestingPanel'
 import TestUserDashboard from 'ui/Testing/TestTabGroup'
@@ -12,7 +13,7 @@ async function page() {
   console.log(metaData, 'other md')
   return (
     <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
-   <LayloCard/>
+<CollectionMinterCard/>
     </div>
   )
 }

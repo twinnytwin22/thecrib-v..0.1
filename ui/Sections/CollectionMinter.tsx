@@ -169,8 +169,7 @@ return (
                             </div></>         
     ) : (
         <div className='flex content-center items-center justify-center pt-10' >
-    {mintStatus}
-    <p className='text-white'>Please sign-in to collect</p>
+    {mintStatus ? <p className='text-white'>Please sign-in to collect</p> : ""}
         </div>
     )}
     {currentCollection.title == "Twinesis" ?
