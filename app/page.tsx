@@ -5,6 +5,7 @@ import CribLoader from 'ui/Misc/CribLoader'
 import TwinOnLenz from 'ui/HeroBanners/TwinOnLenz'
 import Twinny from 'ui/Cards/Twinny';
 import LayloSection from 'ui/Sections/LayloSection';
+import UpComingDrop from 'ui/HeroBanners/HeroUpcomingDropBanner'
 
 
 async function Home() {
@@ -15,6 +16,7 @@ const homeSettings = await getSiteSettings()
        <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
         <Hero3DCribBanner settings={homeSettings}/>
         <Twinny/>
+        <UpComingDrop/>
         <RecentCollections collections={collections} />    
            <LayloSection/>
            <TwinOnLenz/>

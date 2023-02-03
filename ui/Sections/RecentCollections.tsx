@@ -31,11 +31,11 @@ import { isHolderBenefit } from "ui/Misc/HolderBadge";
               <div className="flex justify-between items-center mt-2">
                   <div className="flex items-center space-x-4">
                       <h2 className="mb-2 text-2xl uppercase font-bold tracking-tight text-gray-900 dark:text-white">
-                          <Link href={`/collections/${collection?.slug.current}`}>{collection.title}</Link></h2>
+                          <Link href={`/collection/${collection?.slug.current}`}>{collection.title}</Link></h2>
                       {collection?.holderbenefit === true && isHolderBenefit()}
 
                   </div>
-                  <Link href={`collections/${collection?.slug.current}`} 
+                  <Link href={`collection/${collection?.slug.current}`} 
                   className="inline-flex items-center font-medium text-primary-600 text-gray-900 dark:text-white hover:underline">
                  View Drop                      
                  <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ import { isHolderBenefit } from "ui/Misc/HolderBadge";
       </div>  
   </div> 
   <div className="flex justify-center items-center w-full mb-16 mt-6 mx-auto">
-  <a href="/collections" 
+  <a href="/explore" 
   className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-red-100 bg-red-700 focus:ring-4 focus:ring-gray-100 text-white dark:border-gray-700 dark:hover:bg-red-500 dark:focus:ring-gray-800">
                     View all collectibles
               </a> 

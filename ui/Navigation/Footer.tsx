@@ -19,9 +19,7 @@ export function Footer() {
             <li>
                 <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
             </li>
-            <li>
-                <a href="/holder" className="mr-4 hover:underline md:mr-6 hidden md:block">Holders</a>
-            </li>
+         
             <li>
                 <a href="/contact" className="hover:underline">Contact</a>
             </li>

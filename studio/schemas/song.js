@@ -10,15 +10,31 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      validation: Rule => Rule?.required(),
-      options: {
-        source: "title",
-        maxLength: 96
-      }
+      name: "artist",
+      title: "Artist",
+      type: "string",
+      validation: Rule => Rule.required()
     },
+    {
+      name: "featuring",
+      title: "Featuring",
+      type: "string",
+    },
+    {
+      name: "cover",
+      title: "Cover",
+      type: "image",
+      validation: Rule => Rule.required()
+    },
+    {
+      name: "audio",
+      title: "Audio",
+      type: "file",
+      description: "We're using only MP3s here. It helps with storage and bandwidth",
+      validation: Rule => Rule.required()
+    },
+
+    
    
   ],
 }

@@ -1,20 +1,21 @@
 'use client'
 
 import React from 'react'
+import { useState } from 'react';
 import { useSession } from "next-auth/react"
 import { ConnectToCrib } from 'ui/Buttons/ConnectToCrib';
-import Link from 'next/link';
 import { GetENSName } from 'lib/hooks/getENS';
-import TestUserDashboard from 'ui/Testing/TestTabGroup';
 import HolderTabContainer from './HolderTabContainer';
-
+import { useContractReads, erc721ABI } from 'wagmi';
+import CribLoader from 'ui/Misc/CribLoader';
 function HolderGate() {
+  const [hasAccess, setHasAccess] = useState(false);
   const { data: session, status } = useSession()
       // Fetch content from protected route 
-    if (session)
-    console.log(session)
+  const walletAddress = session?.address
 
-      
+
+  
   return (
 <>   
 <section className="bg-white dark:bg-gray-900"> 
@@ -32,10 +33,14 @@ function HolderGate() {
     ) 
     : (
           <>
+          {
+          <div>
     <div className='flex uppercase flex-row mx-auto items-center content-center justify-content-center justify-center'> Welcome back, 
       <GetENSName ownerAddress={session?.address}/>!
     </div> 
    <HolderTabContainer/>
+   </div>
+   }
     </>
 ) }  </div>
 </div>

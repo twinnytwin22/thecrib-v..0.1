@@ -10,7 +10,7 @@ import CribScene from 'ui/Models/ThreeDCrib';
               <h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-7xl xl:text-8xl text-gray-900 dark:text-white uppercase whitespace-normal">{set.homeHeadLine}</h1>
               <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg sm:whitespace-normal lg:text-xl dark:text-gray-400 whitespace-normal">{set.homeSubLine}</p>
               
-              <a href="/collections" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  border border-gray-300 rounded-lg hover:bg-red-100 bg-red-700 focus:ring-4 focus:ring-gray-100 text-white dark:border-gray-700 dark:hover:bg-red-500 dark:focus:ring-gray-800">
+              <a href="/explore" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  border border-gray-300 rounded-lg hover:bg-red-100 bg-red-700 focus:ring-4 focus:ring-gray-100 text-white dark:border-gray-700 dark:hover:bg-red-500 dark:focus:ring-gray-800">
                     View all collectibles
               </a> 
               <a href="/holder" className="ml-2 inline-flex items-center justify-center px-5 py-3 mr-3 text-black font-medium text-center dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">

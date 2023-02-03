@@ -187,4 +187,4 @@ return (
 
     export default CollectionMinter;
 
-
+    
