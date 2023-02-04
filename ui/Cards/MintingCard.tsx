@@ -9,7 +9,7 @@ import CrossMint from 'ui/Buttons/CrossMint';
 import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
 import collection from 'studio/schemas/collections/collection';
 import { toast } from 'react-toastify'
-import { ConnectToMint } from 'ui/Buttons/ConnectToMint';
+import { ConnectToMint } from 'ui/Buttons/Crossmint/ConnectToMint';
 
 
 

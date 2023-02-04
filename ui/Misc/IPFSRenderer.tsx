@@ -15,7 +15,7 @@ export const IPFSRenderer = (data: any) => {
     
 
     <ThirdwebProvider desiredChainId={activeChainId}>
-    <MediaRenderer
+    <MediaRenderer style={{}} requireInteraction={true}
       src={`${animationURL}`}
       alt="A mp4 video"
     />

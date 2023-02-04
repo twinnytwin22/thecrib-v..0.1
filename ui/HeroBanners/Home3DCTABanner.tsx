@@ -13,10 +13,6 @@ import CribScene from 'ui/Models/ThreeDCrib';
               <a href="/explore" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  border border-gray-300 rounded-lg hover:bg-red-100 bg-red-700 focus:ring-4 focus:ring-gray-100 text-white dark:border-gray-700 dark:hover:bg-red-500 dark:focus:ring-gray-800">
                     View all collectibles
               </a> 
-              <a href="/holder" className="ml-2 inline-flex items-center justify-center px-5 py-3 mr-3 text-black font-medium text-center dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                  I'm a collector
-                  <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-              </a>
           </div>
           <div className="max-w-xl order-first lg:order-last animate-pulse hover:animate-none focus:animate-none mx-8 md:p-0">
                 <CribScene/>
@@ -26,3 +22,13 @@ import CribScene from 'ui/Models/ThreeDCrib';
   </section>
     );
   };
+
+
+  export function ImaCollector(){
+    return (
+      <a href="/holder" className="ml-2 inline-flex items-center justify-center px-5 py-3 mr-3 text-black font-medium text-center dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+      I'm a collector
+      <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+  </a>
+    )
+  }
