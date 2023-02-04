@@ -81,7 +81,7 @@ function CollectionMinter(data: any) {
     async function handleTwinesisMint() { 
         try {
         if (isConnected) {
-        const tPrice = .06
+        const tPrice = 0.06
         const abi = await getABI()
         const provider = new ethers.providers.Web3Provider(window.ethereum  as any)
         const signer = provider.getSigner();
