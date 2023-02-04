@@ -6,19 +6,19 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 
 
-export const IPFSRenderer = (data: any) => {
+export const IPFSRenderer = ( data: any) => {
     const activeChainId = ChainId.Mumbai;
-    const ipfsProps = data?.data.data[0].metadata
+    const ipfsProps = data?.data?.data[0].metadata
     const animationURL = ipfsProps.animation_url as string
+    const nftImage = data.image
     
     return (
     
 
     <ThirdwebProvider desiredChainId={activeChainId}>
-    <MediaRenderer style={{}} requireInteraction={true}
+    <MediaRenderer style={{}} requireInteraction={true} poster={nftImage}
       src={`${animationURL}`}
-      alt="A mp4 video"
-    />
+      />
     </ThirdwebProvider>
 
   );

@@ -127,23 +127,21 @@ return (
     
 
     <div className='bg-cover w-full max-w-screen mx-auto justify-items-center content-center' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
-    <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center' style={{ backdropFilter: 'blur(8px)',}}>
-    <div className="mx-auto place-self-center place-items-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96">
-      {currentCollection.slug.current != "thecribvx" ? (
-          <div className='w-72 md:w-96 mt-10 md:mt-0 p-4 md:p-4 lg:p-0'>
-             <IPFSRenderer data={data}/>
-           </div>
+        <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center' style={{ backdropFilter: 'blur(8px)',}}>
+            <div className="mx-auto place-self-center place-items-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96">
+                {currentCollection.slug.current != "thecribvx" ? (
+                    <div className='w-72 md:w-96 mt-10 md:mt-0 p-4 md:p-4 lg:p-0'>
+                        <IPFSRenderer image={image} data={data}/>
+                    </div>
           ) : ( 
-            <div className='w-72 md:w-96 mt-20 md:mt-0'>
-                <img className="rounded-2xl" alt={'NFT Image'} src={image}/>
-             </div>
-             )}
-        </div>
-        <div className="flex flex-col lg:mt-0 md:col-span-12 sm:col-span-12 lg:col-span-6 justify-center gap-5 mx-auto">
-            
-            <h1 className='text-5xl font-bold text-white text-center uppercase' 
-            >{currentCollection.title}
-            </h1>
+                    <div className='w-72 md:w-96 mt-20 md:mt-0'>
+                        <img className="rounded-2xl" alt={'NFT Image'} src={image}/>
+                    </div>  )}
+            </div>
+            <div className="flex flex-col lg:mt-0 md:col-span-12 sm:col-span-12 lg:col-span-6 justify-center gap-5 mx-auto">
+                <h1 className='text-5xl font-bold text-white text-center uppercase'>
+                    {currentCollection.title}
+                </h1>
             <div className='flex h-5 justify-center'><h6 className='text-sm mb-2 uppercase text-white tracking-tight pr-5'> Mint Status:</h6>{mintStatus && ActiveIndicator()} {!mintStatus && NonActiveIndicator()}</div>
 
     
