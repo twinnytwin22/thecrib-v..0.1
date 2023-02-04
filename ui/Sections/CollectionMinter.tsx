@@ -5,7 +5,7 @@ import { useAccount } from 'wagmi';
 import { urlFor } from 'lib/hooks/sanityImage';
 import { ActiveIndicator, NonActiveIndicator } from 'ui/Misc/Indicator';
 import { useSession } from "next-auth/react"
-import CrossMint from 'ui/Buttons/CrossMint';
+import CrossMint from 'ui/Buttons/Crossmint/CrossMint';
 import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
 import collection from 'studio/schemas/collections/collection';
 import { toast } from 'react-toastify'
