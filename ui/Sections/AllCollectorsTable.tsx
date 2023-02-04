@@ -19,7 +19,7 @@ const AllCollectorList = (collectors: any, loading: any) => {
     const paginateBack = () => setCurrentPage(currentPage - 1);
     return (
         
-             <div className="w-full max-w-md md:max-w-7xl p-4 bg-white border rounded-lg shadow-md p-8 md:p-0 dark:bg-gray-800 dark:border-gray-700">
+             <div className="w-full max-w-sm md:max-w-7xl p-4 bg-white border rounded-lg shadow-md p-8 md:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Collectors</h5>
             <a href="/collectors" className="text-sm font-medium text-red-600 hover:underline dark:text-red-500">
