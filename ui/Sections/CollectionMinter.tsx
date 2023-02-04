@@ -21,8 +21,8 @@ function CollectionMinter(data: any) {
     const { data: session, status } = useSession()
     const { address } = useAccount();
     const isConnected = !!address;    
-    const price = currentCollection.mintPrice
-    const sanityAbi = currentCollection.abiURL
+    const price = currentCollection?.mintPrice
+    const sanityAbi = currentCollection?.abiURL
     const mintStatus = currentCollection?.mintactive as boolean
     async function getABI() {
     const res = await fetch(sanityAbi);
@@ -81,6 +81,7 @@ function CollectionMinter(data: any) {
     async function handleTwinesisMint() { 
         try {
         if (isConnected) {
+        const tPrice = .06
         const abi = await getABI()
         const provider = new ethers.providers.Web3Provider(window.ethereum  as any)
         const signer = provider.getSigner();
@@ -97,7 +98,7 @@ function CollectionMinter(data: any) {
             })
         } else if (mintAmount > 1) {
             tx = await contractInstance.mintTwins(mintAmount, {
-                 value: ethers.utils.parseEther((price * mintAmount).toString()),
+                 value: ethers.utils.parseEther((tPrice * mintAmount).toString()),
             })
         }
         const receipt = await tx.wait();
