@@ -3,13 +3,12 @@ import { useState, } from 'react';
 import { ethers, BigNumber } from 'ethers';
 import { useAccount } from 'wagmi';
 import { urlFor } from 'lib/hooks/sanityImage';
-import { ActiveIndicator, NonActiveIndicator } from 'ui/Misc/Indicator';
 import { useSession } from "next-auth/react"
-import CrossMint from 'ui/Buttons/CrossMint';
-import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
+import CrossMint from 'ui/Buttons/Crossmint/CrossMint';
+
 import collection from 'studio/schemas/collections/collection';
 import { toast } from 'react-toastify'
-import { ConnectToMint } from 'ui/Buttons/Crossmint/ConnectToMint';
+import { ConnectToMint } from 'ui/Buttons/ConnectToMint';
 
 
 
