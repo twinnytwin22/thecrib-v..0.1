@@ -94,7 +94,7 @@ function CollectionMinter(data: any) {
         
         if (mintAmount == 1) {
             tx = await contractInstance.mintTwin({
-                value: mintAmount
+                value: ethers.utils.parseEther((tPrice).toString()),
             })
         } else if (mintAmount > 1) {
             tx = await contractInstance.mintTwins(mintAmount, {
