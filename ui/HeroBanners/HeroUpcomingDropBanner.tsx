@@ -15,7 +15,7 @@ export default function LatestDrop() {
             <a href="/collection/cribmusicv1">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-white">Open Edition Music NFT by Twinny </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 text-gray-200">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
+        <p className="mb-3 font-normal text-gray-200">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
          
         </div>
         <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex ">
