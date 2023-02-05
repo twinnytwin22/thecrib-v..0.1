@@ -24,13 +24,15 @@ function CollectionMinter(data: any) {
     const price = currentCollection?.mintPrice
     const sanityAbi = currentCollection?.abiURL
     const mintStatus = currentCollection?.mintactive as boolean
-    async function getABI() {
+    
+    /// Fetching the ABI for the Smart Contract 
+    async function getABI() { 
     const res = await fetch(sanityAbi);
     return res.json()}
     
 
 
-        
+    /// Normal Mint Function takes in the const price    
     async function handleMint() {
         if(isConnected) {
             const abi = await getABI()
@@ -127,40 +129,37 @@ return (
     
 
     <div className='bg-cover w-full max-w-screen mx-auto justify-items-center content-center' style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }}>
-        <div className='bg-black bg-opacity-75 grid max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center' style={{ backdropFilter: 'blur(8px)',}}>
+        <div className='bg-black bg-opacity-75 w-full'  style={{ backdropFilter: 'blur(8px)',}}>
+        <div className='grid xl:max-w-7xl max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center'>
             <div className="mx-auto place-self-center place-items-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96">
-                {currentCollection.slug.current != "thecribvx" ? (
-                    <div className='w-72 md:w-96 mt-10 md:mt-0 p-4 md:p-4 lg:p-0'>
+                    <div className='w-full mt-10 md:mt-0 content-center justify-center'>
                         <IPFSRenderer image={image} data={data}/>
                     </div>
-          ) : ( 
-                    <div className='w-72 md:w-96 mt-20 md:mt-0'>
-                        <img className="rounded-2xl" alt={'NFT Image'} src={image}/>
-                    </div>  )}
             </div>
             <div className="flex flex-col lg:mt-0 md:col-span-12 sm:col-span-12 lg:col-span-6 justify-center gap-5 mx-auto">
                 <h1 className='text-5xl font-bold text-white text-center uppercase'>
                     {currentCollection.title}
                 </h1>
             <div className='flex h-5 justify-center'><h6 className='text-sm mb-2 uppercase text-white tracking-tight pr-5'> Mint Status:</h6>{mintStatus && ActiveIndicator()} {!mintStatus && NonActiveIndicator()}</div>
-
-    
+   
     {status === "authenticated" && mintStatus ? (
     
-        <><div className='flex flex-row justify-center justify-start'>
-                            <button className="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                                onClick={handleDecrement}>-</button>
-                            <input className=' w-lg h-10 text-center font-bold'
-                                readOnly
-
-                                type="number" value={mintAmount} />
+        <> {!window.ethereum && <div>
+                                <p className="text-center block lg:hidden">Mobile devices will require the site to be loaded in your mobile wallet browser</p>
+                                <p className="text-center hidden lg:block ">You may have issues minting from a private browser try again from a non-private browser or mobile wallet</p>
+                                </div>
+        }
+            <>{window.ethereum && 
+                <>
+                <div className='flex flex-row justify-center justify-start'>
+                    <button className="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                            onClick={handleDecrement}>-</button>
+                        <input className=' w-lg h-10 text-center font-bold'
+                                readOnly type="number" value={mintAmount} />
                             <button className="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                                 onClick={handleIncrement}>+</button>
-
-
-
                         </div>
-                       
+
                         <div className='flex flex-row items-center justify-center items-center space-between'>
                                 <button className="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                                     onClick={currentCollection.title == "Twinesis" ? handleTwinesisMint : handleMint}>MINT</button>
@@ -169,7 +168,7 @@ return (
                                     onClick={handleClaim}>CLAIM</button>) : ( "")}
 
                             </div>
-                            
+                            </>}</>
                             </>         
     ) : (
         <div className='flex content-center items-center justify-center pt-10' >
@@ -179,6 +178,7 @@ return (
     {currentCollection.title == "Twinesis" ?
 <CrossMint price={price}/> : "" }
    </div>
+</div>
 </div>
 </div>
 

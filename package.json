@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.13",
     "@lens-protocol/react": "^0.3.0",
     "@lens-protocol/wagmi": "^0.3.0",
+    "@metamask/detect-provider": "^2.0.0",
     "@next/font": "13.1.1",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@rainbow-me/rainbowkit-siwe-next-auth": "^0.1.5",
