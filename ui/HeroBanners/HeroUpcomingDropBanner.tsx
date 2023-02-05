@@ -13,7 +13,7 @@ export default function LatestDrop() {
 
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">CRIB Music: Vol 1</h1>
             <a href="/collection/cribmusicv1">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-white">Open Edition Music NFT by Twinny </h5>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-200">Open Edition Music NFT by Twinny </h5>
         </a>
         <p className="mb-3 font-normal text-gray-200">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
          
