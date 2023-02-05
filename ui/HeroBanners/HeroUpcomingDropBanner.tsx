@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import LatestPostCard from 'ui/Cards/PostCards/LatestPostCard'
 
-export default function UpComingDrop() {
+export default function LatestDrop() {
     const bgImage = "/assets/lving-small.png"
   return (
     <section className="bg-white bg-cover dark:bg-gray-900 max-w-sm md:max-w-6xl w-full rounded-2xl" style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }} >
@@ -13,9 +13,9 @@ export default function UpComingDrop() {
 
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">CRIB Music: Vol 1</h1>
             <a href="/collection/cribmusicv1">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Open Edition Music NFT by Twinny </h5>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-white">Open Edition Music NFT by Twinny </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
+        <p className="mb-3 font-normal text-gray-700 text-gray-200">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
          
         </div>
         <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex ">
