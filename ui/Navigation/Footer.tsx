@@ -12,7 +12,7 @@ export function Footer() {
             <img src="/assets/cribwhitelogo.png" className="mr-3 h-8 hidden md:block" alt="Crib Logo" />
            
         </Link>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-300 sm:mb-0 dark:text-gray-400 hidden md:block">
+        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-300 sm:mb-0 dark:text-gray-400 sm:hidden md:block">
             <li>
                <FooterSocialIcons/>
             </li>
