@@ -26,7 +26,7 @@ export function Footer() {
         </ul>
     </div>
     <hr className="my-6 border-gray-700 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <span className="block text-sm text-gray-300 sm:text-center dark:text-gray-300">© 2022 <a href="https://crib.sanity.studio/" className="hover:underline">THE CRIB™</a>. All Rights Reserved.
+    <span className="block text-sm text-gray-300 sm:text-center dark:text-gray-300">© 2023 <a href="https://crib.sanity.studio/" className="hover:underline">THE CRIB™</a>. All Rights Reserved.
     </span>
 </footer>
 

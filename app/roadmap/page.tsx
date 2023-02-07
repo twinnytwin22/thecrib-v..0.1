@@ -1,9 +1,14 @@
+import { getRoadmap } from 'lib/hooks/roadmapLogic'
 import React from 'react'
+import TestingPanel from 'ui/Testing/TestingPanel'
 
-function page() {
+async function RoadMap() {
+    const roadMap = getRoadmap()
+    if (roadMap) {
+    console.log(roadMap)}
   return (
-    <div>RoadMap</div>
+    <TestingPanel props={roadMap}/>
   )
 }
 
-export default page
+export default RoadMap
