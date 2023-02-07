@@ -140,7 +140,7 @@ return (
     {status === "authenticated" && mintStatus ? (
     
         <> {!window.ethereum && <div>
-                                <p className="text-center text-xs block">If you are seeing this message please install the metamask browswer extension or open this page in your crypto wallet browser</p>
+                                <p className="text-center text-xs text-white block">If you are seeing this message please install the metamask browswer extension or open this page in your crypto wallet browser</p>
                                 </div>
         }
             <>{isConnected && 
