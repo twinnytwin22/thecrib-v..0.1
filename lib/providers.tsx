@@ -22,7 +22,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import dynamic from 'next/dynamic';
 import { SessionProvider } from 'next-auth/react';
 import { GetSiweMessageOptions, RainbowKitSiweNextAuthProvider } from '@rainbow-me/rainbowkit-siwe-next-auth';
-import { unstable_getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next"
 import { getAuthOptions } from "pages/api/auth/[...nextauth]";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -105,7 +105,7 @@ export default Providers
 
 
 export async function getServerSideProps(c: any) {
-  const session = await unstable_getServerSession(c.req, c.res, getAuthOptions(c.req))
+  const session = await getServerSession(c.req, c.res, getAuthOptions(c.req))
     return session 
   };
 

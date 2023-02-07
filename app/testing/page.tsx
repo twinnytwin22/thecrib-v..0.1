@@ -1,10 +1,8 @@
 import { getIpfsData } from 'lib/hooks/get-collection-data'
 import React from 'react'
-import { LayloCard } from 'ui/Cards/LayloCard'
+
 import CollectionMinterCard from 'ui/Cards/MintingCard'
-import CribLoader from 'ui/Misc/CribLoader'
-import TestingPanel from 'ui/Testing/TestingPanel'
-import TestUserDashboard from 'ui/Testing/TestTabGroup'
+
 
 async function page() {
   const contractAddress = '0x148280a1395af6F430248c2E4B8063c69B7cA23E'

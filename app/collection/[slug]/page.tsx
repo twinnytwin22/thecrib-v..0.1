@@ -1,12 +1,10 @@
 import { getAllSlugs, getIpfsData, getOwnersForEthCollection, getOwnersPolygonCollection, fetchNFTsForCollection } from 'lib/hooks/get-collection-data';
-import { Children, Suspense } from 'react'
+import { Suspense } from 'react'
 import CollectionNav from 'ui/Navigation/collectionNav';
-import CollectionContent from 'ui/Sections/CollectionContent';
 import CollectionMinter from '../../../ui/Sections/CollectionMinter'
 import { querySlug } from 'lib/hooks/get-collection-data';
 import CribLoader from 'ui/Misc/CribLoader';
 import NotFound from 'ui/Sections/NotFound';
-import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
 
 export async function generateStaticParams() {
   const collections = await getAllSlugs();

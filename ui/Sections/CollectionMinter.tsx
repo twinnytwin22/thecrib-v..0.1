@@ -7,10 +7,7 @@ import { ActiveIndicator, NonActiveIndicator } from 'ui/Misc/Indicator';
 import { useSession } from "next-auth/react"
 import CrossMint from 'ui/Buttons/Crossmint/CrossMint';
 import { IPFSRenderer } from 'ui/Misc/IPFSRenderer';
-import collection from 'studio/schemas/collections/collection';
 import { toast } from 'react-toastify'
-
-
 
 function CollectionMinter(data: any) {
     const currentCollection = data.collection
@@ -30,13 +27,11 @@ function CollectionMinter(data: any) {
     const res = await fetch(sanityAbi);
     return res.json()}
     
-
-
     /// Normal Mint Function takes in the const price    
     async function handleMint() {
         if(isConnected) {
             const abi = await getABI()
-            const provider = new ethers.providers.Web3Provider(window.ethereum as any);
+            const provider = new ethers.providers.Web3Provider(window.ethereum  as any)
             const signer = provider.getSigner();
             const contractInstance = new ethers.Contract(
                 contractAddress,
@@ -145,11 +140,10 @@ return (
     {status === "authenticated" && mintStatus ? (
     
         <> {!window.ethereum && <div>
-                                <p className="text-center block lg:hidden">Mobile devices will require the site to be loaded in your mobile wallet browser</p>
-                                <p className="text-center hidden lg:block ">You may have issues minting from a private browser try again from a non-private browser or mobile wallet</p>
+                                <p className="text-center text-xs block">If you are seeing this message please install the metamask browswer extension or open this page in your crypto wallet browser</p>
                                 </div>
         }
-            <>{window.ethereum && 
+            <>{isConnected && 
                 <>
                 <div className='flex flex-row justify-center justify-start'>
                     <button className="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5  dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
