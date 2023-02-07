@@ -4,11 +4,11 @@ import React from 'react'
 import TestingPanel from 'ui/Testing/TestingPanel'
 
 async function RoadMap() {
-    const roadMap = getAllCollections()
-    if (roadMap) {
-    console.log(roadMap)}
+    const roadMap = await getRoadmap()
+ 
+ 
   return (
-    <TestingPanel props={roadMap}/>
+    <TestingPanel props={roadMap.result}/>
   )
 }
 
