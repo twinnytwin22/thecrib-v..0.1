@@ -3,7 +3,7 @@ import { ConnectToCrib } from '../Buttons/ConnectToCrib'
 import DarkModeSwitch from "ui/Buttons/DarkModeSwitch";
 import SignOutButton from "ui/Buttons/SignOut";
 import { getAuthOptions } from 'pages/api/auth/[...nextauth]'
-import { unstable_getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next"
 import {  NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -12,7 +12,7 @@ import Link from "next/link";
 export async function getSomeProps(c: any) {
   return {
     props: {
-      session: await unstable_getServerSession(c.req, c.res, getAuthOptions(c.req)),
+      session: await getServerSession(c.req, c.res, getAuthOptions(c.req)),
     },
   };
 };

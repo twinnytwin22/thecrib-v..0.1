@@ -1,5 +1,34 @@
 {
   "git.ignoreLimitWarning": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "cSpell.words": [
+    "cribwhitelogo",
+    "crossmint",
+    "DCTA",
+    "dicebear",
+    "drei",
+    "formik",
+    "groq",
+    "immer",
+    "instantsearch",
+    "Kiku",
+    "KIKU",
+    "Laylo",
+    "Lenz",
+    "nextauth",
+    "rainbowkit",
+    "recaptcha",
+    "sendgrid",
+    "siwe",
+    "supabase",
+    "thecribv",
+    "thirdweb",
+    "toastify",
+    "twinesis",
+    "TWINESIS",
+    "Twinny",
+    "urql",
+    "wagmi"
+  ]
 }

@@ -1,9 +1,11 @@
-import React from 'react'
-import BaseModal from 'ui/Modals/BaseModal'
+'use client'
 
-function TestingPanel() {
+import React from 'react'
+
+function TestingPanel(props: any) {
+  console.log(props)
   return (
-   <BaseModal/>
+<div>HELLO</div>
   )
 }
 
