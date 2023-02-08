@@ -16,6 +16,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: "album",
+      title: "Album",
+      type: "string",
+      description: "If this is a single leave blank",
+      validation: Rule => Rule.required()
+    },
+    {
       name: "featuring",
       title: "Featuring",
       type: "string",
