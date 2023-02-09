@@ -1,6 +1,5 @@
 'use client'
 
-export default function SAnalytics() {
 (function(){
   // Create a queue, but don't obliterate an existing one!
   var analytics = window.analytics = window.analytics || [];
@@ -81,4 +80,3 @@ export default function SAnalytics() {
   // move this call however you'd like.
   analytics.page();
 })();
-}
