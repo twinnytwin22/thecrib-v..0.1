@@ -1,14 +1,14 @@
-import { getAllCollections } from 'lib/hooks/get-collection-data'
 import { getRoadmap } from 'lib/hooks/roadmapLogic'
 import React from 'react'
-import TestingPanel from 'ui/Testing/TestingPanel'
-
+import RoadMapPanel from 'ui/Sections/Roadmap/RoadMap'
 async function RoadMap() {
-    const roadMap = await getRoadmap()
- 
+    const roadMapData = await getRoadmap()
+    const data = [
+      roadMapData
+    ]
  
   return (
-    <TestingPanel props={roadMap.result}/>
+   <RoadMapPanel props={data}/>
   )
 }
 

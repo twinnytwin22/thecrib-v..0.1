@@ -1,11 +1,10 @@
-'use client'
-
 import React from 'react'
-
-function TestingPanel(props: any) {
-  console.log(props)
+import RoadMap from 'ui/Sections/Roadmap/RoadMap'
+const TestingPanel = (props: any) => {
   return (
-<div>HELLO</div>
+    <>
+<RoadMap props={props}/>
+</>
   )
 }
 
