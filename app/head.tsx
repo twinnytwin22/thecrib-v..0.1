@@ -7,7 +7,7 @@ export default function Head() {
     
       <Script src="/scripts/segmentAnalytics.js"/>
       <Script  src="https://www.googletagmanager.com/gtag/js?id=G-MPKDV2LKSW"/>
-      <Script src="/scripts/ga.js"/>
+      <Script src="/scripts/gtag.js"/>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="icon" href="/favicon.ico" />
     </>
