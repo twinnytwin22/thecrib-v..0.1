@@ -1,4 +1,3 @@
-'use client'
 
 (function(){
   // Create a queue, but don't obliterate an existing one!
