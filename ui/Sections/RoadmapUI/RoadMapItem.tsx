@@ -1,7 +1,5 @@
-'use client'
 import React from 'react'
 const RoadMapItem = ({data}:any) => {
-    {console.log(data, "data from item")}
 
 const milestones = data.map((milestone: any, i: any) => 
 <li key={i} className='mb-10 ml-6'>
