@@ -2,8 +2,8 @@ import { PlayCircleIcon } from '@heroicons/react/24/outline';
 import { urlFor } from 'lib/hooks/sanityImage';
 import VideoLightbox from 'ui/Modals/VideoModal';
 
-const CollectorsSection = (settings: any ) => {
-    const set = settings.settings.result[0]
+const CollectorsSection = ({settings}: any ) => {
+    const set = settings.result[0]
     const image = urlFor(set?.secondSectionImmage).width(400).url()
 
 

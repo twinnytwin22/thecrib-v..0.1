@@ -24,10 +24,8 @@ function RootLayout({ children }: Props) {
     <div className="bg-white dark:bg-gray-900">
         <Providers >
           <NewNavBar/> 
-          <Suspense fallback={
-         <div className="h-96 m-40">
+          <Suspense fallback={        
          <CribLoader/>
-         </div>
           }>   
 
             {children}      

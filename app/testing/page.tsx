@@ -1,24 +1,25 @@
-import { getIpfsData } from 'lib/hooks/get-collection-data'
+import { getAllCollections } from 'lib/hooks/get-collection-data'
+import { getRoadmap } from 'lib/hooks/rm-logic'
 import React from 'react'
-
-import CollectionMinterCard from 'ui/Cards/MintingCard'
-
-
-async function page() {
-  const contractAddress = '0x148280a1395af6F430248c2E4B8063c69B7cA23E'
-  const metaData = await getIpfsData(contractAddress)
-
-  console.log(metaData, 'other md')
+async function RoadMapPage() {
+  const roadMapData = await getAllCollections()
+   if (!roadMapData){
+    console.log('got damn')
+   }else{
+    console.log(roadMapData as string)
+   }
+  
+ 
+   
   return (
-    <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">
-<CollectionMinterCard/>
-    </div>
+ 
+   <div className='h-96'>
+  {roadMapData && roadMapData.result.map((e: any) => {
+    <p key={e._id}> {e.title}</p>
+   
+  }) }
+</div>
   )
 }
 
-export default page
-
-
-
-
-
+export default RoadMapPage

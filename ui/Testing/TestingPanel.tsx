@@ -1,5 +1,5 @@
 import React from 'react'
-import RoadMap from 'ui/Sections/Roadmap/RoadMap'
+import RoadMap from 'ui/Sections/RoadmapUI/RoadMapPanel'
 const TestingPanel = (props: any) => {
   return (
     <>
