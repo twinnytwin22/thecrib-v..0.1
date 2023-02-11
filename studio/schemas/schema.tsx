@@ -5,6 +5,8 @@ import tag from './collections/tag';
 import blockContent from "./blockContent";
 import siteconfig from "./siteConfig";
 import roadmap from "./roadmap/roadMap"
+import milestone from './roadmap/milestone';
+import quarter from './roadmap/quarter';
 import StatusLabel from './roadmap/StatusLabel';
 
 // Then import schema types from any plugins that might expose them
@@ -14,4 +16,6 @@ export const schemaTypes = [
    song,
    blockContent,
    roadmap,
+   milestone, 
+   quarter,
    siteconfig, ]

@@ -1,6 +1,3 @@
-
-
-
 export default {
   name: 'roadmap',
   title: 'Roadmap',
@@ -12,50 +9,29 @@ export default {
       type: 'string'
     },
     {
-      name: 'milestones',
-      title: 'Milestones',
+      name: 'quarter1',
+      title: 'Quarter 1',
+      type: 'reference',
+      to: [{ type: 'quarter' }]
+    },
+    {
+      name: 'milestones1',
+      title: 'Milestones Quarter 1',
       type: 'array',
-      of: [
-        {
-          type: 'object',
-          components: {
-            preview: '' // Add custom preview component
-          }, 
-          fields: [
-            {
-              name: 'title',
-              title: 'Title',
-              type: 'string'
-            },
-            {
-              name: 'status',
-              title: 'Status',
-              type: 'string',
-              
-
-              options: {
-                list: [
-                  { title: 'Completed', value: 'completed' },
-                  { title: 'In Progress', value: 'inProgress' },
-                  { title: 'In Queue', value: 'inQueue' }
-                ],
-                layout: 'radio'
-              }
-            },
-            {
-              name: 'description',
-              title: 'Description',
-              type: 'text'
-            },
-            {
-              name: 'date',
-              title: 'Date',
-              type: 'date'
-            },
-            
-          ]
-        }
-      ]
-    }
+      of: [{ type: 'milestone' }]
+    },
+    {
+      name: 'quarter2',
+      title: 'Quarter 2',
+      type: 'reference',
+      to: [{ type: 'quarter' }]
+    },
+    {
+      name: 'milestones2',
+      title: 'Milestones Quarter 2',
+      type: 'array',
+      of: [{ type: 'milestone' }]
+    },
+    // Repeat this pattern for each quarter
   ]
 }
