@@ -5,7 +5,7 @@ import CribLoader from 'ui/Misc/CribLoader'
 
 
 
-async function page({roadmap}: any) {
+async function RMpage() {
 const data = await getRoadmap()
 
 
@@ -35,4 +35,4 @@ const data = await getRoadmap()
   )
 }
 
-export default page
+export default RMpage
