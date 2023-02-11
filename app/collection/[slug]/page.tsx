@@ -50,16 +50,18 @@ async function SingleCollection(params: any) {
 const collectionProps =[
   collection,
   chainData,
+  collectors,
   nfts 
 ]
   return (
 
         <Suspense fallback={<CribLoader/>}>
         <CollectionMinter collection={collection} data={ipfsProps}  />
-    <CollectionNav props={collectionProps} collectors={collectors}/>
+    <CollectionNav props={collectionProps}/>
        
         </Suspense>
   )
 }
+
 
 export default SingleCollection

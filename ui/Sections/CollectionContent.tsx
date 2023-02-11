@@ -3,18 +3,17 @@ import React from 'react'
 import { YoutubeVideo } from 'ui/Misc/YoutubeVideo'
 import CollectorList from '../Cards/CollectorList'
 import CollectionStats from '../Misc/CollectionStats'
-const CollectionContent = (data: any) => {
-const info = data?.data?.props[0]
-const collection = data?.data?.props[1].collection
-const collectors = data
-const properties = data?.collection?.traits 
+const CollectionContent = ({data}: any) => {
+const info = data.props[0]
+const collection = data?.props[1].collection
+const properties = collection?.traits 
 const id = '2g811Eo7K8U'
 
 return (
     <section className="bg-white dark:bg-gray-900 ">
-        <div className="gap-8 items-start mx-auto py-8 px-4 mx-auto max-w-7xl md:max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="gap-8 items-start mx-auto py-8 px-4 max-w-7xl md:max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <div className="hidden md:block">
-            <CollectorList collectors={collectors}/>
+            <CollectorList collectors={data?.props[2]}/>
             </div>
             <div className="mt-4 md:mt-0">
               <CollectionStats data={collection}/>

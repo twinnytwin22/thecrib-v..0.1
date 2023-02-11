@@ -2,14 +2,13 @@
 import Pagination from 'lib/hooks/pagination';
 import { GetENSName, GetENSAvi } from 'lib/hooks/getENS';
 import React, { useState } from "react";
-const CollectorList = (collectors: any) => {
+const CollectorList = ({collectors}: any) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
     const indexEnd = currentPage * itemsPerPage;
     const indexStart = indexEnd - itemsPerPage;
-    const currentCollectors = collectors.collectors.data?.collectors?.ownerAddresses.slice(indexStart, indexEnd);
-
-    const totalCollectors = collectors.collectors.data?.collectors?.ownerAddresses
+    const currentCollectors = collectors?.ownerAddresses.slice(indexStart, indexEnd);
+    const totalCollectors = collectors?.ownerAddresses
     const excludeDead = '0x000000000000000000000000000000000000dead'
 
 

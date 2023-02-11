@@ -5,8 +5,9 @@ import ContactForm from 'ui/Contact/ContactPageForm'
 import CollectionContent from 'ui/Sections/CollectionContent'
 import ViewNfts from 'ui/Sections/ViewNfts'
 
-function CollectionNav(props: any) {
+function CollectionNav({props}: any) {
   const [activeTab, setActiveTab] = useState('details')
+
   
   
   return (
@@ -22,8 +23,8 @@ function CollectionNav(props: any) {
   </div>
 </div>
 <div className="w-screen p-6">
-        {activeTab === 'details' && <CollectionContent data={props} />}
-        {activeTab === 'view-collection' && <ViewNfts nfts={props}/>}
+        {activeTab === 'details' && <CollectionContent data={{props}} />}
+        {activeTab === 'view-collection' && <ViewNfts nfts={{props}}/>}
     
       </div>
 </div>   
