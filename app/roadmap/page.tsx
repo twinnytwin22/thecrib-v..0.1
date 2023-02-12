@@ -6,7 +6,7 @@ import MileStoneList from 'ui/Sections/RoadmapUI/MilestoneList'
 
 async function RMpage() {
 const res = await getRoadmap()
-const data = res.result
+const data = res?.result
 
   return (
    

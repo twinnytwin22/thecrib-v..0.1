@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const quarters = [
   { name: "Q1", id: 1 },
   { name: "Q2", id: 2 },
