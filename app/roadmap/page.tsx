@@ -1,5 +1,6 @@
 import { getRoadmap } from 'lib/hooks/rm-logic'
 import React, {Suspense} from 'react'
+import RoadMapHero from 'ui/HeroBanners/RoadMapHero'
 import CribLoader from 'ui/Misc/CribLoader'
 import MileStoneList from 'ui/Sections/RoadmapUI/MilestoneList'
 
@@ -16,8 +17,9 @@ const data = res?.result
             <span className="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">🔥</span> <span className="text-sm font-medium">Not a collector yet? Let's make it happen!</span> 
             <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
         </a>
-        <div> 
+        <div className='w-full text-left p-4'> 
       <Suspense fallback={<CribLoader/>}>
+        <RoadMapHero/>
        <MileStoneList data={data}/>
        </Suspense>
        </div>
