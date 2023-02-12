@@ -9,26 +9,59 @@ export default {
       type: 'string'
     },
     {
-      name: 'quarter1',
+      name: 'q1',
       title: 'Quarter 1',
       type: 'reference',
       to: [{ type: 'quarter' }]
     },
     {
-      name: 'milestones1',
+      name: 'm1',
       title: 'Milestones Quarter 1',
       type: 'array',
-      of: [{ type: 'milestone' }]
+      of: [
+        { 
+          weak: true,
+          type: 'reference',
+          to: [
+            {type: 'milestone'},
+        
+          ]
+        }
+      ]
     },
     {
-      name: 'quarter2',
+      name: 'q2',
       title: 'Quarter 2',
       type: 'reference',
       to: [{ type: 'quarter' }]
     },
     {
-      name: 'milestones2',
+      name: 'm2',
       title: 'Milestones Quarter 2',
+      type: 'array',
+      of: [{ type: 'milestone' }]
+    },
+    {
+      name: 'q3',
+      title: 'Quarter 3',
+      type: 'reference',
+      to: [{ type: 'quarter' }]
+    },
+    {
+      name: 'm3',
+      title: 'Milestones Quarter 3',
+      type: 'array',
+      of: [{ type: 'milestone' }]
+    },
+    {
+      name: 'q4',
+      title: 'Quarter 4',
+      type: 'reference',
+      to: [{ type: 'quarter' }]
+    },
+    {
+      name: 'm4',
+      title: 'Milestones Quarter 4',
       type: 'array',
       of: [{ type: 'milestone' }]
     },

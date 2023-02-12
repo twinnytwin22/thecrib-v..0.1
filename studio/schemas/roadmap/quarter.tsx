@@ -24,11 +24,9 @@ export default {
         type: 'date'
       },
       {
-        name: 'milestone',
-        title: 'Milestone',
-        type: 'reference',
-        weak: true,
-        to: [{ type: 'milestone' }]
+        name: "milestones",
+        type: "array",
+        of: [{ type: "reference", to: [{ type: "milestone" }] }]
       },
     ]
   }

@@ -22,9 +22,11 @@ export default {
         name: 'quarter',
         title: 'Quarter',
         type: 'reference',
-        weak: true,
-        to: [{ type: 'quarter' }]
+        to: [{ type: 'quarter' }],
+        options: {
+          disableNew: true,
       },
+    }
     ]
   }
   
