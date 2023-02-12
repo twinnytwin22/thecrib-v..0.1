@@ -6,7 +6,9 @@ import CribLoader from 'ui/Misc/CribLoader'
 
 
 async function RMpage() {
-const data = await getRoadmap()
+const res = await getRoadmap()
+const data = res.result
+
 
 
   return (
@@ -20,7 +22,7 @@ const data = await getRoadmap()
         <div> 
           <Suspense fallback={<CribLoader/>}>
 
-       <RoadMapItem data={data.result!}/>
+       <RoadMapItem data={data!}/>
        </Suspense>
        </div>
        
