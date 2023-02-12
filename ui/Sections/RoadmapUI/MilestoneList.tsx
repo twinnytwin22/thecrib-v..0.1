@@ -33,9 +33,9 @@ const MileStoneList = ({data}:any) => {
 
   return (
     <div className="mx-auto min-w-5xl max-w-8xl w-full items-center justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 drop-shadow-sm	">
       {quarters.map(quarter => (
-        <div key={quarter.id} className="bg-gray-100 dark:bg-gray-700 rounded-2xl p-10">
+        <div key={quarter.id} className="bg-gray-100 dark:bg-gray-700 rounded-2xl p-10 drop-shadow-md">
           <h2 className="text-3xl mb-5 text-center font-bold">{quarter.name}</h2>
           <ul className='relative border-l border-gray-200 dark:border-gray-500 w-full'>
             {milestonesByQuarter[quarter.name].map(milestone => (

@@ -4,7 +4,7 @@ import CribScene from 'ui/Models/ThreeDCrib';
   export default function Hero3DCribBanner(settings: any) {
    const set = settings.settings.result[0]
     return (
-      <section className="bg-white dark:bg-gray-900 max-w-screen">
+      <div className="bg-white dark:bg-gray-900 max-w-screen">
       <div className="grid w-full px-4 py-16 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-2 md:grid-cols-1 whitespace-normal ">
           <div className="mx-10 place-self-center whitespace-normal">
               <h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-7xl xl:text-8xl text-gray-900 dark:text-white uppercase whitespace-normal">{set.homeHeadLine}</h1>
@@ -19,7 +19,7 @@ import CribScene from 'ui/Models/ThreeDCrib';
           </div>                
       </div>
   <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700"></hr>
-  </section>
+  </div>
     );
   };
 
