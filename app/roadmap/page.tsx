@@ -20,7 +20,7 @@ const data = await getRoadmap()
         <div> 
           <Suspense fallback={<CribLoader/>}>
 
-       <RoadMapItem data={data.result}/>
+       <RoadMapItem data={data.result!}/>
        </Suspense>
        </div>
        
