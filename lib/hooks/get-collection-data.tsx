@@ -76,6 +76,8 @@ export async function getOwnersForEthCollection(contract: any) {
   return res.json()
 
 }
+
+
 export async function fetchNFTsForCollection (contract: any) {
       const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTsForCollection`;
       const URL = `${baseURL}?contractAddress=${contract}&withMetadata=${"true"}`;

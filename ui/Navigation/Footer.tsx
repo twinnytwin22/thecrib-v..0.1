@@ -17,6 +17,9 @@ export function Footer() {
                <FooterSocialIcons/>
             </li>
             <li>
+                <a href="/holder" className="hover:underline">Holders</a>
+            </li>
+            <li>
                 <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
             </li>
          

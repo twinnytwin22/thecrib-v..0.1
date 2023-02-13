@@ -15,7 +15,9 @@ const resurgenceContract = {
     abi: erc721ABI,
 }
 
-const CollectorChecker = (walletAddress: any) => {
+
+export function tokenGates(walletAddress: any) {
+  console.log("tg:", walletAddress)
     const { data } = useContractReads({
         contracts: [
             {
@@ -55,4 +57,3 @@ const CollectorChecker = (walletAddress: any) => {
     );
   };
   
-  export default CollectorChecker;

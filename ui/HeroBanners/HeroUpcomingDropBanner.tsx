@@ -18,7 +18,7 @@ export default function LatestDrop() {
         <p className="mb-3 font-normal text-gray-200">Introducing the World to CRIB Music, house music with extra sauce, Twinny Twin present CRIB Music Vol 1. A compilation of his released works up to now! Kick your feet up, or not and dance! Enjoy.</p>
          
         </div>
-        <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex ">
+        <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
             <LatestPostCard/>
         </div>                
     </div>

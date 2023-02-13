@@ -6,14 +6,15 @@ import { useSession } from "next-auth/react"
 import { ConnectToCrib } from 'ui/Buttons/ConnectToCrib';
 import { GetENSName } from 'lib/hooks/getENS';
 import HolderTabContainer from './HolderTabContainer';
-import { useContractReads, erc721ABI } from 'wagmi';
-import CribLoader from 'ui/Misc/CribLoader';
+import { tokenGates } from 'lib/hooks/tokenGates';
 function HolderGate() {
   const [hasAccess, setHasAccess] = useState(false);
   const { data: session, status } = useSession()
       // Fetch content from protected route 
   const walletAddress = session?.address
-
+  const holder = tokenGates(walletAddress)
+  console.log(session?.address, "wa")
+  console.log(holder, 'holder')
 
   
   return (

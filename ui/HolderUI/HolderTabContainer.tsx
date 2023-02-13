@@ -3,6 +3,8 @@ import { useState } from 'react'
 import TestRoomHome from 'ui/Testing/HolderUI/TestRoomHome'
 import HolderInventory from './HolderInventory'
 import HolderSettings from './HolderSettings'
+import RoomHomeTab from './RoomHomeTab'
+import RoomIP from './RoomIP'
 
 const HolderTabContainer = () => {
   const [activeTab, setActiveTab] = useState('room')
@@ -18,7 +20,7 @@ const HolderTabContainer = () => {
           My Room
         </button>
         <button
-        className={`px-4 py-2 text-sm font-medium text-white bg-white border border-gray-200  hover:bg-gray-100 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 ${activeTab === 'items' ? 'bg-gray-400 text-white' : 'bg-gray-600'}`}          
+        className={`disabled px-4 py-2 text-sm font-medium text-white bg-white border border-gray-200  hover:bg-gray-100 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 ${activeTab === 'items' ? 'bg-gray-400 text-white' : 'bg-gray-600'}`}          
         onClick={() => setActiveTab('items')}
         >
           Inventory
@@ -42,14 +44,14 @@ const HolderTabContainer = () => {
 const RoomHome = () => {
   return (
     <div className='w-full max-w-7xl mx-auto h-screen min-h-full bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
-     <TestRoomHome/>
+<RoomIP/>
    </div>)
    }
 
 const Items = () => {
   return (
     <div className='w-full max-w-7xl mx-auto h-screen bg-gray-200 pb-20 dark:bg-gray-600 rounded-2xl mb-4 p-4'>
-<HolderInventory/>
+<RoomIP/>
 </div>)
 }
 
