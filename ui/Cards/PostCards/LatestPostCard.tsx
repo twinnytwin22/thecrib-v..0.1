@@ -3,7 +3,7 @@ import React from 'react'
 function LatestPostCard() {
   return (
     <>
-<div className="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div className="max-w-xs bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 shadow-md">
     <a href="/collection/cribmusicv1">
     </a>
     <div className="p-5">

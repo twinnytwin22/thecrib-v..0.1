@@ -1,6 +1,7 @@
 import { getAllCollections } from 'lib/hooks/get-collection-data'
 import { getRoadmap } from 'lib/hooks/rm-logic'
 import React from 'react'
+import TestingMarquee from 'ui/Testing/TestingMarquee'
 async function RoadMapPage() {
   const roadMapData = await getAllCollections()
    if (!roadMapData){
@@ -13,11 +14,8 @@ async function RoadMapPage() {
    
   return (
  
-   <div className='h-96'>
-  {roadMapData && roadMapData.result.map((e: any) => {
-    <p key={e._id}> {e.title}</p>
-   
-  }) }
+   <div className='h-96 max-w-screen w-full'>
+  <TestingMarquee/>
 </div>
   )
 }
