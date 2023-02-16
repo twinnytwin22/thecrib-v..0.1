@@ -17,6 +17,9 @@ export function Footer() {
                <FooterSocialIcons/>
             </li>
             <li>
+                <a href="/roadmap" className="hover:underline">Roadmap</a>
+            </li>
+            <li>
                 <a href="/holder" className="hover:underline">Holders</a>
             </li>
             <li>

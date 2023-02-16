@@ -25,7 +25,8 @@ const data = await res?.result
       <Suspense fallback={<CribLoader/>}>
         <RoadMapHero settings={settings}/>
        <MileStoneList data={data}/>
-       <GemsHero/>
+       {!res.result &&
+       <GemsHero/>}
        </Suspense>
        </div>
        
