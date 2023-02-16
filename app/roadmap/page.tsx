@@ -1,14 +1,17 @@
+import { getPageSettings } from 'lib/hooks/pageSettings'
 import { getRoadmap } from 'lib/hooks/rm-logic'
 import React, {Suspense} from 'react'
 import GemsHero from 'ui/HeroBanners/GemsHero'
-import RoadMapHero from 'ui/HeroBanners/RoadMapHero'
+import RoadMapHero from 'ui/Sections/RoadmapUI/RoadMapHero'
 import CribLoader from 'ui/Misc/CribLoader'
 import MileStoneList from 'ui/Sections/RoadmapUI/MilestoneList'
 
 
 async function RMpage() {
+const querysettings = await getPageSettings()
+const settings = await querysettings?.result[0]
 const res = await getRoadmap()
-const data = res?.result
+const data = await res?.result
 
   return (
    
@@ -20,7 +23,7 @@ const data = res?.result
         </a>
         <div className='w-full text-left p-4 mx-auto'> 
       <Suspense fallback={<CribLoader/>}>
-        <RoadMapHero/>
+        <RoadMapHero settings={settings}/>
        <MileStoneList data={data}/>
        <GemsHero/>
        </Suspense>

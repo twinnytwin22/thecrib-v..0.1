@@ -1,6 +1,6 @@
 export default {
     name: 'quarter',
-    title: 'Quarter',
+    title: 'Roadmap',
     type: 'document',
     fields: [
       {

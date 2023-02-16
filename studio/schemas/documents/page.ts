@@ -1,128 +1,102 @@
-import { DocumentIcon, ImageIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
-
-export default defineType({
-  type: 'document',
-  name: 'page',
-  title: 'Page',
-  fields: [
-    defineField({
-      type: 'string',
-      name: 'title',
-      title: 'Title',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      type: 'slug',
-      name: 'slug',
-      title: 'Slug',
-      options: {
-        source: 'title',
-      },
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'overview',
-      description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
-      title: 'Overview',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
-      validation: (rule) => rule.max(155).required(),
-    }),
-    defineField({
-      type: 'array',
-      name: 'body',
-      title: 'Body',
-      description:
-        "This is where you can write the page's content. Including custom blocks like timelines for more a more visual display of information.",
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-          },
-          styles: [],
-        }),
-        // Custom blocks
-        defineArrayMember({
-          name: 'timeline',
-          type: 'timeline',
-        }),
-        defineField({
-          type: 'image',
-          name: 'image',
-          title: 'Image',
-          options: {
-            hotspot: true,
-          },
-          preview: {
-            select: {
-              imageUrl: 'asset.url',
-              title: 'caption',
-            },
-          },
-          fields: [
-            defineField({
-              title: 'Caption',
-              name: 'caption',
-              type: 'string',
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt text',
-              description:
-                'Alternative text for screenreaders. Falls back on caption if not set',
-            }),
-          ],
-        }),
-      ],
-    }),
+export default {
+  name: "pageSettings",
+  type: "document",
+  title: "Page Settings",
+  __experimental_actions: [
+    "create", /*"delete", */ "update", "publish"
   ],
-  preview: {
-    select: {
-      title: 'title',
+  groups: [
+    {
+      name: 'text',
+      title: 'Text',
     },
-    prepare({ title }) {
-      return {
-        subtitle: 'Page',
-        title,
-      }
+    {
+      name: 'images',
+      title: 'Images',
     },
-  },
-})
+    {
+      name: 'tagging',
+      title: 'Tagging',
+    },
+    
+  ],
+  fieldsets: [
+    {
+      title: 'Taxonomy',
+      name: 'taxonomy',
+    },
+    {
+      title: 'Info',
+      name: 'info',
+      options: {
+        columns: 2,
+      },
+    },
+    {
+      title: 'Page',
+      name: 'Page',
+    },
+  ],
+  fields: [
+    {
+      name: "title",
+      type: "string",
+      title: "Page title"
+    },
+    {
+      name: "pageHeadLine",
+      type: "string",
+      title: "Page Headline",
+      group: "text",
+      
+    },
+    {
+      name: "pageSubLine",
+      type: "string",
+      group: "text",
+      title: "Page Subtext"
+    },
+    {
+      title: 'Page Image 1',
+      name: 'page1Immage1',
+      type: 'image',
+      group: "images",
+
+    },
+    {
+      title: 'Page Image 2',
+      name: 'page1Immage2',
+      type: 'image',
+      group: "images",
+
+    },
+    {
+      title: 'Page Image 3',
+      name: 'page1Immage3',
+      type: 'image',
+      group: "images",
+
+    },
+    {
+      name: "pageText1",
+      type: "text",
+      title: "Page Text 1"
+    },
+    {
+      name: "pageText2",
+      type: "text",
+      title: "Page Text 2"
+    },
+    {
+      name: "pageText3",
+      type: "text",
+      title: "Page Text 3"
+    },
+    
+   
+ 
+    
+    // other fields
+    // ...
+  ]
+}

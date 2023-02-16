@@ -8,6 +8,7 @@ import roadmap from "./roadmap/roadMap"
 import milestone from './roadmap/milestone';
 import quarter from './roadmap/quarter';
 import StatusLabel from './roadmap/StatusLabel';
+import page from './documents/page'
 
 // Then import schema types from any plugins that might expose them
 export const schemaTypes = [
@@ -15,7 +16,7 @@ export const schemaTypes = [
    tag,
    song,
    blockContent,
-   roadmap,
    milestone, 
    quarter,
+   page,
    siteconfig, ]

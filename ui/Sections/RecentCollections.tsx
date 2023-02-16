@@ -5,7 +5,7 @@ import { urlFor } from 'lib/hooks/sanityImage';
 import { ActiveIndicator, NonActiveIndicator } from 'ui/Misc/Indicator';
 import { isHolderBenefit } from "ui/Misc/HolderBadge";
 
-  export default function RecentCollections(collection: any) {
+  export default function RecentCollections({collections}: any) {
     
 
     return (
@@ -15,7 +15,7 @@ import { isHolderBenefit } from "ui/Misc/HolderBadge";
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Recent Drops</h2>
       </div> 
       <div className="grid gap-8 lg:grid-cols-3">
-          {collection.collections.result.slice(0,3).map((collection: any, i:any) => (
+          {collections.result.slice(0,3).map((collection: any, i:any) => (
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" key={i}>
 
               <img className="w-72 h-72 rounded-lg gap-10 object-cover scale-100" 

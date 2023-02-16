@@ -14,6 +14,11 @@ export default {
         type: 'text'
       },
       {
+        name: 'url',
+        title: 'Related URL',
+        type: 'url',
+      },
+      {
         name: 'completed',
         title: 'Completed',
         type: 'boolean'
