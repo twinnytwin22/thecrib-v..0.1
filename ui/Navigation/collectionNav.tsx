@@ -7,7 +7,7 @@ import ViewNfts from 'ui/Sections/ViewNfts'
 
 function CollectionNav({props}: any) {
   const [activeTab, setActiveTab] = useState('details')
-
+console.log(props, 'cn')
   
   
   return (
@@ -24,7 +24,7 @@ function CollectionNav({props}: any) {
 </div>
 <div className="w-screen p-6">
         {activeTab === 'details' && <CollectionContent data={{props}} />}
-        {activeTab === 'view-collection' && <ViewNfts nfts={{props}}/>}
+        {activeTab === 'view-collection' && <ViewNfts props={props}/>}
     
       </div>
 </div>   
