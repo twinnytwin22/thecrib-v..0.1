@@ -7,6 +7,7 @@ import Twinny from 'ui/Cards/Twinny';
 import LayloSection from 'ui/Sections/LayloSection';
 import LatestDrop from 'ui/HeroBanners/HeroUpcomingDropBanner'
 import WelcomeMarquee from 'ui/Marquees/WelcomeMarquee'
+import RMInfo from 'ui/HeroBanners/RoadMapInfo'
 
 
 async function Home() {
@@ -20,9 +21,10 @@ const homeSettings = await getSiteSettings()
         <WelcomeMarquee/>
         </div>
         <Twinny/>
-        <LatestDrop/>
+     
         <RecentCollections collections={collections} />    
-        <hr className=' max-w-7xl w-full dark:opacity-25' />
+        <hr className=' max-w-7xl w-full dark:opacity-25 mb-10' /> 
+        <RMInfo/>
            <LayloSection/>
            <TwinOnLenz/>
          <div className='mb-20'/>
