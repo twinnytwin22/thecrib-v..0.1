@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import LatestPostCard from 'ui/Cards/PostCards/LatestPostCard'
 
-export default function LatestDrop() {
+export default function RMInfo() {
     const bgImage = "/assets/lving-small.png"
   return (
     <section className="bg-white bg-cover dark:bg-gray-900 max-w-sm md:max-w-6xl w-full my-8 shadow-md rounded-2xl" style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', }} >

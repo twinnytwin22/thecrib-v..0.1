@@ -1,7 +1,6 @@
 import { getPageSettings } from 'lib/hooks/pageSettings'
 import { getRoadmap } from 'lib/hooks/rm-logic'
 import React, {Suspense} from 'react'
-import GemsHero from 'ui/HeroBanners/GemsHero'
 import RoadMapHero from 'ui/Sections/RoadmapUI/RoadMapHero'
 import CribLoader from 'ui/Misc/CribLoader'
 import MileStoneList from 'ui/Sections/RoadmapUI/MilestoneList'
