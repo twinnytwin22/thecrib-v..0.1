@@ -9,6 +9,7 @@ function RoadmapPages() {
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">There are many ways to contribute.</h2>
           <p className="text-gray-500 sm:text-xl dark:text-gray-400">Whether you're a developer, a musician, or just a believer in good things there is never a shortage of things to do.</p>
       </div>
+      {!window &&
       <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
           <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
@@ -31,7 +32,7 @@ function RoadmapPages() {
               <h3 className="mb-2 text-xl font-bold dark:text-white">Business Automation</h3>
               <p className="text-gray-500 dark:text-gray-400">Auto-assign tasks, send Slack messages, and much more. Now power up with hundreds of new templates to help you get started.</p>
           </div>
-      </div>
+      </div>}
   </div>
 </div>
     </div>

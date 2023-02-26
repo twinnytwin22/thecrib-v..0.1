@@ -24,8 +24,6 @@ const data = await res?.result
         <RoadMapHero settings={settings}/>
        <MileStoneList data={data}/>
        <RoadmapPages/>
-       {!res.result &&
-       <GemsHero/>}
        </Suspense>
        </div>
        
