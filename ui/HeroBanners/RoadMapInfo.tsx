@@ -13,7 +13,7 @@ export default function RMInfo() {
 
             <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-200">Our version of a roadmap </h5>
     
-        <p className="max-w-lg mb-6 mt-4 font-normal text-gray-200 mx-auto">On the road to open-source, we'd like to be a transparent as possible with our milestones, plans, and intentions. There are many way you can contribute right now.</p>
+        <p className="max-w-lg mb-6 mt-4 font-normal text-gray-200 mx-auto">On the road to open-source, we'd like to be as transparent as possible with our milestones, plans, and intentions. There are many ways you can contribute right now.</p>
          
         <a href="/roadmap" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center rounded-lg hover:bg-red-600 bg-blue-800  text-white ">
                     View Blueprint

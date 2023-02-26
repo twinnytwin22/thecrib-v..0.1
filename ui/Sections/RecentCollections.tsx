@@ -4,7 +4,8 @@ import RecentCollectionCard from "ui/Cards/RecentCollectionCard";
 
 
   export default function RecentCollections({collections}: any) {
-    
+    const recentCollections = collections?.result.sort((a: any,b: any) => b.mintactive  - a.mintactive)
+    console.log(recentCollections, "rc")
 
     return (
       <div className="bg-white dark:bg-gray-900">
@@ -13,7 +14,7 @@ import RecentCollectionCard from "ui/Cards/RecentCollectionCard";
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Recent Drops</h2>
             </div>    
       <div className="grid gap-8 lg:grid-cols-3">
-          {collections.result.slice(0,3).map((collection: any, i: any) => (
+          {recentCollections.slice(0,3).map((collection: any, i: any) => (
          <div key={i}>          
             <RecentCollectionCard collection={collection}/>
          </div>  
