@@ -5,7 +5,6 @@ import RecentCollectionCard from "ui/Cards/RecentCollectionCard";
 
   export default function RecentCollections({collections}: any) {
     const recentCollections = collections?.result.sort((a: any,b: any) => b.mintactive  - a.mintactive)
-    console.log(recentCollections, "rc")
 
     return (
       <div className="bg-white dark:bg-gray-900">

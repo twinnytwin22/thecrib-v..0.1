@@ -5,6 +5,7 @@ import CribFinder from "../Misc/CribFinder"
 
   
   export default function AllCollections(collections: any) {
+    const allCollections = collections?.collections.result.sort((a: any,b: any) => b.mintactive  - a.mintactive)
 
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -20,7 +21,7 @@ import CribFinder from "../Misc/CribFinder"
             <CribFinder/>
             </div>
             <div className="mx-10 md:mx-auto grid gap-8  md:grid-cols-2">
-             {collections.collections.result.map((collection: any) => (
+             {allCollections.map((collection: any) => (
                    <CollectionCard collections={collection}/>
              ))}
               
