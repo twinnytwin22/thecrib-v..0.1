@@ -1,60 +1,57 @@
-import { IncomingMessage } from 'http';
-import { NextApiRequest, NextApiResponse } from 'next';
-import NextAuth, { NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { getCsrfToken } from 'next-auth/react';
-import { SiweMessage } from 'siwe';
-
-
-
+import { IncomingMessage } from "http";
+import { NextApiRequest, NextApiResponse } from "next";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { getCsrfToken } from "next-auth/react";
+import { SiweMessage } from "siwe";
 
 export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
- 
   const providers = [
     CredentialsProvider({
       async authorize(credentials) {
         try {
-          const nURL = process.env.NEXTAUTH_URL as string 
-          const siwe = new SiweMessage(JSON.parse(credentials?.message || "{}"))
-          const nextAuthUrl = new URL(nURL)
+          const nURL = process.env.NEXTAUTH_URL as string;
+          const siwe = new SiweMessage(
+            JSON.parse(credentials?.message || "{}")
+          );
+          const nextAuthUrl = new URL(nURL);
 
           const result = await siwe.verify({
             signature: credentials?.signature || "",
             domain: nextAuthUrl.host,
             nonce: await getCsrfToken({ req }),
-          })
-       
+          });
 
           if (result.success) {
             return {
               id: siwe.address,
-            }
+            };
           }
-          return null
+          return null;
         } catch (e) {
-          return null
+          return null;
         }
       },
       credentials: {
         message: {
-          label: 'Message',
-          placeholder: '0x0',
-          type: 'text',
+          label: "Message",
+          placeholder: "0x0",
+          type: "text",
         },
         signature: {
-          label: 'Signature',
-          placeholder: '0x0',
-          type: 'text',
+          label: "Signature",
+          placeholder: "0x0",
+          type: "text",
         },
       },
-      name: 'Ethereum',
+      name: "Ethereum",
     }),
   ];
 
   return {
     callbacks: {
       async session({ session, token }) {
-        session.address = token.sub; 
+        session.address = token.sub;
         session.user = {
           name: token.sub,
         };
@@ -65,7 +62,7 @@ export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
     providers,
     secret: process.env.NEXTAUTH_SECRET,
     session: {
-      strategy: 'jwt',
+      strategy: "jwt",
     },
   };
 }
@@ -76,13 +73,13 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
   const authOptions = getAuthOptions(req);
 
   if (!Array.isArray(req.query.nextauth)) {
-    res.status(400).send('Bad request');
+    res.status(400).send("Bad request");
     return;
   }
 
   const isDefaultSigninPage =
-    req.method === 'GET' &&
-    req.query.nextauth.find(value => value === 'signin');
+    req.method === "GET" &&
+    req.query.nextauth.find((value) => value === "signin");
 
   // Hide Sign-In with Ethereum from default sign page
   if (isDefaultSigninPage) {

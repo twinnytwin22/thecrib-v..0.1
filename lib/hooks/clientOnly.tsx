@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
 // Imports
 // ========================================================
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // Page
 // ========================================================
-export default function ClientOnly({ children }: { children: React.ReactNode }) {
-    // State / Props
-    const [hasMounted, setHasMounted] = useState(false);
+export default function ClientOnly({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // State / Props
+  const [hasMounted, setHasMounted] = useState(false);
 
-    // Hooks
-    useEffect(() => {
-        setHasMounted(true);
-    }, [])
+  // Hooks
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
-    // Render
-    if (!hasMounted) return null;
+  // Render
+  if (!hasMounted) return null;
 
-    return (
-        <div>
-            {children}
-        </div>
-    );
-};
+  return <div>{children}</div>;
+}

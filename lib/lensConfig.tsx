@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { LensConfig, staging } from '@lens-protocol/react';
-import { useProfile } from '@lens-protocol/react';
-import { localStorage } from '@lens-protocol/react/web';
-import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
+import { LensConfig, staging } from "@lens-protocol/react";
+import { useProfile } from "@lens-protocol/react";
+import { localStorage } from "@lens-protocol/react/web";
+import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 
 export const lensConfig: LensConfig = {
   bindings: wagmiBindings(),
@@ -12,6 +12,8 @@ export const lensConfig: LensConfig = {
 };
 
 export function LensProfile() {
-    const { data: profile, loading } = useProfile({ handle: 'djtwinnytwin.lens'});
-    // ...
-  }
+  const { data: profile, loading } = useProfile({
+    handle: "djtwinnytwin.lens",
+  });
+  // ...
+}

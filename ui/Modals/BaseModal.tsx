@@ -1,5 +1,5 @@
-'use client'
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 function BaseModal() {
   const [isOpen, setIsOpen] = useState(false);
