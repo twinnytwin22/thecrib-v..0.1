@@ -3,9 +3,8 @@ import groq from 'groq'
 import { apiVersion, dataset, projectId } from "studio/lib/sanity.api";
 const ethApiKey = process.env.NEXT_PUBLIC_ALCHEMY_ID
 const polygonApiKey = process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID
-const count = 0
-const maxTries = 3
-const waitSeconds = 5
+import fetchWithRetry from './fetchWithRetry';
+
 
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -67,12 +66,12 @@ export const query = groq`*[_type == "collection" && slug.current == $slug][0]{
 }`
 
 export async function getOwnersPolygonCollection(contract: any) {
-  const res = await fetch(`https://polygon-mainnet.g.alchemy.com/nft/v2/${polygonApiKey}/getOwnersForCollection?contractAddress=${contract}&withTokenBalances=true`, getRequestOptions)
+  const res = await fetchWithRetry(`https://polygon-mainnet.g.alchemy.com/nft/v2/${polygonApiKey}/getOwnersForCollection?contractAddress=${contract}&withTokenBalances=true`, getRequestOptions)
   return res.json()
 }
 
 export async function getOwnersForEthCollection(contract: any) {
-  const res = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getOwnersForCollection?contractAddress=${contract}&withTokenBalances=true`, getRequestOptions)
+  const res = await fetchWithRetry(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getOwnersForCollection?contractAddress=${contract}&withTokenBalances=true`, getRequestOptions)
   return res.json()
 
 }
@@ -81,20 +80,20 @@ export async function getOwnersForEthCollection(contract: any) {
 export async function fetchNFTsForCollection (contract: any) {
       const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTsForCollection`;
       const URL = `${baseURL}?contractAddress=${contract}&withMetadata=${"true"}`;
-      const nfts = await fetch(URL, getRequestOptions,);
+      const nfts = await fetchWithRetry(URL, getRequestOptions,);
       return nfts.json()
     }
 
 
 export async function fetchCollectionOS(currentSlug: any) { 
-    const data = await fetch(`https://api.opensea.io/api/v1/collection/${currentSlug}`, OSoptions as any)
+    const data = await fetchWithRetry(`https://api.opensea.io/api/v1/collection/${currentSlug}`, OSoptions as any)
     return data.json()
   }
 
 export async function getCribNfts(address: string, setNFTs: any) {
     if (address) {
       console.log('Loading NFTs')
-      const res = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTs?owner=${address}&pageSize=100&contractAddresses[]=0x148280a1395af6F430248c2E4B8063c69B7cA23E`, getRequestOptions);
+      const res = await fetchWithRetry(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTs?owner=${address}&pageSize=100&contractAddresses[]=0x148280a1395af6F430248c2E4B8063c69B7cA23E`, getRequestOptions);
     if (res) {
       console.log('NFTs Loaded')}
       const nfts = res.json().then((nfts: any) => {setNFTs(nfts.ownedNfts)})
@@ -107,7 +106,7 @@ export async function getIpfsData(contractAddress: any) {
   if (contractAddress) {
 }
   const conAddress = contractAddress as string
-  const metadata = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTMetadata?contractAddress=${conAddress}&tokenId=2`, getRequestOptions);
+  const metadata = await fetchWithRetry(`https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTMetadata?contractAddress=${conAddress}&tokenId=2`, getRequestOptions);
   return metadata.json()
 
 }
