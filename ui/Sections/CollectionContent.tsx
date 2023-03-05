@@ -1,14 +1,22 @@
 'use client'
 import React from 'react'
 import { YoutubeVideo } from 'ui/Misc/YoutubeVideo'
-import CollectorList from '../Cards/CollectorList'
-import CollectionStats from '../Misc/CollectionStats'
+import dynamic from 'next/dynamic'
 const CollectionContent = ({data}: any) => {
 const info = data.props[0]
 const collection = data?.props[1].collection
 const properties = collection?.traits 
 const id = '2g811Eo7K8U'
 
+const CollectorList = dynamic(
+  () => import('ui/Cards/CollectorList'),
+{ ssr: false }
+);
+
+const CollectionStats = dynamic(
+  () => import('ui/Misc/CollectionStats'),
+{ ssr: false }
+);
 return (
     <section className="bg-white dark:bg-gray-900 ">
         <div className="gap-8 items-start mx-auto py-8 px-4 max-w-7xl md:max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
