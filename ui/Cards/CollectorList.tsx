@@ -1,7 +1,13 @@
 'use client'
-import Pagination from 'lib/hooks/pagination';
+import dynamic from 'next/dynamic';
 import { GetENSName, GetENSAvi } from 'lib/hooks/getENS';
 import React, { useState } from "react";
+
+const Pagination = dynamic(
+  () => import("lib/hooks/pagination"),
+  { ssr: false }
+);
+
 const CollectorList = ({collectors}: any) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);

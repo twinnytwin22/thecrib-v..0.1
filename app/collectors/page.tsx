@@ -1,13 +1,15 @@
 import { getOwnersForEthCollection } from "lib/hooks/get-collection-data";
 import Link from "next/link";
 import React from "react";
-import AllCollectorsTable from "ui/Sections/AllCollectorsTable";
-import EmailSignUp from "ui/Sections/EmailSignUp";
+import dynamic from "next/dynamic";
+
+const AllCollectorsTable = dynamic(() => import("ui/Sections/AllCollectorsTable"), {
+  ssr: false,
+});
 
 async function Collectors() {
   const contract = "0x148280a1395af6F430248c2E4B8063c69B7cA23E";
   const collectors = await getOwnersForEthCollection(contract);
-  console.log(collectors);
 
   return (
     <div className="flex w-screen flex-col items-center bg-white dark:bg-gray-900">

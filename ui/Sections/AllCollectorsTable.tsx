@@ -1,5 +1,5 @@
 "use client";
-import Pagination from "lib/hooks/pagination";
+import dynamic from "next/dynamic";
 import { GetENSName, GetENSAvi } from "lib/hooks/getENS";
 import React, { useState } from "react";
 const AllCollectorList = (collectors: any, loading: any) => {
@@ -16,6 +16,12 @@ const AllCollectorList = (collectors: any, loading: any) => {
   const address = currentCollectors?.map((t: any, i: any) => {
     return t.ownerAddress;
   });
+
+  const Pagination = dynamic(
+    () => import("lib/hooks/pagination"),
+    { ssr: false }
+  );
+  
 
   // Change page
   const paginateFront = () => setCurrentPage(currentPage + 1);
