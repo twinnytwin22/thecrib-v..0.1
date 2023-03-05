@@ -1,9 +1,12 @@
 'use client'
-import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import ContactForm from 'ui/Contact/ContactPageForm'
 import CollectionContent from 'ui/Sections/CollectionContent'
-import ViewNfts from 'ui/Sections/ViewNfts'
+
+const ViewNfts = dynamic(
+  () => import('ui/Sections/ViewNfts'),
+{ ssr: false }
+);
 
 function CollectionNav({props}: any) {
   const [activeTab, setActiveTab] = useState('details')
