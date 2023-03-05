@@ -1,4 +1,4 @@
-const MAX_RETRIES = 3;
+const MAX_RETRIES = 5;
 const RETRY_DELAY_MS = 1000;
 
 async function fetchWithRetry(url: string, options: RequestInit = {}, retries = 0): Promise<Response> {
