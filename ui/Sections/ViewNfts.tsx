@@ -3,7 +3,6 @@ import NFTCard from 'ui/Cards/NFTCard'
 
 function ViewNfts({props}: any) {
 const NFTs = props[3]
-console.log(NFTs, 'looking for nfts')
 
 
 
