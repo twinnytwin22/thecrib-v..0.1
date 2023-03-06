@@ -20,7 +20,7 @@ const NewNavBar: NextPage = () => {
   const { status } = useSession();
 
   return (
-    <div className="bg-black fixed">
+    <div className="bg-black fixed w-full max-w-screen">
       <nav className="bg-black border-gray-200 mx-5 md:mx-auto items-center lg:px-6 py-2.5 dark:bg-black">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <a href="/" className="flex items-center">
