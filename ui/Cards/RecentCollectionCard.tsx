@@ -11,7 +11,7 @@ function RecentCollectionCard({ collection }: any) {
       <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto content-center justify-center">
         <img
           className="w-72 h-72 rounded-lg gap-10 object-cover scale-100 mx-auto content-center justify-center"
-          src={urlFor(collection?.nftImage).width(200).url()}
+          src={urlFor(collection?.nftImage).width(400).url()}
           alt="Collection Image"
         />
         <div className="flex justify-center mt-3 ">
