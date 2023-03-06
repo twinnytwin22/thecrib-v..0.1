@@ -7,6 +7,7 @@ const Pagination = dynamic(
   () => import("lib/hooks/pagination"),
   { ssr: false }
 );
+ 
 
 const CollectorList = ({collectors}: any) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +22,7 @@ const CollectorList = ({collectors}: any) => {
     // Change page
     const paginateFront = () => setCurrentPage(currentPage + 1);
     const paginateBack = () => setCurrentPage(currentPage - 1);
-    
+
     return (
         
              <div className="w-full max-w-2xl p-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
