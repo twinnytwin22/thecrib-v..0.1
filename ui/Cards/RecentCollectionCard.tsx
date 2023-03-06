@@ -28,7 +28,7 @@ function RecentCollectionCard({ collection }: any) {
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center space-x-4">
             <h2
-              className="mb-2 text-lg md:text-2xl uppercase font-bold tracking-tight text-gray-900 dark:text-white"
+              className="mb-2 text-lg lg:text-2xl uppercase font-extrabold tracking-tight text-gray-900 dark:text-white"
               key={collection.title}
             >
               <Link href={`/collection/${collection?.slug.current}`}>
