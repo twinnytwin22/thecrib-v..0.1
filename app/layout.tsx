@@ -22,7 +22,13 @@ function RootLayout({ children }: Props) {
         <div className="bg-white dark:bg-gray-900">
           <Providers>
             <NewNavBar />
-            <Suspense fallback={<CribLoader />}>{children}</Suspense>
+           
+            <Suspense fallback={<CribLoader />}>
+            <main className="mt-12">
+
+              {children}
+              </main>
+              </Suspense>
             <Footer />
             <MobileMenu />
           </Providers>
