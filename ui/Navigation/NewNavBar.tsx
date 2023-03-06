@@ -78,7 +78,7 @@ const NewNavBar: NextPage = () => {
           </div>
         </div>
       </nav>
-    </header>
+    </div>
   );
 };
 
