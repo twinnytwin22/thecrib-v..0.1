@@ -7,7 +7,7 @@ import { isHolderBenefit } from "ui/Misc/HolderBadge";
 
 function RecentCollectionCard({ collection }: any) {
   return (
-    <div>
+    <div className="block max-w-sm mx-auto">
       <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto content-center justify-center">
         <img
           className="w-72 h-72 rounded-lg gap-10 object-cover scale-100 mx-auto content-center justify-center"
@@ -28,7 +28,7 @@ function RecentCollectionCard({ collection }: any) {
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center space-x-4">
             <h2
-              className="mb-2 text-2xl uppercase font-bold tracking-tight text-gray-900 dark:text-white"
+              className="mb-2 text-lg md:text-2xl uppercase font-bold tracking-tight text-gray-900 dark:text-white"
               key={collection.title}
             >
               <Link href={`/collection/${collection?.slug.current}`}>
@@ -39,7 +39,7 @@ function RecentCollectionCard({ collection }: any) {
           </div>
           <Link
             href={`collection/${collection?.slug.current}`}
-            className="inline-flex items-center font-medium text-primary-600 text-gray-900 dark:text-white hover:underline"
+            className="inline-flex items-center text-sm md:text-md font-medium text-primary-600 text-gray-900 dark:text-white hover:underline"
           >
             View Drop
             <svg
@@ -59,7 +59,7 @@ function RecentCollectionCard({ collection }: any) {
         <div className="mx-auto" key={collection.tags}>
           {collection.tags?.slice(0, 3).map((tag: any, i: any) => (
             <span
-              className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900"
+              className="bg-gray-100 text-gray-800 text-[8px] md:text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900"
               key={i}
             >
               {tag}
