@@ -6,6 +6,15 @@ import { ActiveIndicator, NonActiveIndicator } from "ui/Misc/Indicator";
 import { isHolderBenefit } from "ui/Misc/HolderBadge";
 
 function RecentCollectionCard({ collection }: any) {
+  const MintPrice = () => {
+    return (
+      <div className="flex relative">
+        <p className="text-sm dark:bg-black p-1 rounded-lg items-center font-bold content-center">
+          {collection.mintPrice}ETH
+        </p>
+      </div>
+    );
+  };
   return (
     <div className="block max-w-sm mx-auto">
       <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto content-center justify-center">
@@ -14,15 +23,16 @@ function RecentCollectionCard({ collection }: any) {
           src={urlFor(collection?.nftImage).width(400).url()}
           alt="Collection Image"
         />
-        <div className="flex justify-center mt-3 ">
+        <div className="flex justify-center mt-3 content-center items-center">
           <h6
             className="text-xs mt-0.5 uppercase text-gray-900 dark:text-white tracking-tight pr-5"
             key={collection.mintactive}
           >
-            Mint Status:
+          Status:
           </h6>
-          {collection?.mintactive === true && <ActiveIndicator />}
-          {collection?.mintactive === false && <NonActiveIndicator />}
+          {collection?.mintactive === true && <><ActiveIndicator /><MintPrice/></>}
+          {collection?.mintactive === false && <><NonActiveIndicator /><div className="m-3.5"/></>}
+          
         </div>
 
         <div className="flex justify-between items-center mt-2">
