@@ -18,6 +18,15 @@ function CollectionMinter({ collection, data }: any) {
   /// Mint Amount and Price Data - Pulls Price from Sanity
   const [mintAmount, setMintAmount] = useState(1);
   const price = collection?.mintPrice;
+  const MintPrice = () => {
+    return (
+      <div className="flex relative">
+        <p className="text-sm dark:bg-black p-1 rounded-lg items-center font-bold content-center text-center">
+          {collection.mintPrice}ETH
+        </p>
+      </div>
+    )
+  }
 
   ///Images - Pulling from Sanity
   const image = urlFor(collection?.nftImage).width(600).url();
@@ -161,14 +170,15 @@ function CollectionMinter({ collection, data }: any) {
             <h1 className="text-5xl font-bold text-white text-center uppercase">
               {collection.title}
             </h1>
-            <div className="flex h-5 justify-center">
-              <h6 className="text-sm mb-2 uppercase text-white tracking-tight pr-5">
+            <div className="flex items-center content-center justify-center">
+              <h6 className="text-sm uppercase text-white tracking-tight pr-5">
                 {" "}
-                Mint Status:
+                Status:
               </h6>
-              {mintStatus && ActiveIndicator()}{" "}
-              {!mintStatus && NonActiveIndicator()}
+              {mintStatus && <><ActiveIndicator/><MintPrice/></>}{" "}
+              {!mintStatus && <NonActiveIndicator/>}
             </div>
+   
             {status === "authenticated" && mintStatus ? (
               <>
                 {!window.ethereum && (
