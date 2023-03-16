@@ -1,4 +1,4 @@
-import LayloBar from "ui/Modals/LayloModals";
+import { LayloBar } from "ui/Modals/LayloModals";
 import CollectionCard from "../Cards/CollectionCard";
 import AllStats from "../Misc/AllStats";
 import CribFinder from "../Misc/CribFinder";

@@ -1,5 +1,4 @@
 import { getOwnersForEthCollection } from "lib/hooks/get-collection-data";
-import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
 

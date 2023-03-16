@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { LayloCard } from "ui/Cards/LayloCard";
 import { UpcomingLayloCard } from "ui/Cards/UpcomingLayloCard";
 
 export const UpcomingLayloBar = (image: any) => {
