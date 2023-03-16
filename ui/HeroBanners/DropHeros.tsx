@@ -76,7 +76,7 @@ export function UpcomingDrop() {
               </h5>
             </a>
             <p className="mb-3 font-normal text-gray-200">
-          Music NFT by Twinny Twin
+          Music NFT by Twinny Twin minting March 22nd, 2023
             </p>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
