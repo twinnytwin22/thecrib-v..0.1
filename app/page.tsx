@@ -5,9 +5,9 @@ import { getSiteSettings } from "lib/hooks/pageSettings";
 import TwinOnLenz from "ui/HeroBanners/TwinOnLenz";
 import Twinny from "ui/Cards/Twinny";
 import LayloSection from "ui/Sections/LayloSection";
-import LatestDrop from "ui/HeroBanners/HeroUpcomingDropBanner";
 import WelcomeMarquee from "ui/Marquees/WelcomeMarquee";
 import RMInfo from "ui/HeroBanners/RoadMapInfo";
+import { UpcomingDrop } from "ui/HeroBanners/DropHeros";
 
 async function Home() {
   const collections = await getAllCollections();
@@ -20,7 +20,7 @@ async function Home() {
         <WelcomeMarquee />
       </div>
       <Twinny />
-
+ <UpcomingDrop/>
       <RecentCollections collections={collections} />
       <hr className=" max-w-7xl w-full dark:opacity-25 mb-10" />
       <RMInfo />
