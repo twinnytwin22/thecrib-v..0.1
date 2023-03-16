@@ -1,4 +1,5 @@
 import React from 'react'
+import { SocialShareRow } from 'ui/Misc/SocialShare'
 import { UpcomingLayloBar } from 'ui/Modals/UpcomingDropNotify'
 
 function UpcomingDropCard({image}: any) {
@@ -9,7 +10,9 @@ function UpcomingDropCard({image}: any) {
     </a>
     <div className="p-5">
       <img src={image} className="w-72 rounded-2xl mb-4"/>
+      <div className='flex justify-between'>
        <UpcomingLayloBar/>
+       <SocialShareRow/></div>
     </div>
 </div>
 </>

@@ -45,9 +45,9 @@ async function SingleCollection(params: any) {
     );
   }
 
-  const contract = collection ? (collection.contract as string) : "";
+  const contract = collection ? (collection?.contract as string) : "";
   const collectors =
-    collection.chain === "polygon"
+    collection?.chain === "polygon"
       ? await getOwnersPolygonCollection(contract)
       : await getOwnersForEthCollection(contract);
   const metadata = await getIpfsData(contract);
