@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { urlFor } from "lib/hooks/sanityImage";
-import { ActiveIndicator, NonActiveIndicator } from "ui/Misc/Indicator";
+import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 import { isHolderBenefit } from "ui/Misc/HolderBadge";
 
 function RecentCollectionCard({ collection }: any) {
@@ -26,12 +26,13 @@ function RecentCollectionCard({ collection }: any) {
         <div className="flex justify-center mt-3 content-center items-center">
           <h6
             className="text-xs mt-0.5 uppercase text-gray-900 dark:text-white tracking-tight pr-5"
-            key={collection.mintactive}
+            key={collection.minStatus}
           >
           Status:
           </h6>
-          {collection?.mintactive === true && <><ActiveIndicator /><MintPrice/></>}
-          {collection?.mintactive === false && <><NonActiveIndicator /><div className="m-3.5"/></>}
+          {collection?.mintStatus === 'active' && <><ActiveIndicator/><MintPrice/></>}
+          {collection?.mintStatus === 'inactive' && <><NonActiveIndicator /><div className="m-3.5"/></>}
+          {collection?.mintStatus === 'upcoming' && <><UpcomingIndicator /><MintPrice/><div className="m-3.5"/></>}
           
         </div>
 

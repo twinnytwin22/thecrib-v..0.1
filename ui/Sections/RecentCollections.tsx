@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function RecentCollections({ collections }: any) {
   const recentCollections = collections?.result.sort(
-    (a: any, b: any) => b.mintactive - a.mintactive
+    (a: any, b: any) => b.mintStatus - a.mintStatus
   );
   const settings = {
     dots: true,

@@ -35,7 +35,7 @@ async function fetchCollectionOS(currentSlug: any) {
 
 async function SingleCollection(params: any) {
   const collection = await querySlug(params);
-  const currentSlug = (await collection?.slug?.current) || "";
+  const currentSlug = await collection?.slug?.current || "";
   const chainData = await fetchCollectionOS(currentSlug);
   if (collection === null) {
     return (
@@ -43,6 +43,11 @@ async function SingleCollection(params: any) {
         <NotFound />
       </>
     );
+  }
+  if (chainData === null) {
+    return (
+      <CribLoader/>
+    )
   }
 
   const contract = collection ? (collection?.contract as string) : "";
@@ -55,6 +60,7 @@ async function SingleCollection(params: any) {
 
   const ipfsProps = [metadata, contract];
   const collectionProps = [collection, chainData, collectors, nfts];
+  
   return (
     <Suspense fallback={<CribLoader />}>
       <CollectionMinter collection={collection} data={ipfsProps} />

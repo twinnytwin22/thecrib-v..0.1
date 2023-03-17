@@ -3,8 +3,8 @@ import React from "react";
 import { YoutubeVideo } from "ui/Misc/YoutubeVideo";
 import dynamic from "next/dynamic";
 const CollectionContent = ({ data }: any) => {
-  const info = data.props[0];
-  const collection = data?.props[1].collection;
+  const info = data?.props[0];
+  const collection = data?.props[1]?.collection;
   const properties = collection?.traits;
   const id = "2g811Eo7K8U";
 
@@ -67,7 +67,7 @@ const CollectionContent = ({ data }: any) => {
                 Token Type:
               </h5>
               <p className="mb-4 text-md tracking-tight font-md text-gray-900 dark:text-white">
-                {collection?.primary_asset_contracts[0].schema_name}
+                {collection?.primary_asset_contracts[0]?.schema_name}
               </p>
             </div>
             <div className="flex">
@@ -83,7 +83,7 @@ const CollectionContent = ({ data }: any) => {
                 Tags:
               </h5>
               <div className="mx-auto ">
-                {info.tags?.map((tag: any) => (
+                {info?.tags?.map((tag: any) => (
                   <span
                     className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900 "
                     key={tag}

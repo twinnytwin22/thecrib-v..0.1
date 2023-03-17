@@ -1,12 +1,14 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import { urlFor } from "lib/hooks/sanityImage";
-import { ActiveIndicator, NonActiveIndicator } from "ui/Misc/Indicator";
+import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 
 function CollectionCard(collections: any, i: any) {
   const collection = collections?.collections;
   const description = collection?.description;
-  const mintStatus = collection?.mintactive as boolean;
+  const mintStatus = collection?.mintStatus as string;
+  console.log(mintStatus, 'MS')
   const MintPrice = () => {
     return (
       <div className="flex relative">
@@ -38,9 +40,11 @@ function CollectionCard(collections: any, i: any) {
             <h6 className="hidden md:block text-sm uppercase text-gray-900 dark:text-white tracking-tight pr-5 items-center">
               Status:
             </h6>
-            {mintStatus && ActiveIndicator()}{" "}
-            {!mintStatus && NonActiveIndicator()}
-            {mintStatus === true && <MintPrice />}
+            {mintStatus == 'upcoming' && UpcomingIndicator()}{" "}
+            {mintStatus == 'active' && ActiveIndicator()}{" "}
+            {mintStatus == 'inactive' && NonActiveIndicator()}
+            {mintStatus !== 'inactive' && <MintPrice />}
+
           </div>
           <p className="hidden lg:block mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">
             {description}

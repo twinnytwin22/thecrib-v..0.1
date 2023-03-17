@@ -7,7 +7,7 @@ import {
 export const SocialShareRow = () => {
     return (
         <>
-        <TwitterShareButton
+        <TwitterShareButton 
   url={'https://thecrib.space'}
   title={'Check out @djtwinnytwin\'s upcoming drop at:'}
   hashtags={['#Always #CribMusic']}>

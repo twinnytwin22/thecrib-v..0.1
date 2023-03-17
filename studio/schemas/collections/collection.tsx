@@ -78,12 +78,18 @@ export default {
 
       },
       {
-        title: 'Is Mint Active?',
-        name: 'mintactive',
-        type: 'boolean',
+        name: 'mintStatus',
+        title: 'Mint Status',
+        type: 'string',
+        options: {
+          list: [
+            {title: 'Active', value: 'active'},
+            {title: 'Inactive', value: 'inactive'},
+            {title: 'Upcoming', value: 'upcoming'}
+          ]
+        },
         fieldset: 'info',
-        group: 'info',
-
+        group: 'info'
       },
       {
         title: 'Is Holder Benefit?',
