@@ -4,6 +4,7 @@ export default [
             {title: 'Collaboration', value: 'Collab'},
             {title: 'Visual Art', value: 'Visual Art'},
             {title: 'Sound.xyz', value: 'Sound.xyz'},
+            {title: 'Decent.xyz', value: 'Decent.xyz'},
             {title: 'Manifold', value: 'Manifold'},
             {title: 'OneofOne', value: '1/1'},
             {title: 'AR/VR', value: 'AR/VR'},

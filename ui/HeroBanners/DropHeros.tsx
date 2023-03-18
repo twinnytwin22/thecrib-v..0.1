@@ -81,6 +81,7 @@ export function UpcomingDrop() {
             </p>
             <div className="mx-auto justify-items-center content-center justify-center">
             <LaunchCountdown targetDate={TARGET_DATE}/></div>
+            <Link href="https://raritysniper.com/nft-drops-calendar"><img className="w-8" src="/assets/logo1.png"/></Link>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
             <UpcomingDropCard image={Image} />
