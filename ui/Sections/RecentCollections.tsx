@@ -1,14 +1,44 @@
-"use client";
-import React from "react";
+"use client";import React from "react";
 import RecentCollectionCard from "ui/Cards/RecentCollectionCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function RecentCollections({ collections }: any) {
-  const recentCollections = collections?.result.sort(
-    (a: any, b: any) => b.mintStatus - a.mintStatus
-  );
+interface Collection {
+  mintStatus: string;
+  _createdAt: string;
+  // add any other properties that you are using in your component
+}
+
+interface Props {
+  collections: {
+    result: Collection[];
+  };
+}
+
+export default function RecentCollections({ collections }: Props) {
+  const allCollections = collections?.result || [];
+
+  const recentCollections = allCollections
+    .filter((collection: Collection) => collection.mintStatus !== "upcoming")
+    .sort((a: Collection, b: Collection) => {
+      if (a.mintStatus === "active") {
+        if (b.mintStatus === "active") {
+          // both have active mintStatus, sort by _createdAt
+          return new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime();
+        } else {
+          // a has active mintStatus, so it should come first
+          return -1;
+        }
+      } else if (b.mintStatus === "active") {
+        // b has active mintStatus, so it should come first
+        return 1;
+      } else {
+        // neither have upcoming or active mintStatus, sort by _createdAt
+        return new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime();
+      }
+    });
+
   const settings = {
     dots: true,
     infinite: true,
@@ -43,15 +73,17 @@ export default function RecentCollections({ collections }: any) {
           </h2>
         </div>
         <div className="mx-auto">
-        <div className="w-full mx-auto px-8 md:px-24 xl:px-4">
-        <Slider {...settings}>
-          {recentCollections.slice(0, 4).map((collection: any, i: any) => (
-            <div key={i} className="md:px-5 mx-auto">
-              <RecentCollectionCard collection={collection} />
-            </div>
-          ))}</Slider>
+          <div className="w-full mx-auto px-8 md:px-24 xl:px-4">
+            <Slider {...settings}>
+              {recentCollections.slice(0, 4).map((collection: Collection, i: number) => (
+                <div key={i} className="md:px-5 mx-auto">
+                  <RecentCollectionCard collection={collection} />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
-      </div></div>
+      </div>
       <div className="flex justify-center items-center w-full mb-16 mt-6 mx-auto">
         <a
           href="/explore"

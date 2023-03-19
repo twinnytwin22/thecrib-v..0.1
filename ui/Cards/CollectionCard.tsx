@@ -4,14 +4,13 @@ import Link from "next/link";
 import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 
-function CollectionCard(collections: any, i: any) {
-  const collection = collections?.collections;
+function CollectionCard({collection, i}:any) {
   const description = collection?.description;
   const mintStatus = collection?.mintStatus as string;
   console.log(mintStatus, 'MS')
   const MintPrice = () => {
     return (
-      <div className="flex relative">
+      <div className="flex relative" key={collection.mintPrice}>
         <p className="text-sm dark:bg-black p-2 rounded-lg items-center font-bold content-center">
           {collection.mintPrice}ETH
         </p>
@@ -20,7 +19,7 @@ function CollectionCard(collections: any, i: any) {
   };
 
   return (
-    <div key={collection}>
+    <div key={collection._id}>
       <Link
         href={`collection/${collection?.slug?.current}`}
         className="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -38,11 +37,10 @@ function CollectionCard(collections: any, i: any) {
           </h5>
           <div className="flex mb-3 content-center items-center">
             <h6 className="hidden md:block text-sm uppercase text-gray-900 dark:text-white tracking-tight pr-5 items-center">
-              Status:
             </h6>
-            {mintStatus == 'upcoming' && UpcomingIndicator()}{" "}
-            {mintStatus == 'active' && ActiveIndicator()}{" "}
-            {mintStatus == 'inactive' && NonActiveIndicator()}
+            {mintStatus == 'upcoming' && <UpcomingIndicator/>}{" "}
+            {mintStatus == 'active' && <ActiveIndicator/>}{" "}
+            {mintStatus == 'inactive' && <NonActiveIndicator/>}
             {mintStatus !== 'inactive' && <MintPrice />}
 
           </div>
@@ -52,7 +50,7 @@ function CollectionCard(collections: any, i: any) {
           <div className="mx-auto">
             {collection?.tags?.map((tag: any) => (
               <span
-                key={collection.tag}
+                key={tag}
                 className="bg-gray-100 text-gray-800 text-[8px] md:text-[10px] lg:text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900"
               >
                 {tag}

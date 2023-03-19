@@ -28,7 +28,6 @@ function RecentCollectionCard({ collection }: any) {
             className="text-xs mt-0.5 uppercase text-gray-900 dark:text-white tracking-tight pr-5"
             key={collection.minStatus}
           >
-          Status:
           </h6>
           {collection?.mintStatus === 'active' && <><ActiveIndicator/><MintPrice/></>}
           {collection?.mintStatus === 'inactive' && <><NonActiveIndicator /><div className="m-3.5"/></>}

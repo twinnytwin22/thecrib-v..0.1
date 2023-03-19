@@ -45,7 +45,7 @@ export async function getSiteSettings() {
 }
 export async function getAllCollections() {
   const res = await fetch(
-    `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=*%5B_type%20%3D%3D%20%22collection%22%5D`
+    `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=*%5B_type%20%3D%3D%20%22collection%22%5D%0A%7C%20order(%0A%20%20%20%20mintStatus%20%3D%3D%20%22upcoming%22%2C%0A%20%20%20%20mintStatus%20%3D%3D%20%22active%22%2C%0A%20%20%20%20mintStatus%20%3D%3D%20%22inactive%22%2C%0A%20%20%20%20createdDate%2C%0A%20%20%20%20-mintPrice%2C%0A%20%20%20%20title%0A%20%20)%0A`
   );
   return res.json();
 }
