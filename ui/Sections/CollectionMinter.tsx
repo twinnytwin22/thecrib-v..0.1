@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { ethers, BigNumber } from "ethers";
 import { useAccount } from "wagmi";
 import { urlFor } from "lib/hooks/sanityImage";
@@ -193,6 +194,10 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'inactive' && <NonActiveIndicator />}
             </div>
             {mintStatus === "upcoming" && <LaunchCountdown targetDate={TARGET_DATE}/>}
+            {decentSDK &&  <div className="flex w-full mx-auto p-2 justify-center mt-4" ><p className="text-sm font-bold">Powered by:</p>
+            <Link href='https://hq.decent.xyz/1/Editions/0xbbCB210C147030fe4DB924182c10fE5B6775a86c'>
+            <img className="w-36" src= "/assets/DecentLogos/decent-gradient-full.svg"/></Link></div>
+          }
             {status === "authenticated" && mintStatus === "active" ? (
               <>
                 {!signer && (
