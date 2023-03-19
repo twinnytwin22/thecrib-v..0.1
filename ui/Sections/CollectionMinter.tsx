@@ -8,16 +8,26 @@ import { useSession } from "next-auth/react";
 import CrossMint from "ui/Buttons/Crossmint/CrossMint";
 import { IPFSRenderer } from "ui/Misc/IPFSRenderer";
 import { toast } from "react-toastify";
+import { useSigner } from "wagmi";
+import { DecentSDK, edition } from "@decent.xyz/sdk";
+import handleTxError from "lib/handleTxError";
 
 function CollectionMinter({ collection, data }: any) {
   /// Grabbing User Session and Address
   const { status } = useSession();
   const { address } = useAccount();
   const isConnected = !!address;
+  const provider = new ethers.providers.Web3Provider(window.ethereum as any);
+  const signer = provider.getSigner();
+
+
+
+  /// Web3 Connection 
+  const RPC = 'https://ethereum-mainnet-rpc.allthatnode.com'
 
   /// Mint Amount and Price Data - Pulls Price from Sanity
   const [mintAmount, setMintAmount] = useState(1);
-  const price = collection?.mintPrice;
+  const price: number = collection?.mintPrice;
   const MintPrice = () => {
     return (
       <div className="flex relative">
@@ -25,17 +35,23 @@ function CollectionMinter({ collection, data }: any) {
           {collection.mintPrice}ETH
         </p>
       </div>
-    )
-  }
+    );
+  };
 
   ///Images - Pulling from Sanity
   const image = urlFor(collection?.nftImage).width(600).url();
   const bgImage = urlFor(collection?.nftImage).url();
 
   ///Contract Information - Pull Mint status from Sanity
-  const contractAddress = collection.contract;
+  const contractAddress = collection?.contract;
+  const contractAddress2 = '0x2A1583aA340Ef05E857384108BDEd279beb2fDdB';
+  const chainId = 1
   const sanityAbi = collection?.abiURL;
-  const mintStatus = collection?.mintactive as boolean;
+  const mintStatus: string = collection?.mintStatus
+  console.log('ms:',mintStatus, 'collection:',collection)
+  const tags = [...collection?.tags];
+  const decentSDK = tags.includes("Decent.xyz");
+  console.log(decentSDK);
 
   /// Fetching Contract ABI - Stored in Sanity
   async function getABI() {
@@ -43,27 +59,17 @@ function CollectionMinter({ collection, data }: any) {
     return res.json();
   }
 
+
+
   /// Normal Mint Function takes in the const price
   async function handleMint() {
     if (isConnected) {
       const abi = await getABI();
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum as any
-      );
-      const signer = provider.getSigner();
-      const contractInstance = new ethers.Contract(
-        contractAddress,
-        abi.abi,
-        signer
-      );
+      const contractInstance = new ethers.Contract(contractAddress, abi.abi, signer);
       try {
-        const response = await contractInstance.publicPurchase(
-          address?.toString(),
-          BigNumber.from(mintAmount),
-          {
-            value: ethers.utils.parseEther((price * mintAmount).toString()),
-          }
-        );
+        const response = await contractInstance.publicPurchase(address, BigNumber.from(mintAmount), {
+          value: ethers.utils.parseEther((price * mintAmount).toString()),
+        });
         console.log("response: ", response);
       } catch (err) {
         console.log("error: ", err);
@@ -71,72 +77,47 @@ function CollectionMinter({ collection, data }: any) {
       }
     }
   }
+  
   /// This handles free claims for TWINESIS Holders -twinesisPurchase will never change.
   async function handleClaim() {
-    if (isConnected) {
-      const abi = await getABI();
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum as any
+    if (!isConnected) return;
+    const abi = await getABI();
+    const contractInstance = new ethers.Contract(contractAddress, abi.abi, signer);
+    try {
+      const response = await contractInstance.twinesisPurchase(
+        address?.toString(),
+        BigNumber.from(mintAmount),
+        {
+          value: ethers.utils.parseEther((0.0 * mintAmount).toString()),
+        }
       );
-      const signer = provider.getSigner();
-      const contractInstance = new ethers.Contract(
-        contractAddress,
-        abi.abi,
-        signer
-      );
-      try {
-        const response = await contractInstance.twinesisPurchase(
-          address?.toString(),
-          BigNumber.from(mintAmount),
-          {
-            value: ethers.utils.parseEther((0.0 * mintAmount).toString()),
-          }
-        );
-        console.log("response: ", response);
-      } catch (err) {
-        console.log(address);
-        toast("Please update your balance and try again");
-      }
+      console.log("response: ", response);
+    } catch (err) {
+      console.log(address);
+      toast("Please update your balance and try again");
     }
   }
   /// This handles the minting of a TWINESIS, very unique set up, so I had to hard code - OPEN FOR FEEDBACK AND PR
   async function handleTwinesisMint() {
     try {
-      if (isConnected) {
-        const tPrice = 0.06;
-        const abi = await getABI();
-        const provider = new ethers.providers.Web3Provider(
-          window.ethereum as any
-        );
-        const signer = provider.getSigner();
-        const contractInstance = new ethers.Contract(
-          contractAddress,
-          abi.abi,
-          signer
-        );
-        let tx;
-
-        if (mintAmount == 1) {
-          tx = await contractInstance.mintTwin({
-            value: ethers.utils.parseEther(tPrice.toString()),
-          });
-        } else if (mintAmount > 1) {
-          tx = await contractInstance.mintTwins(mintAmount, {
-            value: ethers.utils.parseEther((tPrice * mintAmount).toString()),
-          });
-        }
-        const receipt = await tx.wait();
-        if (receipt.status === 1) {
-          console.log("Twinesis minted! https://etherscan.com/tx/" + tx.hash);
-        } else {
-          toast("Please update your balance and try again");
-        }
-      }
+      if (!isConnected) return;
+      const tPrice = 0.06;
+      const abi = await getABI();
+      const contractInstance = new ethers.Contract(contractAddress, abi.abi, 
+        await new ethers.providers.Web3Provider(window.ethereum as any).getSigner());
+  
+      let tx;
+      if (mintAmount == 1) tx = await contractInstance.mintTwin({ value: ethers.utils.parseEther(tPrice.toString()) });
+      else if (mintAmount > 1) tx = await contractInstance.mintTwins(mintAmount, { value: ethers.utils.parseEther((tPrice * mintAmount).toString()) });
+        
+      const receipt = await tx.wait();
+      receipt.status === 1 ? console.log(`Twinesis minted! https://etherscan.com/tx/${tx.hash}`) : toast("Please update your balance and try again");
     } catch (error) {
       toast("Please update your balance and try again");
       console.log(error);
     }
   }
+  
 
   /// This handles quantity selection on the Minter
   const handleDecrement = () => {
@@ -175,10 +156,15 @@ function CollectionMinter({ collection, data }: any) {
                 {" "}
                 Status:
               </h6>
-              {mintStatus && <><ActiveIndicator/><MintPrice/></>}{" "}
-              {!mintStatus && <NonActiveIndicator/>}
+              {mintStatus === 'active' && (
+                <>
+                  <ActiveIndicator />
+                  <MintPrice />
+                </>
+              )}{" "}
+              {mintStatus === 'inactive' && <NonActiveIndicator />}
             </div>
-   
+
             {status === "authenticated" && mintStatus ? (
               <>
                 {!window.ethereum && (
@@ -241,7 +227,7 @@ function CollectionMinter({ collection, data }: any) {
               </>
             ) : (
               <div className="flex content-center items-center justify-center pt-10">
-                {mintStatus ? (
+                {mintStatus === "active" ? (
                   <p className="text-white">Please sign-in to collect</p>
                 ) : (
                   ""

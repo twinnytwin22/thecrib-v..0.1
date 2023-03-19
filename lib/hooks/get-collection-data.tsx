@@ -68,7 +68,7 @@ export const query = groq`*[_type == "collection" && slug.current == $slug][0]{
   contract,
   mintPrice,
   nftImage, 
-  mintactive,
+  mintStatus,
   tags, 
   chain,
   "abiURL": abi.asset->url
