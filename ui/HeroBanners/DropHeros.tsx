@@ -1,6 +1,4 @@
-'use client'
 import React from "react";
-import LatestPostCard from "ui/Cards/PostCards/LatestPostCard";
 import UpcomingDropCard from "ui/Cards/PostCards/UpcomingDropCard";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
