@@ -6,6 +6,7 @@ import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 export function LatestDrop() {
   const bgImage = "/assets/lving-small.png";
+  const decentLogo = "/assets/DecentLogos/decent-gradient-full.svg"
   return (
     <section
       className="bg-white bg-cover dark:bg-gray-900 max-w-sm md:max-w-6xl w-full my-8 shadow-md rounded-2xl"
@@ -81,6 +82,9 @@ export function UpcomingDrop() {
             </p>
             <div className="mx-auto justify-items-center content-center justify-center">
             <LaunchCountdown targetDate={TARGET_DATE}/></div>
+            <div className="flex w-full mx-auto p-2 justify-center mt-4" ><p className="text-sm font-bold">Powered by:</p>
+            <Link href='https://hq.decent.xyz/1/Editions/0xbbCB210C147030fe4DB924182c10fE5B6775a86c'>
+            <img className="w-36" src= "/assets/DecentLogos/decent-gradient-full.svg"/></Link></div>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
             <UpcomingDropCard image={Image} />
