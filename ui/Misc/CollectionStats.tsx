@@ -1,7 +1,7 @@
 import React from "react";
 
-function CollectionStats(data: any) {
-  const stat = data?.data?.stats;
+function CollectionStats({data}: any) {
+  const stat = data?.stats;
 
   return (
     <div className="grid gap-8 grid-cols-3 justify-center mb-8 ">
@@ -10,7 +10,7 @@ function CollectionStats(data: any) {
           Items
         </h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">
-          {stat?.count}
+          {stat?.count ?? 0}
         </p>
       </div>
       <div className="block text-center max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -26,7 +26,7 @@ function CollectionStats(data: any) {
           Collectors
         </h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">
-          {stat?.num_owners}
+          {stat?.num_owners ?? 0}
         </p>
       </div>
     </div>
