@@ -10,8 +10,6 @@ import { IPFSRenderer } from "ui/Misc/IPFSRenderer";
 import { toast } from "react-toastify";
 import { useSigner } from "wagmi";
 import { DecentSDK, edition } from "@decent.xyz/sdk";
-import { CribSDK } from "lib/cribSDK";
-import handleTxError from "lib/handleTxError";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 
