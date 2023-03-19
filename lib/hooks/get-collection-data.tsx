@@ -55,6 +55,28 @@ export async function getAllSlugs() {
   );
   return res.json();
 }
+
+export async function getUpcomingDrop() {
+  const res = await fetch(
+    `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=*%5B_type%20%3D%3D%20%22collection%22%20%26%26%20mintStatus%20%3D%3D%20%22upcoming%22%5D%5B0%5D%0A`,
+    {
+      cache: 'no-store',
+    }
+  );
+  return res.json();
+}
+
+export async function getLatestDrop() {
+  const res = await fetch(
+    `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=*%5B_type%20%3D%3D%20%22collection%22%20%26%26%20mintStatus%20%3D%3D%20%22active%22%5D%20%7C%20order(_createdAt%20desc)%20%5B0%5D%0A`,
+    {
+      cache: 'no-store',
+    }
+  );
+  return res.json();
+}
+
+
 export async function querySlug(context: any) {
   const { slug = "" } = context.params || "";
   const res = await client.fetch(query, { slug });
@@ -64,6 +86,7 @@ export async function querySlug(context: any) {
 export const query = groq`*[_type == "collection" && slug.current == $slug][0]{
   title,
   description,
+  crossMintId,
   slug,
   contract,
   mintPrice,

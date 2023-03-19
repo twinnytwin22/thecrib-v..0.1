@@ -50,7 +50,8 @@ function CollectionMinter({ collection, data }: any) {
   const chainId = 1
   const sanityAbi = collection?.abiURL;
   const mintStatus: string = collection?.mintStatus
-  console.log('ms:',mintStatus, 'collection:',collection)
+  const hasCrossMint = collection?.crossMintId
+  console.log('hcm:', hasCrossMint,'c:', collection)
   const tags = [...collection?.tags];
   const decentSDK = tags.includes("Decent.xyz");
   console.log(decentSDK);
@@ -169,9 +170,9 @@ function CollectionMinter({ collection, data }: any) {
         className="bg-black bg-opacity-75 w-full"
         style={{ backdropFilter: "blur(8px)" }}
       >
-        <div className="grid xl:max-w-7xl max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center">
+        <div className="grid xl:max-w-7xl max-w-screen px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:gap-8 md:gap-8 lg:grid-cols-12 justify-items-center content-center items-center">
           <div className="mx-auto place-self-center place-items-center md:mx-auto md:col-span-12 sm:col-span-12 lg:col-span-6 h-96">
-            <div className="w-full mt-10 md:mt-0 content-center justify-center">
+            <div className="w-full mt-10 md:mt-0 content-center justify-center items-center">
               <IPFSRenderer image={image} data={data} />
             </div>
           </div>
@@ -195,8 +196,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'inactive' && <NonActiveIndicator />}
             </div>
             {mintStatus === "upcoming" && <LaunchCountdown targetDate={TARGET_DATE}/>}
-            {decentSDK &&  <PoweredByDecent/>
-          }
+            
             {status === "authenticated" && mintStatus === "active" ? (
               <>
                 {!signer && (
@@ -267,7 +267,12 @@ function CollectionMinter({ collection, data }: any) {
                 )}
               </div>
             )}
-            {collection.title == "Twinesis" ? <CrossMint price={price} /> : ""}
+            {mintStatus === 'active' &&
+            <>
+            {hasCrossMint && <CrossMint id ={hasCrossMint} price={price} />}</>
+            }
+            {decentSDK &&  <PoweredByDecent contractAddress={contractAddress}/>
+          }
           </div>
         </div>
       </div>
