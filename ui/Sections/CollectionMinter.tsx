@@ -165,7 +165,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'inactive' && <NonActiveIndicator />}
             </div>
 
-            {status === "authenticated" && mintStatus ? (
+            {status === "authenticated" && mintStatus === "active" ? (
               <>
                 {!window.ethereum && (
                   <div>
