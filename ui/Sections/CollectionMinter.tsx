@@ -13,6 +13,7 @@ import { useSigner } from "wagmi";
 import { DecentSDK, edition } from "@decent.xyz/sdk";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
+import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 
 function CollectionMinter({ collection, data }: any) {
   /// Grabbing User Session and Address
@@ -194,9 +195,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'inactive' && <NonActiveIndicator />}
             </div>
             {mintStatus === "upcoming" && <LaunchCountdown targetDate={TARGET_DATE}/>}
-            {decentSDK &&  <div className="flex w-full mx-auto p-2 justify-center mt-4" ><p className="text-sm font-bold">Powered by:</p>
-            <Link href='https://hq.decent.xyz/1/Editions/0xbbCB210C147030fe4DB924182c10fE5B6775a86c'>
-            <img className="w-36" src= "/assets/DecentLogos/decent-gradient-full.svg"/></Link></div>
+            {decentSDK &&  <PoweredByDecent/>
           }
             {status === "authenticated" && mintStatus === "active" ? (
               <>

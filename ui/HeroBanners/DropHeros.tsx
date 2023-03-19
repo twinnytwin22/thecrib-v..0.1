@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import LatestPostCard from "ui/Cards/PostCards/LatestPostCard";
 import UpcomingDropCard from "ui/Cards/PostCards/UpcomingDropCard";
+import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 export function LatestDrop() {
@@ -82,9 +83,7 @@ export function UpcomingDrop() {
             </p>
             <div className="mx-auto justify-items-center content-center justify-center">
             <LaunchCountdown targetDate={TARGET_DATE}/></div>
-            <div className="flex w-full mx-auto p-2 justify-center mt-4" ><p className="text-sm font-bold">Powered by:</p>
-            <Link href='https://hq.decent.xyz/1/Editions/0xbbCB210C147030fe4DB924182c10fE5B6775a86c'>
-            <img className="w-36" src= "/assets/DecentLogos/decent-gradient-full.svg"/></Link></div>
+          <PoweredByDecent/>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
             <UpcomingDropCard image={Image} />
