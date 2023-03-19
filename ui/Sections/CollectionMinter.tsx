@@ -21,7 +21,6 @@ function CollectionMinter({ collection, data }: any) {
 
     /// Web3 Connection 
   const RPC = 'https://ethereum-mainnet-rpc.allthatnode.com'
-  const provider = new ethers.providers.JsonRpcProvider(RPC);
   
 
   const {data:signer} = useSigner();
@@ -46,7 +45,6 @@ function CollectionMinter({ collection, data }: any) {
 
   ///Contract Information - Pull Mint status from Sanity
   const contractAddress = collection?.contract;
-  const contractAddress2 = '0xbbCB210C147030fe4DB924182c10fE5B6775a86c';
   const chainId = 1
   const sanityAbi = collection?.abiURL;
   const mintStatus: string = collection?.mintStatus
@@ -179,12 +177,12 @@ function CollectionMinter({ collection, data }: any) {
             <h1 className="text-5xl font-bold text-white text-center uppercase">
               {collection.title}
             </h1>
-            <div className="flex items-center content-center justify-center">
+            <div className="flex items-center content-center justify-center text-white">
               <h6 className="text-sm uppercase text-white tracking-tight pr-5">
                 {" "}
                 Status:
               </h6>
-              {mintStatus === "upcoming" && <div className="flex items-center"><UpcomingIndicator/><MintPrice/></div>
+              {mintStatus === "upcoming" && <div className="flex items-center text-white"><UpcomingIndicator/><MintPrice/></div>
            }
               {mintStatus === 'active' && (
                 <>
