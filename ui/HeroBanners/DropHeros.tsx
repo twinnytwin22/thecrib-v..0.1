@@ -71,7 +71,7 @@ export function UpcomingDrop() {
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
               Always - Single
             </h1>
-            <a href="">
+            <a href="/collection/twinny-always">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-200">
                 feat. Jaii.Reynolds
               </h5>
@@ -81,7 +81,7 @@ export function UpcomingDrop() {
             </p>
             <div className="mx-auto justify-items-center content-center justify-center">
             <LaunchCountdown targetDate={TARGET_DATE}/></div>
-            <Link href="https://raritysniper.com/nft-drops-calendar"><img className="w-8" src="/assets/logo1.png"/></Link>
+            <Link href="https://raritysniper.com/nft-drops-calendar"><img className="mt-2 w-8 mx-auto" src="/assets/logo1.png"/></Link>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
             <UpcomingDropCard image={Image} />

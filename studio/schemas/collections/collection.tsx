@@ -100,6 +100,14 @@ export default {
 
       },
       {
+        title: 'CrossMint ID',
+        name: 'crossMintId',
+        type: 'string',
+        fieldset: 'info',
+        group: 'info',
+
+      },
+      {
         title: 'Banner Image',
         name: 'bannerImage',
         type: 'image',
