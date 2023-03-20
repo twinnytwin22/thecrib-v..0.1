@@ -9,6 +9,7 @@ export function LatestDrop({props}:any) {
 
   const Image = urlFor(props?.nftImage).width(600).url();
   const contractAddress = props?.contract
+  const url = `http://thecrib.space/collection/${props?.slug.current}`
 
   return (
     <section
@@ -42,7 +43,7 @@ export function LatestDrop({props}:any) {
           <PoweredByDecent contractAddress={contractAddress}/>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
-            <UpcomingDropCard image={Image} />
+            <UpcomingDropCard url={url} image={Image} />
           </div>
         </div>
       </div>
@@ -53,7 +54,8 @@ export function LatestDrop({props}:any) {
 export function UpcomingDrop({props}:any) {
   const Image = urlFor(props?.nftImage).width(600).url();
   const contractAddress = props?.contract
-
+  const url = `http://thecrib.space/collection/${props?.slug.current}`
+console.log(url)
   return (
     <section
       className="bg-white bg-cover dark:bg-gray-900 max-w-sm md:max-w-6xl w-full my-8 shadow-md rounded-2xl justify-items-center content-center justify-center mx-auto"
@@ -88,7 +90,7 @@ export function UpcomingDrop({props}:any) {
           <PoweredByDecent contractAddress={contractAddress}/>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
-            <UpcomingDropCard image={Image} />
+            <UpcomingDropCard url={url} image={Image} />
           </div>
         </div>
       </div>
