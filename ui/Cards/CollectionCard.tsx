@@ -5,7 +5,13 @@ import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 
 function CollectionCard({collection, i}:any) {
-  const description = collection?.description;
+  const MAX_DESCRIPTION_LENGTH = 100;
+  
+const shortDescription =
+  collection.description.length > 105
+    ? collection.description.substr(0, MAX_DESCRIPTION_LENGTH) + "..."
+    : collection.description;
+
   const mintStatus = collection?.mintStatus as string;
   console.log(mintStatus, 'MS')
   const MintPrice = () => {
@@ -45,7 +51,7 @@ function CollectionCard({collection, i}:any) {
 
           </div>
           <p className="hidden lg:block mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">
-            {description}
+            {shortDescription}
           </p>
           <div className="mx-auto">
             {collection?.tags?.map((tag: any) => (
