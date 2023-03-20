@@ -29,7 +29,7 @@ const ShareCard = ({ onClose, url }: ShareCardProps) => {
   }, []);
 
   return (
-    <div className="absolute" id="shareCard">
+    <div className="absolute -ml-40" id="shareCard">
       <div className="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         <Link href={lensShare}>
           <button className="flex justify-around text-center w-full px-4 py-2 dark:text-white bg-gray-50 hover:bg-gray-200 border-b border-gray-200 rounded-t-lg cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-800 dark:border-gray-600">
