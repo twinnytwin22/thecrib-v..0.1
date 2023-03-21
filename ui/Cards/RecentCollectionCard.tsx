@@ -18,11 +18,12 @@ function RecentCollectionCard({ collection }: any) {
   return (
     <div className="block max-w-sm mx-auto">
       <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto content-center justify-center">
+        <Link href={`/collection/${collection?.slug?.current}`}>
         <img
           className="w-72 h-72 rounded-lg gap-10 object-cover scale-100 mx-auto content-center justify-center"
           src={urlFor(collection?.nftImage).width(400).url()}
           alt="Collection Image"
-        />
+        /></Link>
         <div className="flex justify-center mt-3 content-center items-center">
           <h6
             className="text-xs mt-0.5 uppercase text-gray-900 dark:text-white tracking-tight pr-5"
