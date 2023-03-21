@@ -173,7 +173,7 @@ function CollectionMinter({ collection, data }: any) {
                 {" "}
                 Status:
               </h6>
-              {mintStatus === "upcoming" && <div className="flex items-center text-white"><UpcomingIndicator/><MintPrice/></div>
+              {mintStatus === "upcoming" && <div className="flex items-center text-white"><UpcomingIndicator/><MintPrice mintPrice={price}/></div>
            }
               {mintStatus === 'active' && (
                 <>
