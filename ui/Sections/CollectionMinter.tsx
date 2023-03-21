@@ -68,9 +68,9 @@ function CollectionMinter({ collection, data }: any) {
     if (signer) {
       try {
         const sdk = new DecentSDK(chainId, signer);
-        const totalPrice:number = price * mintAmount;
         const decentNFT = await edition.getContract(sdk, contractAddress);
-        const response = await decentNFT.mint(mintAmount, { value: ethers.utils.parseEther(totalPrice.toString()) });
+        const response = await decentNFT.mint(address, BigNumber.from(mintAmount), { 
+           value: ethers.utils.parseEther((price * mintAmount).toString()),});
         console.log("response: ", response);
       } catch (err) {
         console.log("error: ", err);
