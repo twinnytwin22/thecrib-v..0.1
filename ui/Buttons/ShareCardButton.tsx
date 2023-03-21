@@ -41,7 +41,7 @@ const ShareCard = ({ onClose, url }: ShareCardProps) => {
           <TwitterShareButton
             url={url}
             title={"Check out @djtwinnytwin's upcoming drop at:"}
-            hashtags={["#Always #CribMusic"]}
+            hashtags={["Always,CribMusic"]}
           >
             <div className="flex justify-around text-center w-48 px-4 py-2 dark:text-white bg-gray-50 hover:bg-gray-200 border-b border-gray-200 rounded-t-lg cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-800 dark:border-gray-600">
               <p className="mr-3">Share on Twitter</p><BsTwitter/>

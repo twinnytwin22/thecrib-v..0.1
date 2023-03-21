@@ -14,6 +14,7 @@ import { DecentSDK, edition } from "@decent.xyz/sdk";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
+import { MintPrice } from "ui/Misc/MintPrice";
 
 function CollectionMinter({ collection, data }: any) {
   /// Grabbing User Session and Address
@@ -28,15 +29,7 @@ function CollectionMinter({ collection, data }: any) {
   /// Mint Amount and Price Data - Pulls Price from Sanity
   const [mintAmount, setMintAmount] = useState(1);
   const price: number = collection?.mintPrice;
-  const MintPrice = () => {
-    return (
-      <div className="flex relative">
-        <p className="text-sm dark:bg-black p-1 rounded-lg items-center font-bold content-center text-center">
-          {collection.mintPrice}ETH
-        </p>
-      </div>
-    );
-  };
+
 
   ///Images - Pulling from Sanity
   const image = urlFor(collection?.nftImage).width(600).url();
@@ -185,7 +178,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'active' && (
                 <>
                   <ActiveIndicator />
-                  <MintPrice />
+                  <MintPrice collection={collection}/>
                 </>
               )}{" "}
               {mintStatus === 'inactive' && <NonActiveIndicator />}
