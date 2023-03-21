@@ -20,14 +20,11 @@ function CollectionMinter({ collection, data }: any) {
   const { status } = useSession();
   const { address } = useAccount();
   const isConnected = !!address;
+  const {data:signer} = useSigner();
 
     /// Web3 Connection 
   const RPC = 'https://ethereum-mainnet-rpc.allthatnode.com'
   
-
-  const {data:signer} = useSigner();
-
-
   /// Mint Amount and Price Data - Pulls Price from Sanity
   const [mintAmount, setMintAmount] = useState(1);
   const price: number = collection?.mintPrice;
@@ -51,10 +48,8 @@ function CollectionMinter({ collection, data }: any) {
   const sanityAbi = collection?.abiURL;
   const mintStatus: string = collection?.mintStatus
   const hasCrossMint = collection?.crossMintId
-  console.log('hcm:', hasCrossMint,'c:', collection)
   const tags = [...collection?.tags];
   const decentSDK = tags.includes("Decent.xyz");
-  console.log(decentSDK);
 
   /// Fetching Contract ABI - Stored in Sanity
   async function getABI() {

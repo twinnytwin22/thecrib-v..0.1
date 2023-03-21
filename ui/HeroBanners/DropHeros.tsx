@@ -55,7 +55,6 @@ export function UpcomingDrop({props}:any) {
   const Image = urlFor(props?.nftImage).width(600).url();
   const contractAddress = props?.contract
   const url = `http://thecrib.space/collection/${props?.slug.current}`
-console.log(url)
   return (
     <section
       className="bg-white bg-cover dark:bg-gray-900 max-w-sm md:max-w-6xl w-full my-8 shadow-md rounded-2xl justify-items-center content-center justify-center mx-auto"
