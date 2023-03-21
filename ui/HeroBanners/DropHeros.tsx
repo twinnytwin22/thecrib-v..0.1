@@ -1,5 +1,5 @@
 import React from "react";
-import LatestPostCard from "ui/Cards/PostCards/LatestPostCard";
+import LatestDropCard from "ui/Cards/PostCards/LatestPostCard";
 import UpcomingDropCard from "ui/Cards/PostCards/UpcomingDropCard";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
@@ -44,7 +44,7 @@ export function LatestDrop({props}:any) {
           <PoweredByDecent contractAddress={contractAddress}/>
           </div>
           <div className="mt-8 lg:mt-0 lg:col-span-6 lg:flex">
-            <UpcomingDropCard url={url} image={Image} mintPrice={mintPrice}/>
+            <LatestDropCard url={url} image={Image} mintPrice={mintPrice}/>
           </div>
         </div>
       </div>
