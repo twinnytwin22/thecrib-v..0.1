@@ -178,7 +178,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'active' && (
                 <>
                   <ActiveIndicator />
-                  <MintPrice collection={collection}/>
+                  <MintPrice mintPrice={price}/>
                 </>
               )}{" "}
               {mintStatus === 'inactive' && <NonActiveIndicator />}
