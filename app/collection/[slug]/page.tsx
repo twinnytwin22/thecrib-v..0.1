@@ -45,8 +45,8 @@ async function SingleCollection(params: any) {
     '@context': `https://thecrib.space${collection?.slug?.current}`,
     '@type': 'Collection',
     name: collection?.title,
-    image: urlFor(collection.nftImage).width(800).url(),
-    description: collection.description,
+    image: urlFor(collection?.nftImage).width(800).url(),
+    description: collection?.description,
   };
   const currentSlug = await collection?.slug?.current || "";
   const name = await collection?.title
