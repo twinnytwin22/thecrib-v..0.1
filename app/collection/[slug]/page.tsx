@@ -34,29 +34,20 @@ async function fetchCollectionOS(currentSlug: any) {
     OSoptions as any
   );
   return data.json();
-}
 
-export async function generateMetadata(params : any)  {
-  const collection = await querySlug(params)
-  return { openGraph: {
-    title: collection?.title,
-    description: collection?.description,
-    url: `https://thecrib.space/collection/${collection?.slug?.current}`},
-    siteName: 'The Crib',
-    images: [
-      {
-        url: urlFor(collection?.nftImage).width(400).url(),
-        width: 800,
-        height: 800,
-      }
-    ],
-    }
-  }
+}
 
 
 
 async function SingleCollection(params: any) {
   const collection = await querySlug(params);
+   const jsonLd = {
+    '@context': `https://thecrib.space${collection?.slug?.current}`,
+    '@type': 'Collection',
+    name: collection?.title,
+    image: urlFor(collection.nftImage).width(800).url(),
+    description: collection.description,
+  };
   const currentSlug = await collection?.slug?.current || "";
   const name = await collection?.title
   const chainData = await fetchCollectionOS(currentSlug);
@@ -86,10 +77,19 @@ async function SingleCollection(params: any) {
   const collectionProps = [collection, chainData, collectors, nfts];
   
   return (
+    <>
+        <section>
+    {}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+ 
     <Suspense fallback={<CribLoader />}>
       <CollectionMinter collection={collection} data={ipfsProps} />
       <CollectionNav props={collectionProps} />
-    </Suspense>
+    </Suspense>   </section></>
   );
 }
 
