@@ -36,26 +36,23 @@ async function fetchCollectionOS(currentSlug: any) {
   return data.json();
 }
 
-export async function generateMetadata( params : any)  {
-  const collection = await querySlug(params);
-  const currentSlug = await collection?.slug?.current || "";
-  const chainData = await fetchCollectionOS(currentSlug);
-  console.log(chainData)
+export async function generateMetadata(params : any)  {
+  const collection = await querySlug(params)
   return { openGraph: {
-          title: collection?.title,
-          description: collection?.description,
-          url: `https://thecrib.space/collection/${collection?.slug?.current}`},
-          siteName: 'The Crib',
-          images: [
-            {
-              url: urlFor(collection.nftImage).width(400).url(),
-              width: 800,
-              height: 800,
-            }
-          ],
-          type: 'website',
-          }
-}
+    title: collection?.title,
+    description: collection?.description,
+    url: `https://thecrib.space/collection/${collection?.slug?.current}`},
+    siteName: 'The Crib',
+    images: [
+      {
+        url: urlFor(collection?.nftImage).width(400).url(),
+        width: 800,
+        height: 800,
+      }
+    ],
+    }
+  }
+
 
 
 async function SingleCollection(params: any) {
