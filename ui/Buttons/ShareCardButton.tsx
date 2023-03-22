@@ -7,9 +7,10 @@ import Link from "next/link";
 type ShareCardProps = {
   onClose: () => void;
   url: string
+  title?: string
 };
 
-const ShareCard = ({ onClose, url }: ShareCardProps) => {
+const ShareCard = ({ onClose, url, title }: ShareCardProps) => {
   const lensShare =
     `https://lenster.xyz/?text=Check%20this%20out!&url=${url}&via=djtwinnytwin&hashtags=thecrib,cribmusic`;
 
@@ -40,8 +41,8 @@ const ShareCard = ({ onClose, url }: ShareCardProps) => {
         <div className="w-48">
           <TwitterShareButton
             url={url}
-            title={"Check out @djtwinnytwin's upcoming drop at:"}
-            hashtags={["Always,CribMusic"]}
+            title={`Check out @djtwinnytwin's drop ${!title ? '' : title} at:`}
+            hashtags={['CribMusic,TheCrib']}
           >
             <div className="flex justify-around text-center w-48 px-4 py-2 dark:text-white bg-gray-50 hover:bg-gray-200 border-b border-gray-200 rounded-t-lg cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-800 dark:border-gray-600">
               <p className="mr-3">Share on Twitter</p><BsTwitter/>
@@ -53,7 +54,7 @@ const ShareCard = ({ onClose, url }: ShareCardProps) => {
   );
 };
 
-export const ShareButton = ({url}:any) => {
+export const ShareButton = ({url, title}:any) => {
   const [isOpen, setIsOpen] = useState(false);
   const shareButtonRef = useRef(null);
 
@@ -73,7 +74,7 @@ export const ShareButton = ({url}:any) => {
       >
         <BsShare />
       </div>
-      {isOpen && <ShareCard url={url} onClose={handleClose} />}
+      {isOpen && <ShareCard url={url} title={title} onClose={handleClose} />}
     </div>
   );
 };

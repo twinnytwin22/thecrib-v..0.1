@@ -2,9 +2,9 @@
 import React from "react";
 import { YoutubeVideo } from "ui/Misc/YoutubeVideo";
 import dynamic from "next/dynamic";
-const CollectionContent = ({ data }: any) => {
-  const info = data?.props[0];
-  const collection = data?.props[1]?.collection;
+const CollectionContent = ({ props }: any) => {
+  const info = props[0];
+  const collection = props[1]?.collection;
   const properties = collection?.traits;
   const id = "2g811Eo7K8U";
 
@@ -19,7 +19,7 @@ const CollectionContent = ({ data }: any) => {
     <section className="bg-white dark:bg-gray-900 ">
       <div className="gap-8 items-start mx-auto py-8 px-4 max-w-7xl md:max-w-screen xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div className="hidden md:block">
-          <CollectorList collectors={data?.props[2]} />
+          <CollectorList collectors={props[2]} />
         </div>
         <div className="mt-4 md:mt-0">
           <CollectionStats data={collection} />
@@ -32,7 +32,7 @@ const CollectionContent = ({ data }: any) => {
           <h5 className="mb-4 text-xl tracking-tight font-extrabold text-gray-900 dark:text-white">
             More on this collection
           </h5>
-          {!data && (
+          {!props && (
             <div className="mb-4">
               <h5 className=" text-md tracking-tight font-bold text-gray-900 dark:text-white pr-5">
                 Properties:
@@ -58,7 +58,7 @@ const CollectionContent = ({ data }: any) => {
             </h5>
 
             <p className="mb-4 text-md tracking-tight font-md text-gray-900 dark:text-white truncate">
-              {info.contract}
+              {info?.contract}
             </p>
           </div>
           <div className="grid lg:grid-cols-2 md:grid-cols-1">

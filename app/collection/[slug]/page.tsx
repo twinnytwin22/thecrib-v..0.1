@@ -11,6 +11,9 @@ import CollectionMinter from "../../../ui/Sections/CollectionMinter";
 import { querySlug } from "lib/hooks/get-collection-data";
 import CribLoader from "ui/Misc/CribLoader";
 import NotFound from "ui/Sections/NotFound";
+import { urlFor } from "lib/hooks/sanityImage";
+
+
 
 export async function generateStaticParams() {
   const collections = await getAllSlugs();
@@ -33,10 +36,34 @@ async function fetchCollectionOS(currentSlug: any) {
   return data.json();
 }
 
-async function SingleCollection(params: any) {
+export async function generateMetadata( params : any)  {
   const collection = await querySlug(params);
   const currentSlug = await collection?.slug?.current || "";
   const chainData = await fetchCollectionOS(currentSlug);
+  console.log(chainData)
+  return { openGraph: {
+          title: collection?.title,
+          description: collection?.description,
+          url: `https://thecrib.space/collection/${collection?.slug?.current}`},
+          siteName: 'The Crib',
+          images: [
+            {
+              url: urlFor(collection.nftImage).width(400).url(),
+              width: 800,
+              height: 800,
+            }
+          ],
+          type: 'website',
+          }
+}
+
+
+async function SingleCollection(params: any) {
+  const collection = await querySlug(params);
+  const currentSlug = await collection?.slug?.current || "";
+  const name = await collection?.title
+  const chainData = await fetchCollectionOS(currentSlug);
+  console.log(chainData, 'name:', name)
   if (collection === null) {
     return (
       <>
