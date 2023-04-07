@@ -75,7 +75,7 @@ const CollectionContent = ({ props }: any) => {
                 Mint Price
               </h5>
               <p className="mb-4 text-md tracking-tight font-md text-gray-900 dark:text-white">
-                {info?.mintPrice} ETH
+                {info?.mintPrice} {info.chain == 'eth' ? 'ETH' : "MATIC"}
               </p>
             </div>
             <div className="flex col-span-2">

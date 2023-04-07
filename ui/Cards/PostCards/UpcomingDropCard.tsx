@@ -5,7 +5,9 @@ import { MintPrice } from "ui/Misc/MintPrice";
 import { SocialShareRow } from "ui/Misc/SocialShare";
 import { UpcomingLayloBar } from "ui/Modals/UpcomingDropNotify";
 
-function UpcomingDropCard({ image, url, mintPrice }: any) {
+function UpcomingDropCard({ image, url, props }: any) {
+  const chainSymbol = props?.chain == 'eth' ? 'ETH' : 'MATIC'
+  const price = props?.mintPrice
   return (
     <>
       <div className="max-w-xs bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 shadow-md">
@@ -15,7 +17,7 @@ function UpcomingDropCard({ image, url, mintPrice }: any) {
           </Link>
           <div className="flex justify-between items-center">
             <UpcomingLayloBar />
-            <MintPrice mintPrice={mintPrice} />
+            <MintPrice mintPrice={price} chainSymbol={chainSymbol} />
             <ShareButton url={url} />
           </div>
         </div>

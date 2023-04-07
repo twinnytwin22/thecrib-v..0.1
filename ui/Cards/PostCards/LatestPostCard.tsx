@@ -5,7 +5,9 @@ import { UpcomingLayloBar } from "ui/Modals/UpcomingDropNotify";
 import { ShareButton } from "ui/Buttons/ShareCardButton";
 import { MintPrice } from "ui/Misc/MintPrice";
 
-function LatestDropCard({ image, url, mintPrice }: any) {
+function LatestDropCard({ image, url, props }: any) {
+  const chainSymbol = props?.chain == 'eth' ? 'ETH' : 'MATIC'
+  const price = props?.mintPrice
   return (
     <>
       <div className="max-w-xs bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 shadow-md">
@@ -22,7 +24,7 @@ function LatestDropCard({ image, url, mintPrice }: any) {
              View Drop
             </button></Link>
 
-            <MintPrice mintPrice={mintPrice} />
+            <MintPrice chainSymbol={chainSymbol} mintPrice={price} />
             <ShareButton url={url} />
           </div>
         </div>

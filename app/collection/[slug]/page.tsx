@@ -64,8 +64,9 @@ async function SingleCollection(params: any) {
       <CribLoader/>
     )
   }
-
+  
   const contract = collection ? (collection?.contract as string) : "";
+  const chainId = collection?.chain 
   const collectors =
     collection?.chain === "polygon"
       ? await getOwnersPolygonCollection(contract)

@@ -37,7 +37,8 @@ function CollectionMinter({ collection, data }: any) {
 
   ///Contract Information - Pull Mint status from Sanity
   const contractAddress = collection?.contract;
-  const chainId = 1
+  const chainId = collection?.chain == 'eth' ? 1 : 137
+  const chainSymbol = collection?.chain == 'eth' ? 'ETH' : 'MATIC'
   const sanityAbi = collection?.abiURL;
   const mintStatus: string = collection?.mintStatus
   const hasCrossMint = collection?.crossMintId
@@ -178,7 +179,7 @@ function CollectionMinter({ collection, data }: any) {
               {mintStatus === 'active' && (
                 <>
                   <ActiveIndicator />
-                  <MintPrice mintPrice={price}/>
+                  <MintPrice mintPrice={price} chainSymbol={chainSymbol}/>
                 </>
               )}{" "}
               {mintStatus === 'inactive' && <NonActiveIndicator />}

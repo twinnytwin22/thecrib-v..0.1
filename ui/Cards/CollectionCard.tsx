@@ -3,8 +3,11 @@ import React from "react";
 import Link from "next/link";
 import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
-
+import { MintPrice } from "ui/Misc/MintPrice";
 function CollectionCard({collection, i}:any) {
+  const chainSymbol = collection?.chain == 'ethereum' ? 'ETH' : 'MATIC'
+  const price = collection?.mintPrice
+
   const MAX_DESCRIPTION_LENGTH = 100;
   
 const shortDescription =
@@ -14,15 +17,7 @@ const shortDescription =
 
   const mintStatus = collection?.mintStatus as string;
   console.log(mintStatus, 'MS')
-  const MintPrice = () => {
-    return (
-      <div className="flex relative" key={collection.mintPrice}>
-        <p className="text-sm dark:bg-black p-2 rounded-lg items-center font-bold content-center">
-          {collection.mintPrice}ETH
-        </p>
-      </div>
-    );
-  };
+
 
   return (
     <div key={collection._id}>
@@ -47,7 +42,7 @@ const shortDescription =
             {mintStatus == 'upcoming' && <UpcomingIndicator/>}{" "}
             {mintStatus == 'active' && <ActiveIndicator/>}{" "}
             {mintStatus == 'inactive' && <NonActiveIndicator/>}
-            {mintStatus !== 'inactive' && <MintPrice />}
+            {mintStatus !== 'inactive' && <MintPrice chainSymbol={chainSymbol} mintPrice={price}/>}
 
           </div>
           <p className="hidden lg:block mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">

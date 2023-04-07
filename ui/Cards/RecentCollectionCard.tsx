@@ -4,17 +4,13 @@ import Link from "next/link";
 import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 import { isHolderBenefit } from "ui/Misc/HolderBadge";
+import { MintPrice } from "ui/Misc/MintPrice";
 
 function RecentCollectionCard({ collection }: any) {
-  const MintPrice = () => {
-    return (
-      <div className="flex relative">
-        <p className="text-sm dark:bg-black p-1 rounded-lg items-center font-bold content-center">
-          {collection.mintPrice}ETH
-        </p>
-      </div>
-    );
-  };
+  const chainSymbol = collection?.chain == 'eth' ? 'ETH' : 'MATIC'
+  const price = collection?.mintPrice
+
+  
   return (
     <div className="block max-w-sm mx-auto">
       <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto content-center justify-center">
@@ -30,9 +26,9 @@ function RecentCollectionCard({ collection }: any) {
             key={collection.minStatus}
           >
           </h6>
-          {collection?.mintStatus === 'active' && <><ActiveIndicator/><MintPrice/></>}
+          {collection?.mintStatus === 'active' && <><ActiveIndicator/><MintPrice chainSymbol={chainSymbol} mintPrice={price}/></>}
           {collection?.mintStatus === 'inactive' && <><NonActiveIndicator /><div className="m-3.5"/></>}
-          {collection?.mintStatus === 'upcoming' && <><UpcomingIndicator /><MintPrice/><div className="m-3.5"/></>}
+          {collection?.mintStatus === 'upcoming' && <><UpcomingIndicator /><MintPrice chainSymbol={chainSymbol} mintPrice={price}/><div className="m-3.5"/></>}
           
         </div>
 
