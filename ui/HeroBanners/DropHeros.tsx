@@ -9,7 +9,7 @@ export function LatestDrop({props}:any) {
 
   const Image = urlFor(props?.nftImage).width(600).url();
   const contractAddress = props?.contract
-  const url = `http://thecrib.space/collection/${props?.slug.current}`
+  const url = `http://thecrib.space/collection/${props?.slug?.current}`
 
   return (
     <section
@@ -30,15 +30,15 @@ export function LatestDrop({props}:any) {
             </h4>
 
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
-              Always - Single
+              {props.title}
             </h1>
-            <a href="/collection/twinny-always">
+            <a href={url}>
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-200">
-                feat. Jaii.Reynolds
-              </h5>
+             {props?.subTitle}              
+             </h5>
             </a>
             <p className="mb-3 font-normal text-gray-200 ">
-          Music NFT by Twinny Twin minting now.
+          New collectible from Twinny Twin minting now.
             </p>
           <PoweredByDecent contractAddress={contractAddress}/>
           </div>
@@ -54,7 +54,7 @@ export function LatestDrop({props}:any) {
 export function UpcomingDrop({props}:any) {
   const Image = urlFor(props?.nftImage).width(600).url();
   const contractAddress = props?.contract
-  const url = `http://thecrib.space/collection/${props?.slug.current}`
+  const url = `http://thecrib.space/collection/${props?.slug?.current}`
   const mintPrice = props?.mintPrice
   return (
     <section
@@ -75,11 +75,11 @@ export function UpcomingDrop({props}:any) {
             </h4>
 
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
-              Always - Single
+             {props?.title}
             </h1>
-            <a href="/collection/twinny-always">
+            <a href={url}>
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-200">
-                feat. Jaii.Reynolds
+               {props?.subTitle}
               </h5>
             </a>
             <p className="mb-3 font-normal text-gray-200 ">
