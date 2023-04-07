@@ -23,7 +23,7 @@ export function LatestDrop({props}:any) {
         className="bg-black bg-opacity-75 grid max-w-screen rounded-2xl"
         style={{ backdropFilter: "blur(8px)" }}
       >
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 items-center justify-items-center">
+        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-16 lg:py-16 lg:grid-cols-12 items-center justify-items-center">
           <div className="p-0 mr-auto place-self-center lg:col-span-6 justify-items-center items-center">
             <h4 className="max-w-2xl mb-4 text-md font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
              Latest Drop
