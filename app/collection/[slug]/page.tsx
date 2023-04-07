@@ -13,8 +13,6 @@ import CribLoader from "ui/Misc/CribLoader";
 import NotFound from "ui/Sections/NotFound";
 import { urlFor } from "lib/hooks/sanityImage";
 
-
-
 export async function generateStaticParams() {
   const collections = await getAllSlugs();
   return collections.result.map((collection: any) => ({
@@ -34,24 +32,21 @@ async function fetchCollectionOS(currentSlug: any) {
     OSoptions as any
   );
   return data.json();
-
 }
-
-
 
 async function SingleCollection(params: any) {
   const collection = await querySlug(params);
-   const jsonLd = {
-    '@context': `https://thecrib.space${collection?.slug?.current}`,
-    '@type': 'Collection',
+  const jsonLd = {
+    "@context": `https://thecrib.space${collection?.slug?.current}`,
+    "@type": "Collection",
     name: collection?.title,
     image: urlFor(collection?.nftImage).width(800).url(),
     description: collection?.description,
   };
-  const currentSlug = await collection?.slug?.current || "";
-  const name = await collection?.title
+  const currentSlug = (await collection?.slug?.current) || "";
+  const name = await collection?.title;
   const chainData = await fetchCollectionOS(currentSlug);
-  console.log(chainData, 'name:', name)
+  console.log(chainData, "name:", name);
   if (collection === null) {
     return (
       <>
@@ -60,15 +55,13 @@ async function SingleCollection(params: any) {
     );
   }
   if (chainData === null) {
-    return (
-      <CribLoader/>
-    )
+    return <CribLoader />;
   }
-  
+
   const contract = collection ? (collection?.contract as string) : "";
-  const chainId = collection?.chain 
+  const chainId = collection?.chain;
   const collectors =
-    collection?.chain === "polygon"
+    collection?.chain !== "eth"
       ? await getOwnersPolygonCollection(contract)
       : await getOwnersForEthCollection(contract);
   const metadata = await getIpfsData(contract);
@@ -76,21 +69,21 @@ async function SingleCollection(params: any) {
 
   const ipfsProps = [metadata, contract];
   const collectionProps = [collection, chainData, collectors, nfts];
-  
+
   return (
     <>
-        <section>
-    {}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
- 
-    <Suspense fallback={<CribLoader />}>
-      <CollectionMinter collection={collection} data={ipfsProps} />
-      <CollectionNav props={collectionProps} />
-    </Suspense>   </section></>
+      <section>
+        {}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Suspense fallback={<CribLoader />}>
+          <CollectionMinter collection={collection} data={ipfsProps} />
+          <CollectionNav props={collectionProps} />
+        </Suspense>{" "}
+      </section>
+    </>
   );
 }
 

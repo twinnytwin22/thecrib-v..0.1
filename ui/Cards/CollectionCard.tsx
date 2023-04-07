@@ -5,7 +5,7 @@ import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 import { MintPrice } from "ui/Misc/MintPrice";
 function CollectionCard({collection, i}:any) {
-  const chainSymbol = collection?.chain == 'ethereum' ? 'ETH' : 'MATIC'
+  const chainSymbol = collection?.chain == 'eth' ? 'ETH' : 'MATIC'
   const price = collection?.mintPrice
 
   const MAX_DESCRIPTION_LENGTH = 100;
