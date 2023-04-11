@@ -17,7 +17,7 @@ import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import { parse } from 'csv-parse';
 import path from 'path';
-import  fs  from "fs-extra"
+import { createReadStream }  from "fs-extra"
 
 const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
 
@@ -65,7 +65,7 @@ function CollectionMinter({ collection, data }: any) {
   const parseAllowlist = async (allowlistPath: string) => {
     const allowlist: string[] = [];
     const parser = parse({ delimiter: ',' });
-    const input = fs.createReadStream(allowlistPath);
+    const input = createReadStream(allowlistPath);
     input.pipe(parser);
     for await (const record of parser) {
       allowlist.push(record[0]);
