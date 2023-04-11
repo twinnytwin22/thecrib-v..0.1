@@ -17,8 +17,8 @@ import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import { parse } from 'csv-parse';
 import path from 'path';
+import  fs  from "fs-extra"
 
-const fs = require('fs-extra')
 const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
 
 
