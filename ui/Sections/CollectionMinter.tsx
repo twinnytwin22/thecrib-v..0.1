@@ -16,9 +16,9 @@ import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import { parse } from 'csv-parse';
-import * as fs from 'fs';
 import path from 'path';
 
+const fs = require('fs-extra')
 const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
 
 
@@ -89,6 +89,8 @@ function CollectionMinter({ collection, data }: any) {
       }
   }
 }
+
+
 
   /// Normal Mint Function takes in the const price
   async function handleMint() {
