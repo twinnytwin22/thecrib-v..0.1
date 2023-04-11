@@ -16,7 +16,7 @@ import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import { parse } from 'csv-parse';
-import fs from 'fs';
+import * as fs from 'node:fs';
 import path from 'path';
 
 const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
