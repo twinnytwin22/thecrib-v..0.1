@@ -82,7 +82,9 @@
   "devDependencies": {
     "@sanity/cli": "^3.2.4",
     "@types/fs-extra": "^11.0.1",
+    "@types/graceful-fs": "^4.1.6",
     "@types/http-errors": "^2.0.1",
+    "@types/jsonfile": "^6.1.1",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
