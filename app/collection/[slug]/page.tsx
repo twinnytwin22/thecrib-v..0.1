@@ -64,8 +64,8 @@ async function SingleCollection(params: any) {
     collection?.chain !== "eth"
       ? await getOwnersPolygonCollection(contract)
       : await getOwnersForEthCollection(contract);
-  const metadata = await getIpfsData(contract, chainId);
-  const nfts = await fetchNFTsForCollection({contract, chainId});
+  const metadata = await getIpfsData(contract,chainId);
+  const nfts = await fetchNFTsForCollection({contract,chainId});
 
   const ipfsProps = [metadata, contract];
   const collectionProps = [collection, chainData, collectors, nfts];
