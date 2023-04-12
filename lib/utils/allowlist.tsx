@@ -1,4 +1,10 @@
-[
+interface AllowlistEntry {
+  address: any;
+  quantity: number;
+  price: number;
+}
+
+export const allowlist: AllowlistEntry[] = [
   {
     "address": "0x889ca9161034ecc87d51677c0d775fbe1d3499e5",
     "quantity": 3,

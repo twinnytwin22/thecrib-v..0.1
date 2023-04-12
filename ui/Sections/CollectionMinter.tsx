@@ -15,8 +15,7 @@ import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
-import allowlist from 'lib/utils/allowlist.json';
-
+import { allowlist } from "lib/utils/allowlist";
 
 function CollectionMinter({ collection, data }: any) {
   /// Grabbing User Session and Address
@@ -59,7 +58,8 @@ function CollectionMinter({ collection, data }: any) {
     try { 
       const sdk = new DecentSDK(chainId, signer);
       const decentNFT = await edition.getContract(sdk, contractAddress);
-      const mintPrice = [...allowlist].includes(address as any) ? 0 : price;
+      const allowListItem = allowlist.find((item) => item.address === address);
+      const mintPrice = allowListItem ? allowListItem.price : price;      
       console.log('mintprice:', mintPrice)
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
         value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
