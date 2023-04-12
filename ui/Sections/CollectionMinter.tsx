@@ -54,7 +54,7 @@ function CollectionMinter({ collection, data }: any) {
 
 
  const decentMint = async () => {
-  const session = useSession()
+  const {data:session} = useSession()
   if (signer) {
     try { 
       const sdk = new DecentSDK(chainId, signer);
