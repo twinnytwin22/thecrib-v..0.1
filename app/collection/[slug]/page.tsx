@@ -35,7 +35,16 @@ async function fetchCollectionOS(currentSlug: any) {
 }
 
 async function SingleCollection(params: any) {
-  const collection = await querySlug(params);
+  let collection = null;
+  try {
+    collection = await querySlug(params);
+  } catch (error) {
+    return (
+      <>
+        <NotFound />
+      </>
+    );
+  }
   const jsonLd = {
     "@context": `https://thecrib.space/collection/${collection?.slug?.current}`,
     "@type": "Collection",
@@ -45,27 +54,40 @@ async function SingleCollection(params: any) {
   };
   const currentSlug = (await collection?.slug?.current) || "";
   const name = await collection?.title;
-  const chainData = await fetchCollectionOS(currentSlug);
-  console.log(chainData, "name:", name);
-  if (collection === null) {
-    return (
-      <>
-        <NotFound />
-      </>
-    );
-  }
-  if (chainData === null) {
+  let chainData = null;
+  try {
+    chainData = await fetchCollectionOS(currentSlug);
+  } catch (error) {
     return <CribLoader />;
   }
+  console.log(chainData, "name:", name);
 
-  const contract = collection ? (collection?.contract as string) : "";
+  const contract:string = collection ? (collection?.contract) : "";
   const chainId:string = collection?.chain;
-  const collectors =
-    collection?.chain !== "eth"
-      ? await getOwnersPolygonCollection(contract)
-      : await getOwnersForEthCollection(contract);
-  const metadata = await getIpfsData({contract,chainId});
-  const nfts = await fetchNFTsForCollection({contract,chainId});
+  console.log(chainId, "CIN!!!!")
+  let collectors = null;
+  try {
+    collectors =
+      collection?.chain !== "eth"
+        ? await getOwnersPolygonCollection(contract)
+        : await getOwnersForEthCollection(contract);
+  } catch (error) {
+    collectors = [];
+  }
+  
+  let metadata = null;
+  try {
+    metadata = await getIpfsData({contract,chainId});
+  } catch (error) {
+    metadata = {};
+  }
+
+  let nfts = null;
+  try {
+    nfts = await fetchNFTsForCollection({contract,chainId});
+  } catch (error) {
+    nfts = [];
+  }
 
   const ipfsProps = [metadata, contract];
   const collectionProps = [collection, chainData, collectors, nfts];
@@ -86,5 +108,6 @@ async function SingleCollection(params: any) {
     </>
   );
 }
+
 
 export default SingleCollection;
