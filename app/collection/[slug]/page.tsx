@@ -59,7 +59,7 @@ async function SingleCollection(params: any) {
   }
 
   const contract = collection ? (collection?.contract as string) : "";
-  const chainId = collection?.chain!;
+  const chainId:string = collection?.chain;
   const collectors =
     collection?.chain !== "eth"
       ? await getOwnersPolygonCollection(contract)
