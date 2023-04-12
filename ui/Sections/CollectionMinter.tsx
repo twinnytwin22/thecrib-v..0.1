@@ -15,9 +15,8 @@ import LaunchCountdown from "ui/Misc/Countdown/LaunchCountdown";
 import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
-import { parse } from 'csv-parse';
+import allowlist from 'lib/utils/allowlist.json';
 import path from 'path';
-import { createReadStream }  from "fs-extra"
 
 const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
 
@@ -57,28 +56,14 @@ function CollectionMinter({ collection, data }: any) {
     return res.json();
   }
 
-  const getMintPrice = async (address: any, allowlistPath: string) => {
-    const allowlist = await parseAllowlist(allowlistPath);
-    return allowlist.includes(address) ? 0 : price;
-  };
-  
-  const parseAllowlist = async (allowlistPath: string) => {
-    const allowlist: string[] = [];
-    const parser = parse({ delimiter: ',' });
-    const input = createReadStream(allowlistPath);
-    input.pipe(parser);
-    for await (const record of parser) {
-      allowlist.push(record[0]);
-    }
-    return allowlist;
-  };
+
  const decentMint = async () => {
   if (signer) {
-    try {
-      const { address } = useAccount()
+    try { 
       const sdk = new DecentSDK(chainId, signer);
       const decentNFT = await edition.getContract(sdk, contractAddress);
-      const mintPrice = await getMintPrice(address, allowlistPath);
+      const isAllowed = address && allowlist.some((entry) => entry.address === address);
+      const mintPrice = isAllowed ? 0 : price;      
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
         value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
       });
