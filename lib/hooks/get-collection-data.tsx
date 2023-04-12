@@ -120,7 +120,7 @@ export async function fetchNFTsForCollection({contract, chainId}: any) {
   } else if (chainId === "polygon") {
     apiKey = polygonApiKey;
   }
-
+console.log(chainId, apiKey, contract, 'from function')
   const baseURL = `https://${chainId}-mainnet.g.alchemy.com/nft/v2/${apiKey}/getNFTsForCollection`;
   const URL = `${baseURL}?contractAddress=${contract}&withMetadata=${"true"}`;
   const nfts = await fetchWithRetry(URL, getRequestOptions);

@@ -63,7 +63,7 @@ async function SingleCollection(params: any) {
   console.log(chainData, "name:", name);
 
   const contract:string = await collection ? (collection?.contract) : "";
-  const chainId:string = await collection  ? (collection?.chain) : 'eth';
+  const chainId:string = await collection ? (collection?.chain) : 'eth';
   console.log(chainId, "CIN!!!!")
   let collectors = null;
   try {
