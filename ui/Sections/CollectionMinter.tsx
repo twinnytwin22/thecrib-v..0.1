@@ -60,7 +60,7 @@ function CollectionMinter({ collection, data }: any) {
       const decentNFT = await edition.getContract(sdk, contractAddress);
       const allowListItem = allowlist.find((item) => item.address === address);
       const mintPrice = allowListItem ? allowListItem.price : price;      
-      console.log('mintprice:', mintPrice)
+      console.log('mintprice:', mintPrice, 'al', allowlist)
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
         value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
       });
