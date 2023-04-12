@@ -153,7 +153,7 @@ export async function getCribNfts(address: string, setNFTs: any) {
   }
 }
 
-export async function getIpfsData(contractAddress: string, chainId: string): Promise<any> {
+export async function getIpfsData(contract: string, chainId: any): Promise<any> {
   let apiKey: string;
 
   if (chainId === 'eth') {
@@ -164,7 +164,7 @@ export async function getIpfsData(contractAddress: string, chainId: string): Pro
     throw new Error(`Unsupported chainId: ${chainId}`);
   }
   const metadata = await fetchWithRetry(
-    `https://${chainId}-mainnet.g.alchemy.com/nft/v2/${apiKey}/getNFTMetadata?contractAddress=${contractAddress}&tokenId=2`,
+    `https://${chainId}-mainnet.g.alchemy.com/nft/v2/${apiKey}/getNFTMetadata?contractAddress=${contract}&tokenId=2`,
     getRequestOptions
   );
 
