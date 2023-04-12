@@ -16,9 +16,6 @@ import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import allowlist from 'lib/utils/allowlist.json';
-import path from 'path';
-
-const allowlistPath = path.join(process.cwd(), 'allowlist.csv');
 
 
 function CollectionMinter({ collection, data }: any) {
@@ -69,7 +66,7 @@ function CollectionMinter({ collection, data }: any) {
       });
       console.log("response: ", response);
     } catch (err) {
-      console.log("error: ", err);
+      console.log("error: ", err, 'chainId:', chainId, address, price);
       toast("Please update your balance and try again");
       }
   }
