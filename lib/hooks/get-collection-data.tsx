@@ -153,9 +153,8 @@ export async function getCribNfts(address: string, setNFTs: any) {
   }
 }
 
-export async function getIpfsData(contract: string, chainId: any): Promise<any> {
+export async function getIpfsData({contract,chainId}:any) {
   let apiKey: string;
-
   if (chainId === 'eth') {
     apiKey = ethApiKey!;
   } else if (chainId === 'polygon') {
