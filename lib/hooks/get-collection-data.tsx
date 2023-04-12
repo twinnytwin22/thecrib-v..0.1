@@ -1,8 +1,8 @@
 import { createClient } from "next-sanity";
 import groq from "groq";
 import { apiVersion, dataset, projectId } from "studio/lib/sanity.api";
-const ethApiKey = process.env.NEXT_PUBLIC_ALCHEMY_ID;
-const polygonApiKey = process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID;
+const ethApiKey = process.env.NEXT_PUBLIC_ALCHEMY_ID!;
+const polygonApiKey = process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID!;
 import fetchWithRetry from "./fetchWithRetry";
 
 const client = createClient({
@@ -113,12 +113,20 @@ export async function getOwnersForEthCollection(contract: any) {
   return res.json();
 }
 
-export async function fetchNFTsForCollection(contract: any) {
-  const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTsForCollection`;
+export async function fetchNFTsForCollection({contract, chainId}: any) {
+  let apiKey = "";
+  if (chainId === "eth") {
+    apiKey = ethApiKey;
+  } else if (chainId === "polygon") {
+    apiKey = polygonApiKey;
+  }
+
+  const baseURL = `https://${chainId}-mainnet.g.alchemy.com/nft/v2/${apiKey}/getNFTsForCollection`;
   const URL = `${baseURL}?contractAddress=${contract}&withMetadata=${"true"}`;
   const nfts = await fetchWithRetry(URL, getRequestOptions);
   return nfts.json();
 }
+
 
 export async function fetchCollectionOS(currentSlug: any) {
   const data = await fetchWithRetry(
@@ -145,13 +153,20 @@ export async function getCribNfts(address: string, setNFTs: any) {
   }
 }
 
-export async function getIpfsData(contractAddress: any) {
-  if (contractAddress) {
+export async function getIpfsData(contractAddress: string, chainId: string): Promise<any> {
+  let apiKey: string;
+
+  if (chainId === 'eth') {
+    apiKey = ethApiKey!;
+  } else if (chainId === 'polygon') {
+    apiKey = polygonApiKey!;
+  } else {
+    throw new Error(`Unsupported chainId: ${chainId}`);
   }
-  const conAddress = contractAddress as string;
   const metadata = await fetchWithRetry(
-    `https://eth-mainnet.g.alchemy.com/nft/v2/${ethApiKey}/getNFTMetadata?contractAddress=${conAddress}&tokenId=2`,
+    `https://${chainId}-mainnet.g.alchemy.com/nft/v2/${apiKey}/getNFTMetadata?contractAddress=${contractAddress}&tokenId=2`,
     getRequestOptions
   );
+
   return metadata.json();
 }

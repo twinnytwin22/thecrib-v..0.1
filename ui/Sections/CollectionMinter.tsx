@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ethers, BigNumber } from "ethers";
-import { useAccount } from "wagmi";
+import { Address, useAccount } from "wagmi";
 import { urlFor } from "lib/hooks/sanityImage";
 import { ActiveIndicator, NonActiveIndicator, UpcomingIndicator } from "ui/Misc/Indicator";
 import { useSession } from "next-auth/react";
@@ -16,20 +16,21 @@ import { TARGET_DATE } from "ui/Misc/Countdown/targetDate";
 import { PoweredByDecent } from "ui/Decent/PoweredByDecent";
 import { MintPrice } from "ui/Misc/MintPrice";
 import { allowlist } from "lib/utils/allowlist";
-
 function CollectionMinter({ collection, data }: any) {
   /// Grabbing User Session and Address
-  const { status } = useSession();
+  const { data:session, status } = useSession();
   const { address } = useAccount();
   const isConnected = !!address;
   const {data:signer} = useSigner();
-
+console.log(session?.address)
     /// Web3 Connection 
   const RPC = 'https://ethereum-mainnet-rpc.allthatnode.com'
   
   /// Mint Amount and Price Data - Pulls Price from Sanity
   const [mintAmount, setMintAmount] = useState(1);
   const price: number = collection?.mintPrice;
+
+  const isCrib = allowlist.find((item: any) =>  item.cribAddress.toLowerCase() === address?.toLowerCase());
 
 
   ///Images - Pulling from Sanity
@@ -52,22 +53,17 @@ function CollectionMinter({ collection, data }: any) {
     return res.json();
   }
 
-
  const decentMint = async () => {
-  const {data:session} = useSession()
   if (signer) {
     try { 
       const sdk = new DecentSDK(chainId, signer);
-      const decentNFT = await edition.getContract(sdk, contractAddress);
-      const allowListItem = allowlist.find((item) => item.cribAddress as any === address!);
-      const mintPrice = allowListItem ? allowListItem?.price : price;      
-      console.log('mintprice:', mintPrice, 'al', allowlist, allowListItem, session)
+      const decentNFT = await edition.getContract(sdk, contractAddress); 
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
-        value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
+        value: ethers.utils.parseEther((price * mintAmount).toString()),
       });
       console.log("response: ", response);
     } catch (err) {
-      console.log("error: ", err, 'chainId:', chainId, address, price);
+      console.log("error: ", err);
       toast("Please update your balance and try again");
       }
   }

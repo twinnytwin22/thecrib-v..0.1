@@ -11,9 +11,9 @@ function CollectionCard({collection, i}:any) {
   const MAX_DESCRIPTION_LENGTH = 100;
   
 const shortDescription =
-  collection.description.length > 105
-    ? collection.description.substr(0, MAX_DESCRIPTION_LENGTH) + "..."
-    : collection.description;
+  collection?.description?.length > 105
+    ? collection?.description.substr(0, MAX_DESCRIPTION_LENGTH) + "..."
+    : collection?.description;
 
   const mintStatus = collection?.mintStatus as string;
   console.log(mintStatus, 'MS')

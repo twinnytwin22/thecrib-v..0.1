@@ -37,7 +37,7 @@ async function fetchCollectionOS(currentSlug: any) {
 async function SingleCollection(params: any) {
   const collection = await querySlug(params);
   const jsonLd = {
-    "@context": `https://thecrib.space${collection?.slug?.current}`,
+    "@context": `https://thecrib.space/collection/${collection?.slug?.current}`,
     "@type": "Collection",
     name: collection?.title,
     image: urlFor(collection?.nftImage).width(800).url(),
@@ -64,8 +64,8 @@ async function SingleCollection(params: any) {
     collection?.chain !== "eth"
       ? await getOwnersPolygonCollection(contract)
       : await getOwnersForEthCollection(contract);
-  const metadata = await getIpfsData(contract);
-  const nfts = await fetchNFTsForCollection(contract);
+  const metadata = await getIpfsData(contract, chainId);
+  const nfts = await fetchNFTsForCollection({contract, chainId});
 
   const ipfsProps = [metadata, contract];
   const collectionProps = [collection, chainData, collectors, nfts];

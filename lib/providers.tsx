@@ -36,7 +36,7 @@ const ThemeProvider = dynamic(
   { ssr: false, }
 );
 
-const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_ID! as string
+const apiKey = mainnet ? process.env.NEXT_PUBLIC_ALCHEMY_ID! as string : process.env.NEXT_PUBLIC_POLYGON_ALCHEMY_ID!
 const { chains, provider, webSocketProvider, } = configureChains(
   [mainnet, polygon],
   [
