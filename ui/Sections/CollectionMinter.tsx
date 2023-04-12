@@ -54,13 +54,14 @@ function CollectionMinter({ collection, data }: any) {
 
 
  const decentMint = async () => {
+  const session = useSession()
   if (signer) {
     try { 
       const sdk = new DecentSDK(chainId, signer);
       const decentNFT = await edition.getContract(sdk, contractAddress);
-      const allowListItem = allowlist.find((item) => item.cribAddress as any === address as any);
+      const allowListItem = allowlist.find((item) => item.cribAddress as any === session.data?.address);
       const mintPrice = allowListItem ? allowListItem?.price : price;      
-      console.log('mintprice:', mintPrice, 'al', allowlist, allowListItem)
+      console.log('mintprice:', mintPrice, 'al', allowlist, allowListItem, session)
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
         value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
       });
