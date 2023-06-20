@@ -31,7 +31,7 @@ console.log(session?.address)
   const price: number = collection?.mintPrice;
 
   const isCrib = allowlist.find((item: any) =>  item.cribAddress.toLowerCase() === address?.toLowerCase());
-
+  console.log(isCrib)
 
   ///Images - Pulling from Sanity
   const image = urlFor(collection?.nftImage).width(600).url();
@@ -58,8 +58,9 @@ console.log(session?.address)
     try { 
       const sdk = new DecentSDK(chainId, signer);
       const decentNFT = await edition.getContract(sdk, contractAddress); 
+      const mintPrice = isCrib ? 0.0 : price
       const response = await decentNFT.mint(address, BigNumber.from(mintAmount), {
-        value: ethers.utils.parseEther((price * mintAmount).toString()),
+        value: ethers.utils.parseEther((mintPrice * mintAmount).toString()),
       });
       console.log("response: ", response);
     } catch (err) {

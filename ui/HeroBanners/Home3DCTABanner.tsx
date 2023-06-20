@@ -23,7 +23,6 @@ export default function Hero3DCribBanner(settings: any) {
           </Link>
         </div>
         <div className="max-w-xl order-first lg:order-last animate-pulse hover:animate-none focus:animate-none mx-8 md:p-0">
-          <CribScene />
         </div>
       </div>
     </div>
