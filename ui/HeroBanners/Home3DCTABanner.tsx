@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import WelcomeMarquee from "ui/Marquees/WelcomeMarquee";
 import CribScene from "ui/Models/ThreeDCrib";
