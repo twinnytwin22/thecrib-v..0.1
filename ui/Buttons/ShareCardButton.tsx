@@ -56,7 +56,7 @@ const ShareCard = ({ onClose, url, title }: ShareCardProps) => {
 
 export const ShareButton = ({url, title}:any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const shareButtonRef = useRef(null);
+  const shareButtonRef = useRef<any>(null);
 
   const handleShareButtonClick = () => {
     setIsOpen(!isOpen);
